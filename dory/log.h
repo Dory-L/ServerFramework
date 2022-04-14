@@ -10,7 +10,7 @@
 #include <vector>
 #include <map>
 #include "singleton.h"
-
+#include "util.h"
 
 #define DORY_LOG_LEVEL(logger, level) \
     if (logger->getLevel() <= level) \
@@ -35,6 +35,8 @@
 #define DORY_LOG_FMT_WARN(logger, fmt, ...) DORY_LOG_FMT_LEVEL(logger, dory::LogLevel::DEBUG, fmt, __VA_ARGS__)
 #define DORY_LOG_FMT_ERROR(logger, fmt, ...) DORY_LOG_FMT_LEVEL(logger, dory::LogLevel::DEBUG, fmt, __VA_ARGS__)
 #define DORY_LOG_FMT_FATAL(logger, fmt, ...) DORY_LOG_FMT_LEVEL(logger, dory::LogLevel::DEBUG, fmt, __VA_ARGS__)
+
+#define DORY_LOG_ROOT() dory::LoggerMgr::GetInstance()->getRoot()
 
 namespace dory {
 
@@ -95,8 +97,8 @@ class LogEventWrap {
 public:
     LogEventWrap(LogEvent::ptr e);
     ~LogEventWrap();
-    std::stringstream& getSS();
-    LogEvent::ptr getEvent();
+    std::stringstream& getSS() { return m_event->getSS();};
+    LogEvent::ptr getEvent() { return m_event; };
 private:
     LogEvent::ptr m_event;
 };
@@ -117,12 +119,13 @@ public:
     public:
         typedef std::shared_ptr<FormatItem> ptr;
         virtual ~FormatItem() {}
+        //格式化输出
         virtual void format(std::ostream& os, std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;
     };
     void init();
 private:
     std::string m_pattern;
-    std::vector<FormatItem::ptr> m_items;
+    std::vector<FormatItem::ptr> m_items;//待输出的FormatItem列表
 };
 
 //日志输出地
@@ -133,10 +136,13 @@ public:
 
     virtual void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;
 
+    //设置日志格式器
     void setFormatter(LogFormatter::ptr val) { m_formatter = val; }
+    //获取日志格式器
     LogFormatter::ptr getFormatter() const { return m_formatter; }
-
+    //获取日志等级
     LogLevel::Level getLevel() const { return m_level; }
+    //设置日志等级
     void setLevel(LogLevel::Level val) { m_level = val; }
 protected:
     LogLevel::Level m_level = LogLevel::DEBUG;//主要针对哪些日志定义的级别，子类用到
@@ -193,17 +199,22 @@ private:
     std::ofstream m_filestream;
 };
 
+//logger管理器，默认生成一个logger（StdoutLogAppender）
 class loggerManager {
 public:
     loggerManager();
+    //获取name对应的logger
     Logger::ptr getLogger(const std::string& name);
 
     void init();
+    //获取初始logger
+    Logger::ptr getRoot() const { return m_root; }
 private:
     std::map<std::string, Logger::ptr> m_loggers;
     Logger::ptr m_root;
 };
 
+//使用单例模式生成一个loggerManager对象
 typedef dory::Singleton<loggerManager> LoggerMgr;
 
 }

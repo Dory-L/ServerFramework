@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/lly/projectfile/dory/workspace/dory/config.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/config.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/log.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/log.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/util.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/util.cpp.o"
   )

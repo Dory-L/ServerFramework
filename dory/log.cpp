@@ -34,12 +34,6 @@ namespace dory {
     LogEventWrap::~LogEventWrap() {
         m_event->getLogger()->log(m_event->getLevel(), m_event);//这样就能把自己写进去
     }
-    std::stringstream& LogEventWrap::getSS() {
-        return m_event->getSS();
-    }
-    LogEvent::ptr LogEventWrap::getEvent() {
-        return m_event;
-    }
 
     void LogEvent::format(const char* fmt, ...) {
         va_list al;
@@ -389,14 +383,13 @@ namespace dory {
                     m_items.push_back(it->second(std::get<1>(i)));
                 }
             } 
-
             // std::cout << "(" << std::get<0>(i) << ") - (" << std::get<1>(i) << ") - (" << std::get<2>(i) << ")" << std::endl;
         }
     }
 
     loggerManager::loggerManager() {
         m_root.reset(new Logger);
-        m_root->delAppender(LogAppender::ptr(new StdoutLogAppender));
+        m_root->addAppender(LogAppender::ptr(new StdoutLogAppender));
     }
 
     Logger::ptr loggerManager::getLogger(const std::string& name) {
@@ -405,7 +398,5 @@ namespace dory {
     }
     void loggerManager::init() {
 
-    }
-
-    
+    }    
 }

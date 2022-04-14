@@ -1,0 +1,1 @@
+2022-04-12 19:57:10	14605	0	[ERROR]	[root]	/home/lly/projectfile/dory/workspace/tests/test.cpp:21	test macro error

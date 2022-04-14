@@ -1,1 +1,1 @@
-/usr/bin/c++ -fPIC  -rdynamic -O0 -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function  -shared -Wl,-soname,libdory.so -o lib/libdory.so CMakeFiles/dory.dir/dory/log.cpp.o CMakeFiles/dory.dir/dory/util.cpp.o 
+/usr/bin/c++ -fPIC  -rdynamic -O0 -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function  -shared -Wl,-soname,libdory.so -o lib/libdory.so CMakeFiles/dory.dir/dory/log.cpp.o CMakeFiles/dory.dir/dory/util.cpp.o CMakeFiles/dory.dir/dory/config.cpp.o   -L/usr/local/lib 

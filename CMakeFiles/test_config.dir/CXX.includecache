@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/lly/projectfile/dory/workspace/dory/config.cpp
-config.h
-/home/lly/projectfile/dory/workspace/dory/config.h
-
 /home/lly/projectfile/dory/workspace/dory/config.h
 memory
 -
@@ -54,5 +50,13 @@ util.h
 thread
 -
 stdint.h
+-
+
+/home/lly/projectfile/dory/workspace/tests/test_config.cpp
+../dory/config.h
+/home/lly/projectfile/dory/workspace/dory/config.h
+../dory/log.h
+/home/lly/projectfile/dory/workspace/dory/log.h
+yaml-cpp/yaml.h
 -
 

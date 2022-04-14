@@ -10,6 +10,7 @@ int main(int argc, char const *argv[])
 
     dory::FileLogAppender::ptr file_appender(new dory::FileLogAppender("log.txt"));
     dory::LogFormatter::ptr fmt(new dory::LogFormatter("%d%T%p%T%m%n"));
+    file_appender->setFormatter(fmt);
     file_appender->setLevel(dory::LogLevel::ERROR);
 
     logger->addAppender(file_appender);
