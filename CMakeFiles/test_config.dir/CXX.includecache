@@ -19,6 +19,18 @@ log.h
 /home/lly/projectfile/dory/workspace/dory/log.h
 yaml-cpp/yaml.h
 -
+vector
+-
+list
+-
+map
+-
+set
+-
+unordered_map
+-
+unordered_set
+-
 
 /home/lly/projectfile/dory/workspace/dory/log.h
 string
