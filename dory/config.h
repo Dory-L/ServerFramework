@@ -11,6 +11,7 @@
 #include <set>
 #include <unordered_map>
 #include <unordered_set>
+#include <functional>
 
 namespace dory
 {
@@ -28,6 +29,7 @@ public:
 
     virtual std::string toString() = 0;
     virtual bool fromString(const std::string& val) = 0;
+    virtual std::string getTypeName() const = 0;
 private:
     std::string m_name;
     std::string m_description;
@@ -232,6 +234,7 @@ template<class T, class FromStr = LexicalCast<std::string, T>
 class ConfigVar : public ConfigVarbase {
 public:
     typedef std::shared_ptr<ConfigVar> ptr;
+    typedef std::function<void (const T& old_value, const T& new_value)> on_change_cb;
 
     ConfigVar(const std::string& name
             ,const T& default_value
@@ -256,15 +259,49 @@ public:
             //m_val = boost::lexical_cast<T>(val);
             setValue(FromStr()(val));
         } catch (std::exception& e) {
-            DORY_LOG_ERROR(DORY_LOG_ROOT()) << "ConfigVar::toString exception"
-                << e.what() << " convert: string to" << typeid(m_val).name();
+            DORY_LOG_ERROR(DORY_LOG_ROOT()) << "ConfigVar::toString exception "
+                << e.what() << " convert: string to " << typeid(m_val).name() << " - " << val;
         }
         return false;
     }
     const T getValue() const { return m_val; }
-    void setValue(const T& v) { m_val = v; }
+
+    void setValue(const T& v) { 
+        if (v == m_val) { //新值旧值相同直接返回
+            return;
+        }
+        for (auto& i : m_cbs) { //调用回调函数
+            (i.second)(m_val, v);
+        }
+        m_val = v;
+    }
+    std::string getTypeName() const override { return typeid(T).name(); }
+
+    //监听
+    void addListener(uint64_t key, on_change_cb cb) {
+        m_cbs[key] = cb;
+    }
+
+    //删除
+    void delListener(uint64_t key) {
+        m_cbs.erase(key);
+    }
+
+    //获取
+    on_change_cb getListener(uint64_t key) {
+        auto it = m_cbs.find(key);
+        return it == m_cbs.end() ? nullptr : it->second;
+    }
+
+    void clearListener() {
+        m_cbs.clear();
+    }
 private:
     T m_val;
+
+    //变更回调函数组，function没有比较函数，因此用map存储，方便删除
+    //uint64_t key, 要求唯一，一般可以用hash
+    std::map<uint64_t, on_change_cb> m_cbs;
 };
 
 class Config
@@ -278,10 +315,18 @@ public:
     template<class T> 
     static typename ConfigVar<T>::ptr Lookup(const std::string& name,
             const T& default_value, const std::string& description = "") {
-        auto tmp = Lookup<T>(name);
-        if (tmp) {
-            DORY_LOG_INFO(DORY_LOG_ROOT()) << "Lookup name=" << name << " exists";
-            return tmp;
+        auto it = s_datas.find(name);
+        if (it != s_datas.end()) { //key存在
+            auto tmp = std::dynamic_pointer_cast<ConfigVar<T> >(it->second);//转换失败返回空指针
+            if (tmp) {  //key存在且类型相同
+                DORY_LOG_INFO(DORY_LOG_ROOT()) << "Lookup name=" << name << " exists";
+                return tmp;
+            } else {    //key存在且类型不同，报错
+                DORY_LOG_ERROR(DORY_LOG_ROOT()) << "Lookup name=" << name << " exists but type not " 
+                        << typeid(T).name() << " real_type=" << it->second->getTypeName()
+                        << " " << it->second->toString();
+                return nullptr;
+            }
         }
 
         if (name.find_first_not_of("abcdefghijklmnopqrstuvwxyz._0123456789")

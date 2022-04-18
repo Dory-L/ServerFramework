@@ -5,6 +5,9 @@
 dory::ConfigVar<int>::ptr g_int_value_config = 
     dory::Config::Lookup("system.port", (int)8080, "system port");
 
+dory::ConfigVar<float>::ptr g_int_valuex_config =
+    dory::Config::Lookup("system.port", (float)8080, "system port");
+
 dory::ConfigVar<float>::ptr g_float_value_config = 
     dory::Config::Lookup("system.value", (float)10.2f, "system value");
 
@@ -98,9 +101,101 @@ void test_config() {
     XX_M(g_str_int_umap_value_config, str_int_umap, after);
 }
 
+class Person {
+public:
+    std::string m_name = "";
+    int m_age = 0;
+    bool m_sex = 0;
+
+    bool operator== (const Person& oth) const {
+        return m_name == oth.m_name
+            && m_age == oth.m_age
+            && m_sex == oth.m_sex;
+    }
+
+    std::string toString() const {
+        std::stringstream ss;
+        ss << "[Person name=" << m_name
+           << " age=" << m_age
+           << " sex=" << m_sex 
+           << "]";
+        return ss.str();
+    }
+};
+
+namespace dory
+{
+template<>
+class LexicalCast<std::string, Person > {
+public:
+    Person operator() (const std::string& v) {
+        YAML::Node node = YAML::Load(v);
+        Person p;
+        p.m_name = node["name"].as<std::string>();
+        p.m_age = node["age"].as<int>();
+        p.m_sex = node["sex"].as<bool>();
+        return p;
+    }
+};
+
+template<>
+class LexicalCast<Person, std::string> {
+public:
+    std::string operator() (const Person& p) {
+        YAML::Node node;
+        node["name"] = p.m_name;
+        node["age"] = p.m_age;
+        node["sex"] = p.m_sex;
+        std::stringstream ss;
+        ss << node;
+        return ss.str();
+    }
+};
+} // namespace dory
+
+
+dory::ConfigVar<Person>::ptr g_person = 
+    dory::Config::Lookup("class.person", Person(), "system person");
+
+dory::ConfigVar<std::map<std::string, Person> >::ptr g_person_map =
+    dory::Config::Lookup("class.map", std::map<std::string, Person>(), "system person");
+
+dory::ConfigVar<std::map<std::string, std::vector<Person>> >::ptr g_person_vec_map =
+    dory::Config::Lookup("class.vec_map", std::map<std::string, std::vector<Person> >(), "system person");
+
+void test_class() {
+    //DORY_LOG_INFO(DORY_LOG_ROOT()) << "before: " << g_person->getValue().toString() << " - " << g_person->toString();
+
+#define XX_PM(g_var, prefix) \
+    { \
+        auto m = g_person_map->getValue(); \
+        for (auto& i : m) { \
+            DORY_LOG_INFO(DORY_LOG_ROOT()) << prefix << ": " << i.first << " - " << i.second.toString(); \
+        } \
+        DORY_LOG_INFO(DORY_LOG_ROOT()) << prefix << ": size=" << m.size(); \
+    } 
+
+    g_person->addListener(10, [](const Person& old_value, const Person& new_value) {
+        DORY_LOG_INFO(DORY_LOG_ROOT()) << "old_value=" << old_value.toString()
+                << " new_value=" << new_value.toString();
+    });
+
+    XX_PM(g_person_map, "class.map before");
+    DORY_LOG_INFO(DORY_LOG_ROOT()) << "before: " << g_person_vec_map->toString();
+
+    YAML::Node root = YAML::LoadFile("/home/lly/projectfile/dory/workspace/bin/conf/log.yml");
+    dory::Config::LoadFromYaml(root);
+
+    //DORY_LOG_INFO(DORY_LOG_ROOT()) << "after: " << g_person->getValue().toString() << " - " << g_person->toString();
+    XX_PM(g_person_map, "class.map after");
+    DORY_LOG_INFO(DORY_LOG_ROOT()) << "after: " << g_person_vec_map->toString();
+
+}
+
 int main(int argc, char** argv) {
     
-    test_config();
+    //test_config();
     //test_yaml();
+    test_class();
     return 0;
 }

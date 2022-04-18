@@ -35,6 +35,8 @@ unordered_map
 -
 unordered_set
 -
+functional
+-
 
 /home/lly/projectfile/dory/workspace/dory/log.h
 string

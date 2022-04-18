@@ -31,3 +31,33 @@ system:
         k: 130
         k2: 120
         k3: 110  
+
+class:
+    person:
+      name: dory
+      age: 24
+      sex: true
+    map:
+        dory1:
+            name: dory01
+            age: 18
+            sex: false
+        dory2:
+            name: dory02
+            age: 20
+            sex: true
+    vec_map:
+        k1:
+            - name: m1
+              age: 33
+              sex: true
+            - name: m2
+              age: 44
+              sex: false
+        k2:
+            - name: m21
+              age: 33
+              sex: true
+            - name: m22
+              age: 44
+              sex: false
