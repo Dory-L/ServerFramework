@@ -254,6 +254,7 @@ public:
         return "";
     }
 
+    //将val转换为值
     bool fromString(const std::string& val) override {
         try {
             //m_val = boost::lexical_cast<T>(val);

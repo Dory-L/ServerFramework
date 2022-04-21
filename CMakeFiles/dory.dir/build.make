@@ -63,41 +63,41 @@ include CMakeFiles/dory.dir/flags.make
 CMakeFiles/dory.dir/dory/log.cpp.o: CMakeFiles/dory.dir/flags.make
 CMakeFiles/dory.dir/dory/log.cpp.o: dory/log.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/dory.dir/dory/log.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dory.dir/dory/log.cpp.o -c /home/lly/projectfile/dory/workspace/dory/log.cpp
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"dory/log.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dory.dir/dory/log.cpp.o -c /home/lly/projectfile/dory/workspace/dory/log.cpp
 
 CMakeFiles/dory.dir/dory/log.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dory.dir/dory/log.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lly/projectfile/dory/workspace/dory/log.cpp > CMakeFiles/dory.dir/dory/log.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/log.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lly/projectfile/dory/workspace/dory/log.cpp > CMakeFiles/dory.dir/dory/log.cpp.i
 
 CMakeFiles/dory.dir/dory/log.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dory.dir/dory/log.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lly/projectfile/dory/workspace/dory/log.cpp -o CMakeFiles/dory.dir/dory/log.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/log.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lly/projectfile/dory/workspace/dory/log.cpp -o CMakeFiles/dory.dir/dory/log.cpp.s
 
 CMakeFiles/dory.dir/dory/util.cpp.o: CMakeFiles/dory.dir/flags.make
 CMakeFiles/dory.dir/dory/util.cpp.o: dory/util.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/dory.dir/dory/util.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dory.dir/dory/util.cpp.o -c /home/lly/projectfile/dory/workspace/dory/util.cpp
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"dory/util.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dory.dir/dory/util.cpp.o -c /home/lly/projectfile/dory/workspace/dory/util.cpp
 
 CMakeFiles/dory.dir/dory/util.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dory.dir/dory/util.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lly/projectfile/dory/workspace/dory/util.cpp > CMakeFiles/dory.dir/dory/util.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/util.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lly/projectfile/dory/workspace/dory/util.cpp > CMakeFiles/dory.dir/dory/util.cpp.i
 
 CMakeFiles/dory.dir/dory/util.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dory.dir/dory/util.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lly/projectfile/dory/workspace/dory/util.cpp -o CMakeFiles/dory.dir/dory/util.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/util.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lly/projectfile/dory/workspace/dory/util.cpp -o CMakeFiles/dory.dir/dory/util.cpp.s
 
 CMakeFiles/dory.dir/dory/config.cpp.o: CMakeFiles/dory.dir/flags.make
 CMakeFiles/dory.dir/dory/config.cpp.o: dory/config.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/dory.dir/dory/config.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dory.dir/dory/config.cpp.o -c /home/lly/projectfile/dory/workspace/dory/config.cpp
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"dory/config.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dory.dir/dory/config.cpp.o -c /home/lly/projectfile/dory/workspace/dory/config.cpp
 
 CMakeFiles/dory.dir/dory/config.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dory.dir/dory/config.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lly/projectfile/dory/workspace/dory/config.cpp > CMakeFiles/dory.dir/dory/config.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/config.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lly/projectfile/dory/workspace/dory/config.cpp > CMakeFiles/dory.dir/dory/config.cpp.i
 
 CMakeFiles/dory.dir/dory/config.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dory.dir/dory/config.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lly/projectfile/dory/workspace/dory/config.cpp -o CMakeFiles/dory.dir/dory/config.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/config.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lly/projectfile/dory/workspace/dory/config.cpp -o CMakeFiles/dory.dir/dory/config.cpp.s
 
 # Object files for target dory
 dory_OBJECTS = \

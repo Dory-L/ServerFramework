@@ -26,6 +26,7 @@ static void ListAllMember(const std::string& prefix,
     
 }
 
+//将Node中的配置解析到s_datas中去
 void Config::LoadFromYaml(const YAML::Node& root) {
     std::list<std::pair<std::string, const YAML::Node> > all_nodes;
     ListAllMember("", root, all_nodes);

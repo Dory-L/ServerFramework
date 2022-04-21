@@ -73,6 +73,15 @@ namespace dory {
         }
     }
 
+    void LogAppender::setFormatter(LogFormatter::ptr val) {
+        m_formatter = val;
+        if (m_formatter) {
+            m_hasFormatter = true;
+        } else {
+            m_hasFormatter = false;
+        }
+    }
+
     class MessageFormatItem : public LogFormatter::FormatItem {
     public:
         MessageFormatItem(const std::string& str = "") {}
@@ -207,6 +216,12 @@ namespace dory {
 
     void Logger::setFormatter(LogFormatter::ptr val) {
         m_formatter = val;
+
+        for (auto& i : m_appenders) {
+            if (!i->m_hasFormatter) {
+                i->m_formatter = m_formatter;
+            }
+        }
     }
     void Logger::setFormatter(const std::string& val) {
         dory::LogFormatter::ptr new_val(new dory::LogFormatter(val));
@@ -216,7 +231,8 @@ namespace dory {
                       << std::endl;
             return;
         }
-        m_formatter = new_val;
+        //m_formatter = new_val;
+        setFormatter(new_val);
     }
     LogFormatter::ptr Logger::getFormatter() {
         return m_formatter;
@@ -224,7 +240,7 @@ namespace dory {
 
     void Logger::addAppender(LogAppender::ptr appender) {
         if (!appender->getFormatter()) {         //appender如果没有formatter，就把自己的formatter给它
-            appender->setFormatter(m_formatter);
+            appender->m_formatter = m_formatter;
         }
         m_appenders.push_back(appender);
     }
@@ -300,7 +316,7 @@ namespace dory {
         if (m_level != LogLevel::UNKNOW) {
             node["level"] = LogLevel::ToString(m_level);
         }
-        if (m_formatter) {
+        if (m_hasFormatter && m_formatter) {
             node["formatter"] = m_formatter->getPattern();
         }
         std::stringstream ss;
@@ -331,7 +347,7 @@ namespace dory {
         if (m_level != LogLevel::UNKNOW) {
             node["level"] = LogLevel::ToString(m_level);
         }
-        if (m_formatter) {
+        if (m_hasFormatter && m_formatter) {
             node["formatter"] = m_formatter->getPattern();
         }
         std::stringstream ss;
@@ -496,7 +512,7 @@ namespace dory {
             return it->second;
         }
         Logger::ptr logger(new Logger(name));
-        logger->m_root = m_root;
+        logger->m_root = m_root;//用name指向默认的logger
         m_loggers[name] = logger;
         return logger;
     }
@@ -636,7 +652,7 @@ namespace dory {
         }
     };
     
-    
+    //全局函数，在main之前执行，创建logs
     dory::ConfigVar<std::set<LogDefine> >::ptr g_log_defines = //使用set去重，类型就需要定义<运算符
         dory::Config::Lookup("logs", std::set<LogDefine>(), "logs config");
 
@@ -664,7 +680,7 @@ namespace dory {
                     if (!i.formatter.empty()) {     //logger的formatter初始是空的
                         logger->setFormatter(i.formatter);
                     }
-                    
+                    //重新生成appender
                     logger->clearAppenders();
                     for (auto& a : i.appenders) {
                         dory::LogAppender::ptr ap;
@@ -674,6 +690,14 @@ namespace dory {
                             ap.reset(new StdoutLogAppender);
                         }
                         ap->setLevel(a.level);
+                        if (!a.formatter.empty()) {
+                            LogFormatter::ptr fmt(new LogFormatter(a.formatter));
+                            if (!fmt->isError()) {
+                                ap->setFormatter(fmt);
+                            } else {
+                                std::cout << "logger.name=" << i.name << " appender.type=" << a.type << " formatter=" << a.formatter << " is invalid" << std::endl;
+                            }
+                        }
                         logger->addAppender(ap);
                     }
                 }
