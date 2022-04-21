@@ -37,10 +37,12 @@
 #define DORY_LOG_FMT_FATAL(logger, fmt, ...) DORY_LOG_FMT_LEVEL(logger, dory::LogLevel::DEBUG, fmt, __VA_ARGS__)
 
 #define DORY_LOG_ROOT() dory::LoggerMgr::GetInstance()->getRoot()
+#define DORY_LOG_NAME(name) dory::LoggerMgr::GetInstance()->getLogger(name)
 
 namespace dory {
 
 class Logger;
+class LoggerManager;
 
 //日志级别
 class LogLevel
@@ -56,6 +58,7 @@ public:
     };
 
     static const char* ToString(LogLevel::Level level);
+    static LogLevel::Level FromString(const std::string& str);
 };
 
 //日志事件
@@ -123,9 +126,14 @@ public:
         virtual void format(std::ostream& os, std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;
     };
     void init();
+
+    //判断是否有错
+    bool isError() const { return m_error; }
+    const std::string getPattern() const { return m_pattern; }
 private:
     std::string m_pattern;
     std::vector<FormatItem::ptr> m_items;//待输出的FormatItem列表
+    bool m_error = false;
 };
 
 //日志输出地
@@ -135,6 +143,8 @@ public:
     virtual ~LogAppender() {}
 
     virtual void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;
+
+    virtual std::string toYamlString() = 0;
 
     //设置日志格式器
     void setFormatter(LogFormatter::ptr val) { m_formatter = val; }
@@ -151,6 +161,7 @@ protected:
 
 //日志器
 class Logger : public std::enable_shared_from_this<Logger> {
+friend class loggerManager;
 public:
     typedef std::shared_ptr<Logger> ptr;
 
@@ -165,15 +176,23 @@ public:
 
     void addAppender(LogAppender::ptr);
     void delAppender(LogAppender::ptr);
+    void clearAppenders();
     LogLevel::Level getLevel() const { return m_level; }
     void setLevel(LogLevel::Level val) { m_level = val; }
 
     const std::string& getName() const { return m_name; }
+
+    void setFormatter(LogFormatter::ptr val);
+    void setFormatter(const std::string& val);
+    LogFormatter::ptr getFormatter();
+
+    std::string toYamlString();
 private:
     std::string m_name;     //日志名称
     LogLevel::Level m_level;//日志器的日志级别，满足这个日志级别的日志才输出
     std::list<LogAppender::ptr> m_appenders ;//Appender集合
-    LogFormatter::ptr m_formatter;
+    LogFormatter::ptr m_formatter;//appender没有formatter时备用的
+    Logger::ptr m_root;
 };
 
 //输出到控制台的Appender
@@ -181,7 +200,7 @@ class StdoutLogAppender : public LogAppender {
 public:
     typedef std::shared_ptr<StdoutLogAppender> ptr;
     void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) override;
-private:
+    std::string toYamlString() override;
 };
 
 //定义输出到文件的Appender
@@ -190,8 +209,9 @@ public:
     typedef std::shared_ptr<FileLogAppender> ptr;
     FileLogAppender(const std::string& filename);
     void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) override;
+    std::string toYamlString() override;
 
-    //
+    //打开文件
     bool reopen();
 private:
     //LogFormatter::ptr m_formatter;//LogAppender有m_formatter成员，不能重复定义，不然处bug
@@ -209,6 +229,8 @@ public:
     void init();
     //获取初始logger
     Logger::ptr getRoot() const { return m_root; }
+
+    std::string toYamlString();
 private:
     std::map<std::string, Logger::ptr> m_loggers;
     Logger::ptr m_root;

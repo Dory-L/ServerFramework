@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/lly/projectfile/dory/workspace/dory/config.cpp
-config.h
-/home/lly/projectfile/dory/workspace/dory/config.h
-
 /home/lly/projectfile/dory/workspace/dory/config.h
 memory
 -
@@ -37,6 +33,24 @@ unordered_set
 -
 functional
 -
+
+/home/lly/projectfile/dory/workspace/dory/log.cpp
+log.h
+/home/lly/projectfile/dory/workspace/dory/log.h
+map
+-
+functional
+-
+time.h
+-
+string
+-
+stdio.h
+-
+stdarg.h
+-
+config.h
+/home/lly/projectfile/dory/workspace/dory/config.h
 
 /home/lly/projectfile/dory/workspace/dory/log.h
 string

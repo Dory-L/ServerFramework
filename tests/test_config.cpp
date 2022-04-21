@@ -1,6 +1,7 @@
 #include "../dory/config.h"
 #include "../dory/log.h"
 #include <yaml-cpp/yaml.h>
+#include <iostream>
 
 dory::ConfigVar<int>::ptr g_int_value_config = 
     dory::Config::Lookup("system.port", (int)8080, "system port");
@@ -87,7 +88,7 @@ void test_config() {
     XX_M(g_str_int_map_value_config, str_int_map, before);
     XX_M(g_str_int_umap_value_config, str_int_umap, before);
 
-    YAML::Node root = YAML::LoadFile("/home/lly/projectfile/dory/workspace/bin/conf/log.yml");
+    YAML::Node root = YAML::LoadFile("/home/lly/projectfile/dory/workspace/bin/conf/test.yml");
     dory::Config::LoadFromYaml(root);
 
     DORY_LOG_INFO(DORY_LOG_ROOT()) << "after: " << g_int_value_config->getValue();
@@ -183,7 +184,7 @@ void test_class() {
     XX_PM(g_person_map, "class.map before");
     DORY_LOG_INFO(DORY_LOG_ROOT()) << "before: " << g_person_vec_map->toString();
 
-    YAML::Node root = YAML::LoadFile("/home/lly/projectfile/dory/workspace/bin/conf/log.yml");
+    YAML::Node root = YAML::LoadFile("/home/lly/projectfile/dory/workspace/bin/conf/test.yaml");
     dory::Config::LoadFromYaml(root);
 
     //DORY_LOG_INFO(DORY_LOG_ROOT()) << "after: " << g_person->getValue().toString() << " - " << g_person->toString();
@@ -192,10 +193,25 @@ void test_class() {
 
 }
 
+void test_log() {
+    static dory::Logger::ptr system_log = DORY_LOG_NAME("system");
+    DORY_LOG_INFO(system_log) << "hello system" << std::endl;
+    std::cout << dory::LoggerMgr::GetInstance()->toYamlString() << std::endl;
+    YAML::Node root = YAML::LoadFile("/home/lly/projectfile/dory/workspace/bin/conf/test.yml");
+    dory::Config::LoadFromYaml(root);
+    std::cout << "================" << std::endl;
+    std::cout << dory::LoggerMgr::GetInstance()->toYamlString() << std::endl;
+    std::cout << "================" << std::endl;
+    std::cout << root << std::endl;
+    DORY_LOG_INFO(system_log) << "hello system" << std::endl;
+}
+
 int main(int argc, char** argv) {
     
     //test_config();
     //test_yaml();
-    test_class();
+    //test_class();
+
+    test_log();
     return 0;
 }

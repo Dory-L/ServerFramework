@@ -7,6 +7,7 @@ CMakeFiles/dory.dir/dory/config.cpp.o: dory/log.h
 CMakeFiles/dory.dir/dory/config.cpp.o: dory/singleton.h
 CMakeFiles/dory.dir/dory/config.cpp.o: dory/util.h
 
+CMakeFiles/dory.dir/dory/log.cpp.o: dory/config.h
 CMakeFiles/dory.dir/dory/log.cpp.o: dory/log.cpp
 CMakeFiles/dory.dir/dory/log.cpp.o: dory/log.h
 CMakeFiles/dory.dir/dory/log.cpp.o: dory/singleton.h

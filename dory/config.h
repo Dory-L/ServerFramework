@@ -315,8 +315,8 @@ public:
     template<class T> 
     static typename ConfigVar<T>::ptr Lookup(const std::string& name,
             const T& default_value, const std::string& description = "") {
-        auto it = s_datas.find(name);
-        if (it != s_datas.end()) { //key存在
+        auto it = GetDatas().find(name);
+        if (it != GetDatas().end()) { //key存在
             auto tmp = std::dynamic_pointer_cast<ConfigVar<T> >(it->second);//转换失败返回空指针
             if (tmp) {  //key存在且类型相同
                 DORY_LOG_INFO(DORY_LOG_ROOT()) << "Lookup name=" << name << " exists";
@@ -336,7 +336,7 @@ public:
         }
 
         typename ConfigVar<T>::ptr v(new ConfigVar<T>(name, default_value, description));
-        s_datas[name] = v;
+        GetDatas()[name] = v;
         return v;
     }
 
@@ -344,8 +344,8 @@ public:
     //return:成功-ConfigVar指针 失败-nullptr
     template<class T>
     static typename ConfigVar<T>::ptr Lookup(const std::string& name) {
-        auto it = s_datas.find(name);
-        if (it == s_datas.end()) {
+        auto it = GetDatas().find(name);
+        if (it == GetDatas().end()) {
             return nullptr;
         }
         return std::dynamic_pointer_cast<ConfigVar<T> > (it->second);
@@ -354,7 +354,13 @@ public:
     static void LoadFromYaml(const YAML::Node& root);
     static ConfigVarbase::ptr LookupBase(const std::string& name);
 private:
-    static ConfigVarMap s_datas;
+    //static ConfigVarMap s_datas; //静态变量的初始化没有顺序规则，其初始化可能在Lookup调用之后，导致core
+
+    //保证在调用Lookup的时候s_datas已经被初始化，不然会由于初始化的顺序问题导致core
+    static ConfigVarMap& GetDatas() {
+        static ConfigVarMap s_datas;
+        return s_datas;
+    }
 
 };
 
