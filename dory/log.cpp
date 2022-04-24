@@ -74,12 +74,17 @@ namespace dory {
     }
 
     void LogAppender::setFormatter(LogFormatter::ptr val) {
+        MutexType::Lock lock(m_mutex);              //set和get可能同时进行，需要加锁
         m_formatter = val;
         if (m_formatter) {
             m_hasFormatter = true;
         } else {
             m_hasFormatter = false;
         }
+    }
+    LogFormatter::ptr LogAppender::getFormatter() {
+        MutexType::Lock lock(m_mutex);
+        return m_formatter;
     }
 
     class MessageFormatItem : public LogFormatter::FormatItem {
@@ -215,15 +220,17 @@ namespace dory {
     }
 
     void Logger::setFormatter(LogFormatter::ptr val) {
+        MutexType::Lock lock(m_mutex);
         m_formatter = val;
 
         for (auto& i : m_appenders) {
+            MutexType::Lock ll(i->m_mutex);     //可能下游正在调用appender，需要在此加锁
             if (!i->m_hasFormatter) {
                 i->m_formatter = m_formatter;
             }
         }
     }
-    void Logger::setFormatter(const std::string& val) {
+    void Logger::setFormatter(const std::string& val) {         //调用上一个setFormatter所以不用加锁
         dory::LogFormatter::ptr new_val(new dory::LogFormatter(val));
         if (new_val->isError()) { //防止formatter出错
             std::cout << "Logger setFormatter name=" << m_name
@@ -234,18 +241,22 @@ namespace dory {
         //m_formatter = new_val;
         setFormatter(new_val);
     }
+
     LogFormatter::ptr Logger::getFormatter() {
         return m_formatter;
     }
 
     void Logger::addAppender(LogAppender::ptr appender) {
+        MutexType::Lock lock(m_mutex);
         if (!appender->getFormatter()) {         //appender如果没有formatter，就把自己的formatter给它
+            MutexType::Lock ll(appender->m_mutex);
             appender->m_formatter = m_formatter;
         }
         m_appenders.push_back(appender);
     }
 
     void Logger::delAppender(LogAppender::ptr appender) {
+        MutexType::Lock lock(m_mutex);
         for (auto it = m_appenders.begin();
                 it != m_appenders.end(); it++) {
             if (*it == appender) {
@@ -262,6 +273,7 @@ namespace dory {
     void Logger::log(LogLevel::Level level, LogEvent::ptr event) {
         if (level >= m_level) {
             auto self = shared_from_this();
+            MutexType::Lock lock(m_mutex);
             if (!m_appenders.empty()) {       //m_appenders不为空就用，appender的log，否则用m_root
                 for (auto& i : m_appenders) { //这里的m_appenders是LogAppender类型的，因此FileLogAppender和StdoutLogAppender切记不能重写父类的成员，不然将会调用LogAppender作用域的成员，如果没有初始化后果很严重
                     i->log(self, level, event);
@@ -272,6 +284,7 @@ namespace dory {
         }
     }
     std::string Logger::toYamlString() {
+        MutexType::Lock lock(m_mutex);
         YAML::Node node;
         node["name"] = m_name;
         if (m_level != LogLevel::UNKNOW) {
@@ -306,11 +319,13 @@ namespace dory {
 
     void StdoutLogAppender::log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) {
         if (level >= m_level) {
+            MutexType::Lock lock(m_mutex);
             std::cout << m_formatter->format(logger, level, event);
         }
     }
 
     std::string StdoutLogAppender::toYamlString() {
+        MutexType::Lock lock(m_mutex);
         YAML::Node node;
         node["type"] = "StdoutLogAppender";
         if (m_level != LogLevel::UNKNOW) {
@@ -336,11 +351,13 @@ namespace dory {
             // if (!m_formatter) {//bug，待修改
             //     return;
             // }
-            m_filestream << m_formatter->format(logger, level, event);
+            MutexType::Lock lock(m_mutex);
+            m_filestream << m_formatter->format(logger, level, event);  //m_filestream线程不安全，需要加锁
         }
     }
 
     std::string FileLogAppender::toYamlString() {
+        MutexType::Lock lock(m_mutex);
         YAML::Node node;
         node["type"] = "FileLogAppender";
         node["file"] = m_filename;
@@ -356,6 +373,7 @@ namespace dory {
     }
 
     bool FileLogAppender::reopen() {
+        MutexType::Lock lock(m_mutex);
         if (m_filestream.is_open()) {//如果已经打开，则关闭重新打开
             m_filestream.close();
         }
@@ -507,6 +525,7 @@ namespace dory {
     }
 
     Logger::ptr loggerManager::getLogger(const std::string& name) {
+        MutexType::Lock lock(m_mutex);
         auto it = m_loggers.find(name);
         if (it !=  m_loggers.end()) {
             return it->second;
@@ -719,6 +738,7 @@ namespace dory {
     static LogIniter __log_init;
 
     std::string loggerManager::toYamlString() {
+        MutexType::Lock lock(m_mutex);
         YAML::Node node;
         for (auto& i : m_loggers) {
             node.push_back(YAML::Load(i.second->toYamlString()));

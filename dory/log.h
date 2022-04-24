@@ -11,6 +11,7 @@
 #include <map>
 #include "singleton.h"
 #include "util.h"
+#include "Thread.h"
 
 #define DORY_LOG_LEVEL(logger, level) \
     if (logger->getLevel() <= level) \
@@ -141,6 +142,7 @@ class LogAppender {
 friend class Logger;
 public:
     typedef std::shared_ptr<LogAppender> ptr;
+    typedef Mutex MutexType;
     virtual ~LogAppender() {}
 
     virtual void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;
@@ -148,16 +150,17 @@ public:
     virtual std::string toYamlString() = 0;
 
     //设置日志格式器
-    void setFormatter(LogFormatter::ptr val);
+    void setFormatter(LogFormatter::ptr val);           //复杂类型的线程安全会导致内存错误
     //获取日志格式器
-    LogFormatter::ptr getFormatter() const { return m_formatter; }
+    LogFormatter::ptr getFormatter();
     //获取日志等级
-    LogLevel::Level getLevel() const { return m_level; }
+    LogLevel::Level getLevel() const { return m_level; }    //基本数据类型的线程安全，只是导致值错误
     //设置日志等级
     void setLevel(LogLevel::Level val) { m_level = val; }
 protected:
     LogLevel::Level m_level = LogLevel::DEBUG;//主要针对哪些日志定义的级别，子类用到
     bool m_hasFormatter = false;
+    MutexType m_mutex;
     LogFormatter::ptr m_formatter;
 };
 
@@ -166,6 +169,7 @@ class Logger : public std::enable_shared_from_this<Logger> {
 friend class loggerManager;
 public:
     typedef std::shared_ptr<Logger> ptr;
+    typedef Mutex MutexType;
 
     Logger(const std::string& name = "root");
     void log(LogLevel::Level level, LogEvent::ptr event);
@@ -182,7 +186,7 @@ public:
     LogLevel::Level getLevel() const { return m_level; }
     void setLevel(LogLevel::Level val) { m_level = val; }
 
-    const std::string& getName() const { return m_name; }
+    const std::string& getName() const { return m_name; }       //只在主线程中调用，不用加锁
 
     void setFormatter(LogFormatter::ptr val);
     void setFormatter(const std::string& val);
@@ -192,6 +196,7 @@ public:
 private:
     std::string m_name;     //日志名称
     LogLevel::Level m_level;//日志器的日志级别，满足这个日志级别的日志才输出
+    MutexType m_mutex;
     std::list<LogAppender::ptr> m_appenders ;//Appender集合
     LogFormatter::ptr m_formatter;//appender没有formatter时备用的
     Logger::ptr m_root;
@@ -226,6 +231,7 @@ private:
 //logger管理器，默认生成一个logger（StdoutLogAppender）
 class loggerManager {
 public:
+    typedef Mutex MutexType;
     loggerManager();
     //获取name对应的logger
     Logger::ptr getLogger(const std::string& name);
@@ -236,6 +242,7 @@ public:
 
     std::string toYamlString();
 private:
+    MutexType m_mutex;
     std::map<std::string, Logger::ptr> m_loggers;
     Logger::ptr m_root;
 };

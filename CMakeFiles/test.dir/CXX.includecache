@@ -6,6 +6,18 @@
 
 #IncludeRegexTransform: 
 
+/home/lly/projectfile/dory/workspace/dory/Thread.h
+thread
+-
+pthread.h
+-
+functional
+-
+memory
+-
+semaphore.h
+-
+
 /home/lly/projectfile/dory/workspace/dory/log.h
 string
 -
@@ -29,6 +41,8 @@ singleton.h
 /home/lly/projectfile/dory/workspace/dory/singleton.h
 util.h
 /home/lly/projectfile/dory/workspace/dory/util.h
+Thread.h
+/home/lly/projectfile/dory/workspace/dory/Thread.h
 
 /home/lly/projectfile/dory/workspace/dory/singleton.h
 

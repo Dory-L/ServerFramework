@@ -20,18 +20,31 @@ void fun1() {
 }
 
 void fun2() {
+    while (true) {
+        DORY_LOG_INFO(g_logger) << "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    }
+}
 
+void fun3() {
+    while (true) {
+        DORY_LOG_INFO(g_logger) << "==============================================================";
+    }
 }
 
 int main(int argc, char** argv) {
     DORY_LOG_INFO(g_logger) << "thread test begin";
+    YAML::Node root = YAML::LoadFile("/home/lly/projectfile/dory/workspace/bin/conf/test2.yml");
+    dory::Config::LoadFromYaml(root);
+
     std::vector<dory::Thread::ptr> thrs;
-    for (int i = 0; i < 5; ++i) {
-        dory::Thread::ptr thr(new dory::Thread(&fun1, "name_" + std::to_string(i)));
+    for (int i = 0; i < 2; ++i) {
+        dory::Thread::ptr thr(new dory::Thread(&fun2, "name_" + std::to_string(i * 2)));
+        dory::Thread::ptr thr2(new dory::Thread(&fun3, "name_" + std::to_string(i * 2)));
         thrs.push_back(thr);
+        thrs.push_back(thr2);
     }
 
-    for (int i = 0; i < 5; ++i) {
+    for (size_t i = 0; i < thrs.size(); ++i) {
         thrs[i]->join();
     }
     DORY_LOG_INFO(g_logger) << "thread test end";
