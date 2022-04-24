@@ -23,6 +23,8 @@ functional
 -
 memory
 -
+semaphore.h
+-
 
 /home/lly/projectfile/dory/workspace/dory/log.h
 string
