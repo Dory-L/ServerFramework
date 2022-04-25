@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/lly/projectfile/dory/workspace/dory/Thread.cpp
-Thread.h
-/home/lly/projectfile/dory/workspace/dory/Thread.h
-log.h
-/home/lly/projectfile/dory/workspace/dory/log.h
-util.h
-/home/lly/projectfile/dory/workspace/dory/util.h
-
 /home/lly/projectfile/dory/workspace/dory/Thread.h
 thread
 -
@@ -24,6 +16,8 @@ functional
 memory
 -
 semaphore.h
+-
+atomic
 -
 
 /home/lly/projectfile/dory/workspace/dory/config.cpp
@@ -57,6 +51,10 @@ unordered_set
 -
 functional
 -
+Thread.h
+/home/lly/projectfile/dory/workspace/dory/Thread.h
+log.h
+/home/lly/projectfile/dory/workspace/dory/log.h
 
 /home/lly/projectfile/dory/workspace/dory/log.cpp
 log.h

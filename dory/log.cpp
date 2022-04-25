@@ -351,8 +351,15 @@ namespace dory {
             // if (!m_formatter) {//bug，待修改
             //     return;
             // }
-            MutexType::Lock lock(m_mutex);
-            m_filestream << m_formatter->format(logger, level, event);  //m_filestream线程不安全，需要加锁
+            uint64_t now = time(0);       //每次写都reopen，防止程序执行中，日志文件被删除掉
+            if (now >= (m_lastTime + 3)) {
+                reopen();
+                m_lastTime = now;
+            }
+            MutexType::Lock lock(m_mutex);//reopen里有锁，这个所不能放reopen前面，不然会死锁
+            if (!(m_filestream << m_formatter->format(logger, level, event))) { //m_filestream线程不安全，需要加锁
+                std::cout << "error" << std::endl;
+            }
         }
     }
 
@@ -377,7 +384,7 @@ namespace dory {
         if (m_filestream.is_open()) {//如果已经打开，则关闭重新打开
             m_filestream.close();
         }
-        m_filestream.open(m_filename, std::ios::out);
+        m_filestream.open(m_filename, std::ios::app);
         return m_filestream.is_open();
     }
 
@@ -678,7 +685,7 @@ namespace dory {
     
     struct LogIniter {
         LogIniter() {
-            g_log_defines->addListener(0xF1E231, [](const std::set<LogDefine>& old_value,
+            g_log_defines->addListener([](const std::set<LogDefine>& old_value,
                     const std::set<LogDefine>& new_value){
                 DORY_LOG_INFO(DORY_LOG_ROOT()) << "on_logger_conf_changed";
                 for (auto& i : new_value) {

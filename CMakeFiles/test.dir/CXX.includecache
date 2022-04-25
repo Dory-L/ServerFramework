@@ -17,6 +17,8 @@ memory
 -
 semaphore.h
 -
+atomic
+-
 
 /home/lly/projectfile/dory/workspace/dory/log.h
 string

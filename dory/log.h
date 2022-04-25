@@ -142,7 +142,7 @@ class LogAppender {
 friend class Logger;
 public:
     typedef std::shared_ptr<LogAppender> ptr;
-    typedef Mutex MutexType;
+    typedef Spinlock MutexType;
     virtual ~LogAppender() {}
 
     virtual void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;
@@ -169,7 +169,7 @@ class Logger : public std::enable_shared_from_this<Logger> {
 friend class loggerManager;
 public:
     typedef std::shared_ptr<Logger> ptr;
-    typedef Mutex MutexType;
+    typedef Spinlock MutexType;
 
     Logger(const std::string& name = "root");
     void log(LogLevel::Level level, LogEvent::ptr event);
@@ -226,12 +226,14 @@ private:
     //LogFormatter::ptr m_formatter;//LogAppender有m_formatter成员，不能重复定义，不然处bug
     std::string m_filename;
     std::ofstream m_filestream;
+
+    uint64_t m_lastTime = 0;
 };
 
 //logger管理器，默认生成一个logger（StdoutLogAppender）
 class loggerManager {
 public:
-    typedef Mutex MutexType;
+    typedef Spinlock MutexType;
     loggerManager();
     //获取name对应的logger
     Logger::ptr getLogger(const std::string& name);

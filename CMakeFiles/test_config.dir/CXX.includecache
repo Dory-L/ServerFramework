@@ -17,6 +17,8 @@ memory
 -
 semaphore.h
 -
+atomic
+-
 
 /home/lly/projectfile/dory/workspace/dory/config.h
 memory
@@ -45,6 +47,10 @@ unordered_set
 -
 functional
 -
+Thread.h
+/home/lly/projectfile/dory/workspace/dory/Thread.h
+log.h
+/home/lly/projectfile/dory/workspace/dory/log.h
 
 /home/lly/projectfile/dory/workspace/dory/log.h
 string

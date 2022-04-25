@@ -3,32 +3,32 @@
 #include <yaml-cpp/yaml.h>
 #include <iostream>
 
-// dory::ConfigVar<int>::ptr g_int_value_config = 
-//     dory::Config::Lookup("system.port", (int)8080, "system port");
+dory::ConfigVar<int>::ptr g_int_value_config = 
+    dory::Config::Lookup("system.port", (int)8080, "system port");
 
-// dory::ConfigVar<float>::ptr g_int_valuex_config =
-//     dory::Config::Lookup("system.port", (float)8080, "system port");
+dory::ConfigVar<float>::ptr g_int_valuex_config =
+    dory::Config::Lookup("system.port", (float)8080, "system port");
 
-// dory::ConfigVar<float>::ptr g_float_value_config = 
-//     dory::Config::Lookup("system.value", (float)10.2f, "system value");
+dory::ConfigVar<float>::ptr g_float_value_config = 
+    dory::Config::Lookup("system.value", (float)10.2f, "system value");
 
-// dory::ConfigVar<std::vector<int>>::ptr g_int_vec_value_config = 
-//     dory::Config::Lookup("system.int_vec", std::vector<int> {1,2}, "system int vec");
+dory::ConfigVar<std::vector<int>>::ptr g_int_vec_value_config = 
+    dory::Config::Lookup("system.int_vec", std::vector<int> {1,2}, "system int vec");
 
-// dory::ConfigVar<std::list<int>>::ptr g_int_list_value_config = 
-//     dory::Config::Lookup("system.int_list", std::list<int> {1,2}, "system int list");
+dory::ConfigVar<std::list<int>>::ptr g_int_list_value_config = 
+    dory::Config::Lookup("system.int_list", std::list<int> {1,2}, "system int list");
 
-// dory::ConfigVar<std::set<int>>::ptr g_int_set_value_config = 
-//     dory::Config::Lookup("system.int_set", std::set<int> {1,2}, "system int set");
+dory::ConfigVar<std::set<int>>::ptr g_int_set_value_config = 
+    dory::Config::Lookup("system.int_set", std::set<int> {1,2}, "system int set");
 
-// dory::ConfigVar<std::unordered_set<int>>::ptr g_int_uset_value_config = 
-//     dory::Config::Lookup("system.int_uset", std::unordered_set<int> {1,2}, "system int uset");
+dory::ConfigVar<std::unordered_set<int>>::ptr g_int_uset_value_config = 
+    dory::Config::Lookup("system.int_uset", std::unordered_set<int> {1,2}, "system int uset");
 
-// dory::ConfigVar<std::map<std::string, int>>::ptr g_str_int_map_value_config = 
-//     dory::Config::Lookup("system.str_int_map", std::map<std::string, int> {{"k", 2}}, "system str int map");
+dory::ConfigVar<std::map<std::string, int>>::ptr g_str_int_map_value_config = 
+    dory::Config::Lookup("system.str_int_map", std::map<std::string, int> {{"k", 2}}, "system str int map");
 
-// dory::ConfigVar<std::unordered_map<std::string, int>>::ptr g_str_int_umap_value_config = 
-//     dory::Config::Lookup("system.str_int_umap", std::unordered_map<std::string, int> {{"k", 2}}, "system str int umap");
+dory::ConfigVar<std::unordered_map<std::string, int>>::ptr g_str_int_umap_value_config = 
+    dory::Config::Lookup("system.str_int_umap", std::unordered_map<std::string, int> {{"k", 2}}, "system str int umap");
 
 //测试yaml
 void print_yaml(const YAML::Node& node, int level) {
@@ -50,17 +50,17 @@ void print_yaml(const YAML::Node& node, int level) {
     }
 }
 
-// void test_yaml() {
-//     YAML::Node root = YAML::LoadFile("/home/lly/projectfile/dory/workspace/bin/conf/log.yml");
-//     print_yaml(root, 0);
+void test_yaml() {
+    YAML::Node root = YAML::LoadFile("/home/lly/projectfile/dory/workspace/bin/conf/log.yml");
+    print_yaml(root, 0);
 
-//     //DORY_LOG_INFO(DORY_LOG_ROOT()) << root;
-// }
+    //DORY_LOG_INFO(DORY_LOG_ROOT()) << root;
+}
 
-// //测试Config
-// void test_config() {
-//     DORY_LOG_INFO(DORY_LOG_ROOT()) << "before: " << g_int_value_config->getValue();
-//     DORY_LOG_INFO(DORY_LOG_ROOT()) << "before: " << g_float_value_config->toString();
+//测试Config
+void test_config() {
+    DORY_LOG_INFO(DORY_LOG_ROOT()) << "before: " << g_int_value_config->getValue();
+    DORY_LOG_INFO(DORY_LOG_ROOT()) << "before: " << g_float_value_config->toString();
 
 #define XX(g_var, name, prefix) \
     {\
@@ -81,26 +81,26 @@ void print_yaml(const YAML::Node& node, int level) {
         DORY_LOG_INFO(DORY_LOG_ROOT()) << #prefix " " #name " yaml: " << g_var->toString(); \
     }
 
-//     XX(g_int_vec_value_config, int_vec, before);
-//     XX(g_int_list_value_config, int_list, before);
-//     XX(g_int_set_value_config, int_set, before);
-//     XX(g_int_uset_value_config, int_suet, before);
-//     XX_M(g_str_int_map_value_config, str_int_map, before);
-//     XX_M(g_str_int_umap_value_config, str_int_umap, before);
+    XX(g_int_vec_value_config, int_vec, before);
+    XX(g_int_list_value_config, int_list, before);
+    XX(g_int_set_value_config, int_set, before);
+    XX(g_int_uset_value_config, int_suet, before);
+    XX_M(g_str_int_map_value_config, str_int_map, before);
+    XX_M(g_str_int_umap_value_config, str_int_umap, before);
 
-//     YAML::Node root = YAML::LoadFile("/home/lly/projectfile/dory/workspace/bin/conf/test.yml");
-//     dory::Config::LoadFromYaml(root);
+    YAML::Node root = YAML::LoadFile("/home/lly/projectfile/dory/workspace/bin/conf/test.yml");
+    dory::Config::LoadFromYaml(root);
 
-//     DORY_LOG_INFO(DORY_LOG_ROOT()) << "after: " << g_int_value_config->getValue();
-//     DORY_LOG_INFO(DORY_LOG_ROOT()) << "after: " << g_float_value_config->toString();
+    DORY_LOG_INFO(DORY_LOG_ROOT()) << "after: " << g_int_value_config->getValue();
+    DORY_LOG_INFO(DORY_LOG_ROOT()) << "after: " << g_float_value_config->toString();
 
-//     XX(g_int_vec_value_config, int_vec, after);
-//     XX(g_int_list_value_config, int_list, after);
-//     XX(g_int_set_value_config, int_set, after);
-//     XX(g_int_uset_value_config, int_uset, after);
-//     XX_M(g_str_int_map_value_config, str_int_map, after);
-//     XX_M(g_str_int_umap_value_config, str_int_umap, after);
-// }
+    XX(g_int_vec_value_config, int_vec, after);
+    XX(g_int_list_value_config, int_list, after);
+    XX(g_int_set_value_config, int_set, after);
+    XX(g_int_uset_value_config, int_uset, after);
+    XX_M(g_str_int_map_value_config, str_int_map, after);
+    XX_M(g_str_int_umap_value_config, str_int_umap, after);
+}
 
 class Person {
 public:
@@ -155,17 +155,17 @@ public:
 } // namespace dory
 
 
-// dory::ConfigVar<Person>::ptr g_person = 
-//     dory::Config::Lookup("class.person", Person(), "system person");
+dory::ConfigVar<Person>::ptr g_person = 
+    dory::Config::Lookup("class.person", Person(), "system person");
 
-// dory::ConfigVar<std::map<std::string, Person> >::ptr g_person_map =
-//     dory::Config::Lookup("class.map", std::map<std::string, Person>(), "system person");
+dory::ConfigVar<std::map<std::string, Person> >::ptr g_person_map =
+    dory::Config::Lookup("class.map", std::map<std::string, Person>(), "system person");
 
-// dory::ConfigVar<std::map<std::string, std::vector<Person>> >::ptr g_person_vec_map =
-//     dory::Config::Lookup("class.vec_map", std::map<std::string, std::vector<Person> >(), "system person");
+dory::ConfigVar<std::map<std::string, std::vector<Person>> >::ptr g_person_vec_map =
+    dory::Config::Lookup("class.vec_map", std::map<std::string, std::vector<Person> >(), "system person");
 
-// void test_class() {
-//     //DORY_LOG_INFO(DORY_LOG_ROOT()) << "before: " << g_person->getValue().toString() << " - " << g_person->toString();
+void test_class() {
+    //DORY_LOG_INFO(DORY_LOG_ROOT()) << "before: " << g_person->getValue().toString() << " - " << g_person->toString();
 
 #define XX_PM(g_var, prefix) \
     { \
@@ -176,22 +176,22 @@ public:
         DORY_LOG_INFO(DORY_LOG_ROOT()) << prefix << ": size=" << m.size(); \
     } 
 
-//     g_person->addListener(10, [](const Person& old_value, const Person& new_value) {
-//         DORY_LOG_INFO(DORY_LOG_ROOT()) << "old_value=" << old_value.toString()
-//                 << " new_value=" << new_value.toString();
-//     });
+    g_person->addListener([](const Person& old_value, const Person& new_value) {
+        DORY_LOG_INFO(DORY_LOG_ROOT()) << "old_value=" << old_value.toString()
+                << " new_value=" << new_value.toString();
+    });
 
-//     XX_PM(g_person_map, "class.map before");
-//     DORY_LOG_INFO(DORY_LOG_ROOT()) << "before: " << g_person_vec_map->toString();
+    XX_PM(g_person_map, "class.map before");
+    DORY_LOG_INFO(DORY_LOG_ROOT()) << "before: " << g_person_vec_map->toString();
 
-//     YAML::Node root = YAML::LoadFile("/home/lly/projectfile/dory/workspace/bin/conf/test.yaml");
-//     dory::Config::LoadFromYaml(root);
+    YAML::Node root = YAML::LoadFile("/home/lly/projectfile/dory/workspace/bin/conf/test.yaml");
+    dory::Config::LoadFromYaml(root);
 
-//     //DORY_LOG_INFO(DORY_LOG_ROOT()) << "after: " << g_person->getValue().toString() << " - " << g_person->toString();
-//     XX_PM(g_person_map, "class.map after");
-//     DORY_LOG_INFO(DORY_LOG_ROOT()) << "after: " << g_person_vec_map->toString();
+    //DORY_LOG_INFO(DORY_LOG_ROOT()) << "after: " << g_person->getValue().toString() << " - " << g_person->toString();
+    XX_PM(g_person_map, "class.map after");
+    DORY_LOG_INFO(DORY_LOG_ROOT()) << "after: " << g_person_vec_map->toString();
 
-// }
+}
 
 void test_log() {
     static dory::Logger::ptr system_log = DORY_LOG_NAME("system");
@@ -216,5 +216,11 @@ int main(int argc, char** argv) {
     //test_class();
 
     test_log();
+    dory::Config::Visit([](dory::ConfigVarbase::ptr var){
+        DORY_LOG_INFO(DORY_LOG_ROOT()) << "name-" << var->getName()
+                                << " description=" << var->getDescription()
+                                << " typename=" << var->getTypeName()
+                                << " value=" << var->toString();
+    });
     return 0;
 }

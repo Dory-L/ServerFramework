@@ -13,6 +13,9 @@
 #include <unordered_set>
 #include <functional>
 
+#include "Thread.h"
+#include "log.h"
+
 namespace dory
 {
 class ConfigVarbase {
@@ -233,6 +236,7 @@ template<class T, class FromStr = LexicalCast<std::string, T>
                 ,class ToStr = LexicalCast<T, std::string> >
 class ConfigVar : public ConfigVarbase {
 public:
+    typedef RWMutex RWMutexType;
     typedef std::shared_ptr<ConfigVar> ptr;
     typedef std::function<void (const T& old_value, const T& new_value)> on_change_cb;
 
@@ -246,6 +250,7 @@ public:
     std::string toString() override {
         try {
             //return boost::lexical_cast<std::string>(m_val);//lexical_cast字面值转换，支持以文本形式表示的任意类型之间的公共转换
+            RWMutex::ReadLock lock(m_mutex);
             return ToStr()(m_val);
         } catch (std::exception& e) {                      //lexical_cast无法执行转换操作时会抛出异常bad_lexical_cast，为保证健壮性需要使用try/catch来保护代码
             DORY_LOG_ERROR(DORY_LOG_ROOT()) << "ConfigVar::toString exception"
@@ -265,39 +270,54 @@ public:
         }
         return false;
     }
-    const T getValue() const { return m_val; }
+    const T getValue() const { 
+        RWMutexType::ReadLock lock(m_mutex);
+        return m_val; 
+        }
 
     void setValue(const T& v) { 
-        if (v == m_val) { //新值旧值相同直接返回
-            return;
+        {
+            RWMutexType::ReadLock lock(m_mutex);
+            if (v == m_val) { //新值旧值相同直接返回
+                return;
+            }
+            for (auto& i : m_cbs) { //调用回调函数
+                (i.second)(m_val, v);
+            }
         }
-        for (auto& i : m_cbs) { //调用回调函数
-            (i.second)(m_val, v);
-        }
+        RWMutexType::WriteLock lock(m_mutex);
         m_val = v;
     }
     std::string getTypeName() const override { return typeid(T).name(); }
 
     //监听
-    void addListener(uint64_t key, on_change_cb cb) {
-        m_cbs[key] = cb;
+    uint64_t addListener(on_change_cb cb) {
+        static uint64_t s_fun_id = 0;
+        RWMutexType::WriteLock lock(m_mutex);
+        ++s_fun_id;
+        m_cbs[s_fun_id] = cb;
+        return s_fun_id;
     }
 
     //删除
     void delListener(uint64_t key) {
+        RWMutexType::WriteLock lock(m_mutex);
         m_cbs.erase(key);
     }
 
     //获取
     on_change_cb getListener(uint64_t key) {
+        RWMutexType::ReadLock lock(m_mutex);
         auto it = m_cbs.find(key);
         return it == m_cbs.end() ? nullptr : it->second;
     }
 
     void clearListener() {
+        RWMutexType::WriteLock lock(m_mutex);
         m_cbs.clear();
     }
 private:
+    mutable RWMutexType m_mutex;
     T m_val;
 
     //变更回调函数组，function没有比较函数，因此用map存储，方便删除
@@ -309,6 +329,7 @@ class Config
 {
 public:
     typedef std::map<std::string, ConfigVarbase::ptr> ConfigVarMap;//v放基类，可以动态绑定
+    typedef RWMutex RWMutexType;
 
     //创建和查找
     //关键字name，默认值default_value，描述信息description
@@ -316,6 +337,7 @@ public:
     template<class T> 
     static typename ConfigVar<T>::ptr Lookup(const std::string& name,
             const T& default_value, const std::string& description = "") {
+        RWMutexType::WriteLock lock(GetMutex());
         auto it = GetDatas().find(name);
         if (it != GetDatas().end()) { //key存在
             auto tmp = std::dynamic_pointer_cast<ConfigVar<T> >(it->second);//转换失败返回空指针
@@ -345,6 +367,7 @@ public:
     //return:成功-ConfigVar指针 失败-nullptr
     template<class T>
     static typename ConfigVar<T>::ptr Lookup(const std::string& name) {
+        RWMutexType::ReadLock lock(GetMutex());
         auto it = GetDatas().find(name);
         if (it == GetDatas().end()) {
             return nullptr;
@@ -354,6 +377,8 @@ public:
 
     static void LoadFromYaml(const YAML::Node& root);
     static ConfigVarbase::ptr LookupBase(const std::string& name);
+
+    static void Visit(std::function<void(ConfigVarbase::ptr)> cb);
 private:
     //static ConfigVarMap s_datas; //静态变量的初始化没有顺序规则，其初始化可能在Lookup调用之后，导致core
 
@@ -361,6 +386,12 @@ private:
     static ConfigVarMap& GetDatas() {
         static ConfigVarMap s_datas;
         return s_datas;
+    }
+
+    //跟ConfigVarMap一样，要保证用到的时候已经初始化
+    static RWMutexType& GetMutex() {
+        static RWMutexType s_mutex;
+        return s_mutex;
     }
 
 };

@@ -49,5 +49,8 @@ int main(int argc, char** argv) {
     }
     DORY_LOG_INFO(g_logger) << "thread test end";
     DORY_LOG_INFO(g_logger) << "count=" << count;
+
+    
+
     return 0;
 }
