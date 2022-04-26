@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/dory.dir/dory/Thread.cpp.o"
   "CMakeFiles/dory.dir/dory/config.cpp.o"
+  "CMakeFiles/dory.dir/dory/fiber.cpp.o"
   "CMakeFiles/dory.dir/dory/log.cpp.o"
   "CMakeFiles/dory.dir/dory/util.cpp.o"
   "lib/libdory.pdb"

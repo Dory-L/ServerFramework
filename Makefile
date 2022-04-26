@@ -114,6 +114,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_util
+
+# Build rule for target.
+test_util: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_util
+.PHONY : test_util
+
+# fast build rule for target.
+test_util/fast:
+	$(MAKE) -f CMakeFiles/test_util.dir/build.make CMakeFiles/test_util.dir/build
+.PHONY : test_util/fast
+
+#=============================================================================
 # Target rules for targets named test_config
 
 # Build rule for target.
@@ -218,6 +231,33 @@ dory/config.s: dory/config.cpp.s
 dory/config.cpp.s:
 	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/config.cpp.s
 .PHONY : dory/config.cpp.s
+
+dory/fiber.o: dory/fiber.cpp.o
+
+.PHONY : dory/fiber.o
+
+# target to build an object file
+dory/fiber.cpp.o:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/fiber.cpp.o
+.PHONY : dory/fiber.cpp.o
+
+dory/fiber.i: dory/fiber.cpp.i
+
+.PHONY : dory/fiber.i
+
+# target to preprocess a source file
+dory/fiber.cpp.i:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/fiber.cpp.i
+.PHONY : dory/fiber.cpp.i
+
+dory/fiber.s: dory/fiber.cpp.s
+
+.PHONY : dory/fiber.s
+
+# target to generate assembly for a file
+dory/fiber.cpp.s:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/fiber.cpp.s
+.PHONY : dory/fiber.cpp.s
 
 dory/log.o: dory/log.cpp.o
 
@@ -354,6 +394,33 @@ tests/test_thread.cpp.s:
 	$(MAKE) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/tests/test_thread.cpp.s
 .PHONY : tests/test_thread.cpp.s
 
+tests/test_util.o: tests/test_util.cpp.o
+
+.PHONY : tests/test_util.o
+
+# target to build an object file
+tests/test_util.cpp.o:
+	$(MAKE) -f CMakeFiles/test_util.dir/build.make CMakeFiles/test_util.dir/tests/test_util.cpp.o
+.PHONY : tests/test_util.cpp.o
+
+tests/test_util.i: tests/test_util.cpp.i
+
+.PHONY : tests/test_util.i
+
+# target to preprocess a source file
+tests/test_util.cpp.i:
+	$(MAKE) -f CMakeFiles/test_util.dir/build.make CMakeFiles/test_util.dir/tests/test_util.cpp.i
+.PHONY : tests/test_util.cpp.i
+
+tests/test_util.s: tests/test_util.cpp.s
+
+.PHONY : tests/test_util.s
+
+# target to generate assembly for a file
+tests/test_util.cpp.s:
+	$(MAKE) -f CMakeFiles/test_util.dir/build.make CMakeFiles/test_util.dir/tests/test_util.cpp.s
+.PHONY : tests/test_util.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -361,6 +428,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... test_util"
 	@echo "... test_config"
 	@echo "... edit_cache"
 	@echo "... test_thread"
@@ -372,6 +440,9 @@ help:
 	@echo "... dory/config.o"
 	@echo "... dory/config.i"
 	@echo "... dory/config.s"
+	@echo "... dory/fiber.o"
+	@echo "... dory/fiber.i"
+	@echo "... dory/fiber.s"
 	@echo "... dory/log.o"
 	@echo "... dory/log.i"
 	@echo "... dory/log.s"
@@ -387,6 +458,9 @@ help:
 	@echo "... tests/test_thread.o"
 	@echo "... tests/test_thread.i"
 	@echo "... tests/test_thread.s"
+	@echo "... tests/test_util.o"
+	@echo "... tests/test_util.i"
+	@echo "... tests/test_util.s"
 .PHONY : help
 
 

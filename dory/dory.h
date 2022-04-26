@@ -7,3 +7,4 @@
 #include "config.h"
 #include "singleton.h"
 #include "Thread.h"
+#include "macro.h"

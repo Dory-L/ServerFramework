@@ -53,6 +53,10 @@ thread
 -
 stdint.h
 -
+vector
+-
+string
+-
 
 /home/lly/projectfile/dory/workspace/tests/test.cpp
 iostream

@@ -14,6 +14,15 @@ CMakeFiles/dory.dir/dory/config.cpp.o
  /home/lly/projectfile/dory/workspace/dory/log.h
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/util.h
+CMakeFiles/dory.dir/dory/fiber.cpp.o
+ /home/lly/projectfile/dory/workspace/dory/Thread.h
+ /home/lly/projectfile/dory/workspace/dory/config.h
+ /home/lly/projectfile/dory/workspace/dory/fiber.cpp
+ /home/lly/projectfile/dory/workspace/dory/fiber.h
+ /home/lly/projectfile/dory/workspace/dory/log.h
+ /home/lly/projectfile/dory/workspace/dory/macro.h
+ /home/lly/projectfile/dory/workspace/dory/singleton.h
+ /home/lly/projectfile/dory/workspace/dory/util.h
 CMakeFiles/dory.dir/dory/log.cpp.o
  /home/lly/projectfile/dory/workspace/dory/Thread.h
  /home/lly/projectfile/dory/workspace/dory/config.h
@@ -22,5 +31,8 @@ CMakeFiles/dory.dir/dory/log.cpp.o
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/util.h
 CMakeFiles/dory.dir/dory/util.cpp.o
+ /home/lly/projectfile/dory/workspace/dory/Thread.h
+ /home/lly/projectfile/dory/workspace/dory/log.h
+ /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/util.cpp
  /home/lly/projectfile/dory/workspace/dory/util.h

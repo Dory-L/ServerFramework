@@ -85,6 +85,10 @@ thread
 -
 stdint.h
 -
+vector
+-
+string
+-
 
 /home/lly/projectfile/dory/workspace/tests/test_config.cpp
 ../dory/config.h

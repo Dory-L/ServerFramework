@@ -63,6 +63,8 @@ singleton.h
 /home/lly/projectfile/dory/workspace/dory/singleton.h
 Thread.h
 /home/lly/projectfile/dory/workspace/dory/Thread.h
+macro.h
+/home/lly/projectfile/dory/workspace/dory/macro.h
 
 /home/lly/projectfile/dory/workspace/dory/log.h
 string
@@ -90,12 +92,24 @@ util.h
 Thread.h
 /home/lly/projectfile/dory/workspace/dory/Thread.h
 
+/home/lly/projectfile/dory/workspace/dory/macro.h
+string.h
+-
+assert.h
+-
+util.h
+/home/lly/projectfile/dory/workspace/dory/util.h
+
 /home/lly/projectfile/dory/workspace/dory/singleton.h
 
 /home/lly/projectfile/dory/workspace/dory/util.h
 thread
 -
 stdint.h
+-
+vector
+-
+string
 -
 
 /home/lly/projectfile/dory/workspace/tests/test_thread.cpp

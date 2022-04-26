@@ -19,6 +19,7 @@ set(LIB_SRC
     dory/util.cpp
     dory/config.cpp
     dory/Thread.cpp
+    dory/fiber.cpp
     )
 
 add_library(dory SHARED ${LIB_SRC})
@@ -37,6 +38,11 @@ add_executable(test_thread tests/test_thread.cpp)
 redefine_file_macro(test_thread)
 add_dependencies(test_thread dory)
 target_link_libraries(test_thread dory yaml-cpp)
+
+add_executable(test_util tests/test_util.cpp)
+redefine_file_macro(test_util)
+add_dependencies(test_util dory)
+target_link_libraries(test_util dory yaml-cpp)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

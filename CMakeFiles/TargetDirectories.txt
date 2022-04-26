@@ -1,4 +1,5 @@
 /home/lly/projectfile/dory/workspace/CMakeFiles/rebuild_cache.dir
+/home/lly/projectfile/dory/workspace/CMakeFiles/test_util.dir
 /home/lly/projectfile/dory/workspace/CMakeFiles/test_config.dir
 /home/lly/projectfile/dory/workspace/CMakeFiles/edit_cache.dir
 /home/lly/projectfile/dory/workspace/CMakeFiles/test_thread.dir
