@@ -44,5 +44,10 @@ redefine_file_macro(test_util)
 add_dependencies(test_util dory)
 target_link_libraries(test_util dory yaml-cpp)
 
+add_executable(test_fiber tests/test_fiber.cpp)
+redefine_file_macro(test_fiber)
+add_dependencies(test_fiber dory)
+target_link_libraries(test_fiber dory yaml-cpp)
+
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

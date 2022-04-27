@@ -17,7 +17,7 @@
     if (logger->getLevel() <= level) \
         dory::LogEventWrap(dory::LogEvent::ptr(new dory::LogEvent(logger, level, \
              __FILE__, __LINE__, 0, dory::GetThreadId(), \
-            dory::GetFiberId(), time(0)))).getSS()
+            dory::GetFiberId(), time(0), dory::Thread::GetName()))).getSS()
 
 #define DORY_LOG_DEBUG(logger) DORY_LOG_LEVEL(logger, dory::LogLevel::DEBUG)
 #define DORY_LOG_INFO(logger) DORY_LOG_LEVEL(logger, dory::LogLevel::INFO)
@@ -29,7 +29,7 @@
     if (logger->getLevel() <= level) \
         dory::LogEventWrap(dory::LogEvent::ptr(new dory::LogEvent(logger, level, \
             __FILE__, __LINE__, 0, dory::GetThreadId(), \
-            dory::GetFiberId(), time(0)))).getEvent()->format(fmt, __VA_ARGS__)
+            dory::GetFiberId(), time(0), dory::Thread::GetName()))).getEvent()->format(fmt, __VA_ARGS__)
 
 #define DORY_LOG_FMT_DEBUG(logger, fmt, ...) DORY_LOG_FMT_LEVEL(logger, dory::LogLevel::DEBUG, fmt, __VA_ARGS__)
 #define DORY_LOG_FMT_INFO(logger, fmt, ...) DORY_LOG_FMT_LEVEL(logger, dory::LogLevel::DEBUG, fmt, __VA_ARGS__)
@@ -68,13 +68,14 @@ class LogEvent
 public:
     typedef std::shared_ptr<LogEvent> ptr;
     LogEvent(std::shared_ptr<Logger> logger, LogLevel::Level level, const char* file, int32_t m_line, uint32_t elapse 
-            , uint32_t thread_id, uint32_t fiber_id, uint64_t time);
+            , uint32_t thread_id, uint32_t fiber_id, uint64_t time, const std::string& thread_name);
     const char* getFile() const { return m_file; }
     int32_t getLine() const { return m_line; }
     uint32_t getElapse() const { return m_elapse; }
     uint32_t getThreadId() const { return m_threadId; }
     uint32_t getFiberId() const { return m_fiberId; }
     uint64_t getTime() const { return m_time; }
+    const std::string& getThreadName() const { return m_threadName; }
     std::string getContent() const { return m_ss.str();}
     std::shared_ptr<Logger> getLogger() const { return m_logger;}
     LogLevel::Level getLevel() const { return m_level; }
@@ -89,6 +90,7 @@ private:
     uint32_t m_threadId = 0;        //线程号
     uint32_t m_fiberId = 0;         //协程号
     uint64_t m_time = 0;            //时间戳
+    std::string m_threadName;       //线程名
     std::stringstream m_ss;
 
     std::shared_ptr<Logger> m_logger;

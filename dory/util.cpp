@@ -3,7 +3,8 @@
 #include <sys/syscall.h>
 #include <execinfo.h>
 
-#include "../dory/log.h"
+#include "log.h"
+#include "fiber.h"
 
 dory::Logger::ptr g_logger = DORY_LOG_NAME("system"); //系统的用system，用户的用root，不然会混到一起
 
@@ -14,7 +15,7 @@ pid_t GetThreadId() {
 }
 
 uint32_t GetFiberId() {
-    return 0;
+    return dory::Fiber::GetFiberId();
 }
 
 void Backtrace(std::vector<std::string>& bt, int size, int skip) {

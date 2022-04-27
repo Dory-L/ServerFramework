@@ -1,4 +1,4 @@
-#pragma
+#pragma once
 #include <memory>
 #include <functional>
 #include <ucontext.h>
@@ -14,7 +14,8 @@ public:
         HOLD, //保持
         EXEC, //正在执行
         TERM, //终止
-        READY //准备好可以执行
+        READY, //准备好可以执行
+        EXCEPT  //异常结束
     };
 private:
     Fiber();
@@ -31,6 +32,7 @@ public:
     //切换到后台
     void swapOut();
 
+    uint64_t getId() const { return m_id; }
 public:
     //设置当前协程
     static void SetThis(Fiber* f);
@@ -44,7 +46,8 @@ public:
     static uint64_t TotalFibers();
 
     static void MainFunc();
-
+    //返回协程号
+    static uint64_t GetFiberId();
 private:
     //协程id
     uint64_t m_id = 0;
@@ -52,6 +55,7 @@ private:
     uint32_t m_stacksize = 0;
     State m_state = INIT;
 
+    //当前协程
     ucontext_t m_ctx;
     //栈内存空间
     void* m_stack = nullptr;

@@ -31,6 +31,7 @@ CMakeFiles/dory.dir/dory/log.cpp.o: dory/singleton.h
 CMakeFiles/dory.dir/dory/log.cpp.o: dory/util.h
 
 CMakeFiles/dory.dir/dory/util.cpp.o: dory/Thread.h
+CMakeFiles/dory.dir/dory/util.cpp.o: dory/fiber.h
 CMakeFiles/dory.dir/dory/util.cpp.o: dory/log.h
 CMakeFiles/dory.dir/dory/util.cpp.o: dory/singleton.h
 CMakeFiles/dory.dir/dory/util.cpp.o: dory/util.cpp
