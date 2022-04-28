@@ -18,3 +18,5 @@ CXX_INCLUDES =
 
 # Custom defines: CMakeFiles/dory.dir/dory/fiber.cpp.o_DEFINES = __FILE__="dory/fiber.cpp"
 
+# Custom defines: CMakeFiles/dory.dir/dory/scheduler.cpp.o_DEFINES = __FILE__="dory/scheduler.cpp"
+

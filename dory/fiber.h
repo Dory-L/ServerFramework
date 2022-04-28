@@ -18,6 +18,7 @@ public:
         EXCEPT  //异常结束
     };
 private:
+    //每个线程第一个协程的构造
     Fiber();
 
 public:
@@ -33,6 +34,8 @@ public:
     void swapOut();
 
     uint64_t getId() const { return m_id; }
+
+    State getState() const { return m_state; }
 public:
     //设置当前协程
     static void SetThis(Fiber* f);

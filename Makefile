@@ -299,6 +299,33 @@ dory/log.cpp.s:
 	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/log.cpp.s
 .PHONY : dory/log.cpp.s
 
+dory/scheduler.o: dory/scheduler.cpp.o
+
+.PHONY : dory/scheduler.o
+
+# target to build an object file
+dory/scheduler.cpp.o:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/scheduler.cpp.o
+.PHONY : dory/scheduler.cpp.o
+
+dory/scheduler.i: dory/scheduler.cpp.i
+
+.PHONY : dory/scheduler.i
+
+# target to preprocess a source file
+dory/scheduler.cpp.i:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/scheduler.cpp.i
+.PHONY : dory/scheduler.cpp.i
+
+dory/scheduler.s: dory/scheduler.cpp.s
+
+.PHONY : dory/scheduler.s
+
+# target to generate assembly for a file
+dory/scheduler.cpp.s:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/scheduler.cpp.s
+.PHONY : dory/scheduler.cpp.s
+
 dory/util.o: dory/util.cpp.o
 
 .PHONY : dory/util.o
@@ -487,6 +514,9 @@ help:
 	@echo "... dory/log.o"
 	@echo "... dory/log.i"
 	@echo "... dory/log.s"
+	@echo "... dory/scheduler.o"
+	@echo "... dory/scheduler.i"
+	@echo "... dory/scheduler.s"
 	@echo "... dory/util.o"
 	@echo "... dory/util.i"
 	@echo "... dory/util.s"
