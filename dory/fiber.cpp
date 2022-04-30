@@ -1,6 +1,7 @@
 #include "fiber.h"
 #include "config.h"
 #include "macro.h"
+#include "scheduler.h"
 #include <atomic>
 
 namespace dory {
@@ -17,7 +18,7 @@ static thread_local Fiber* t_fiber = nullptr;
 static thread_local Fiber::ptr t_threadFiber = nullptr;
 
 static ConfigVar<uint32_t>::ptr g_fiber_stack_size =
-    Config::Lookup<uint32_t>("fiber.stack_size", 1024 * 1024, "fiber stack size");
+    Config::Lookup<uint32_t>("fiber.stack_size", 128 * 1024, "fiber stack size");
 
 class MallocStackAllocator {
 public:
@@ -50,11 +51,11 @@ Fiber::Fiber() {
 
     ++s_fiber_count;
 
-    DORY_LOG_DEBUG(g_logger) << "Fiber::Fiber";
+    DORY_LOG_DEBUG(g_logger) << "Fiber::Fiber main";
 }
 
 //正真的创建协程
-Fiber::Fiber(std::function<void()> cb, size_t stacksize) 
+Fiber::Fiber(std::function<void()> cb, size_t stacksize, bool use_caller) 
     :m_id(++s_fiber_id)
     ,m_cb(cb){
     ++s_fiber_count;
@@ -68,7 +69,11 @@ Fiber::Fiber(std::function<void()> cb, size_t stacksize)
     m_ctx.uc_stack.ss_sp = m_stack;//stack指针
     m_ctx.uc_stack.ss_size = m_stacksize;//栈大小
 
-    makecontext(&m_ctx, &Fiber::MainFunc, 0);
+    if (!use_caller) {
+        makecontext(&m_ctx, &Fiber::MainFunc, 0);
+    } else {
+        makecontext(&m_ctx, &Fiber::CallerMainFunc, 0);
+    }
     DORY_LOG_DEBUG(g_logger) << "Fiber::Fiber id=" << m_id;
 }
 
@@ -111,20 +116,37 @@ void Fiber::reset(std::function<void()> cb) {
     m_state = INIT;
 }
 
+//将当前协程强行切换到目标执行协程
+void Fiber::call() {
+    SetThis(this);
+    m_state = EXEC;
+    DORY_LOG_INFO(g_logger) << getId();
+    if (swapcontext(&t_threadFiber->m_ctx, &m_ctx)) {
+        DORY_ASSERT2(false, "swapcontext");
+    }
+}
+
+void Fiber::back() {
+    SetThis(t_threadFiber.get());
+    if (swapcontext(&m_ctx, &t_threadFiber->m_ctx)) {
+        DORY_ASSERT2(false, "swapcontext");
+    }
+}
+
 //切换到当前
 void Fiber::swapIn() {
     SetThis(this);
     DORY_ASSERT(m_state != EXEC);
     m_state = EXEC;
-    if (swapcontext(&t_threadFiber->m_ctx, &m_ctx)) {
+    if (swapcontext(&Scheduler::GetMainFiber()->m_ctx, &m_ctx)) {
         DORY_ASSERT2(false, "swapcontext");
     }
 }
 
 //切换到后台
 void Fiber::swapOut() {
-    SetThis(t_threadFiber.get());
-    if (swapcontext(&m_ctx, &t_threadFiber->m_ctx)) {
+    SetThis(Scheduler::GetMainFiber());
+    if (swapcontext(&m_ctx, &Scheduler::GetMainFiber()->m_ctx)) {
         DORY_ASSERT2(false, "swapcontext");
     }
 }
@@ -155,7 +177,7 @@ void Fiber::YieldToReady() {
 //协程切换到后台，并设置为Hold状态
 void Fiber::YieldToHold() {
     Fiber::ptr cur = GetThis();
-    cur->m_state = HOLD;
+    //cur->m_state = HOLD;
     cur->swapOut();
 }
 //当前总协程数
@@ -172,10 +194,16 @@ void Fiber::MainFunc() {
         cur->m_state = TERM;
     } catch (std::exception& ex) {
         cur->m_state = EXCEPT;
-        DORY_LOG_ERROR(g_logger) << "Fiber Except:" << ex.what();
+        DORY_LOG_ERROR(g_logger) << "Fiber Except:" << ex.what()
+            << " fiber_id=" << cur->getId()
+            << std::endl
+            << dory::BacktraceToString();
     } catch (...) {
         cur->m_state = EXCEPT;
-        DORY_LOG_ERROR(g_logger) << "Fiber Except";
+        DORY_LOG_ERROR(g_logger) << "Fiber Except"
+            << " fiber_id=" << cur->getId()
+            << std::endl
+            << dory::BacktraceToString();
     }
 
     auto raw_ptr = cur.get();
@@ -183,7 +211,36 @@ void Fiber::MainFunc() {
     raw_ptr->swapOut();//子协程执行完退出之后回到主协程，不存在内存泄漏，内存会被智能指针销毁，只是存在野指针
     //cur->swapOut();//执行swapOut之后，cur不被销毁，当前子协程的引用计数永远不为零，不能执行析构函数
 
-    DORY_ASSERT2(false, "never reach");
+    DORY_ASSERT2(false, "never reach fiber_id=" + std::to_string(raw_ptr->getId()));
+}
+
+void Fiber::CallerMainFunc() {
+    Fiber::ptr cur = GetThis();
+    DORY_ASSERT(cur);
+    try {
+        cur->m_cb();
+        cur->m_cb = nullptr;//fctional中有可能bind了智能指针参数，导致引用计数加1
+        cur->m_state = TERM;
+    } catch (std::exception& ex) {
+        cur->m_state = EXCEPT;
+        DORY_LOG_ERROR(g_logger) << "Fiber Except:" << ex.what()
+            << " fiber_id=" << cur->getId()
+            << std::endl
+            << dory::BacktraceToString();
+    } catch (...) {
+        cur->m_state = EXCEPT;
+        DORY_LOG_ERROR(g_logger) << "Fiber Except"
+            << " fiber_id=" << cur->getId()
+            << std::endl
+            << dory::BacktraceToString();
+    }
+
+    auto raw_ptr = cur.get();
+    cur.reset();
+    raw_ptr->back();//子协程执行完退出之后回到主协程，不存在内存泄漏，内存会被智能指针销毁，只是存在野指针
+    //cur->swapOut();//执行swapOut之后，cur不被销毁，当前子协程的引用计数永远不为零，不能执行析构函数
+
+    DORY_ASSERT2(false, "never reach fiber_id=" + std::to_string(raw_ptr->getId()));
 }
 
 }

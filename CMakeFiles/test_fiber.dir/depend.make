@@ -7,6 +7,7 @@ CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: dory/dory.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: dory/fiber.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: dory/log.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: dory/macro.h
+CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: dory/scheduler.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: dory/singleton.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: dory/util.h
 CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.o: tests/test_fiber.cpp

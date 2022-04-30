@@ -67,6 +67,8 @@ macro.h
 /home/lly/projectfile/dory/workspace/dory/macro.h
 fiber.h
 /home/lly/projectfile/dory/workspace/dory/fiber.h
+scheduler.h
+/home/lly/projectfile/dory/workspace/dory/scheduler.h
 
 /home/lly/projectfile/dory/workspace/dory/fiber.h
 memory
@@ -111,6 +113,22 @@ assert.h
 -
 util.h
 /home/lly/projectfile/dory/workspace/dory/util.h
+
+/home/lly/projectfile/dory/workspace/dory/scheduler.h
+memory
+-
+vector
+-
+functional
+-
+list
+-
+map
+-
+fiber.h
+/home/lly/projectfile/dory/workspace/dory/fiber.h
+Thread.h
+/home/lly/projectfile/dory/workspace/dory/Thread.h
 
 /home/lly/projectfile/dory/workspace/dory/singleton.h
 

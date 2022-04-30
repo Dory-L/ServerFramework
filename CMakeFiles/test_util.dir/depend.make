@@ -7,6 +7,7 @@ CMakeFiles/test_util.dir/tests/test_util.cpp.o: dory/dory.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: dory/fiber.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: dory/log.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: dory/macro.h
+CMakeFiles/test_util.dir/tests/test_util.cpp.o: dory/scheduler.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: dory/singleton.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: dory/util.h
 CMakeFiles/test_util.dir/tests/test_util.cpp.o: tests/test_util.cpp

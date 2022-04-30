@@ -142,9 +142,7 @@ vector
 string
 -
 
-/home/lly/projectfile/dory/workspace/tests/test_util.cpp
+/home/lly/projectfile/dory/workspace/tests/test_scheduler.cpp
 ../dory/dory.h
 /home/lly/projectfile/dory/workspace/dory/dory.h
-assert.h
--
 

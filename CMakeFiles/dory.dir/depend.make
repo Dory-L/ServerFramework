@@ -20,6 +20,7 @@ CMakeFiles/dory.dir/dory/fiber.cpp.o: dory/fiber.cpp
 CMakeFiles/dory.dir/dory/fiber.cpp.o: dory/fiber.h
 CMakeFiles/dory.dir/dory/fiber.cpp.o: dory/log.h
 CMakeFiles/dory.dir/dory/fiber.cpp.o: dory/macro.h
+CMakeFiles/dory.dir/dory/fiber.cpp.o: dory/scheduler.h
 CMakeFiles/dory.dir/dory/fiber.cpp.o: dory/singleton.h
 CMakeFiles/dory.dir/dory/fiber.cpp.o: dory/util.h
 

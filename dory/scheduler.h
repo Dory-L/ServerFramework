@@ -15,19 +15,24 @@ public:
     typedef std::shared_ptr<Scheduler> ptr;
     typedef Mutex MutexType;
 
-    //threads-线程数，usecaller-是否加入线程调度器，name-名称
+    //threads 线程数量，use_caller 是否使用当前调用线程，name 协程调度器名称
     Scheduler(size_t threads = 1, bool use_caller = true, const std::string& name = "");
     virtual ~Scheduler();
 
+    //返回协程调度器名称
     const std::string& getName() const { return m_name; }
-
+    //返回当前协程调度器
     static Scheduler* GetThis();
-    //获取调度器的主协程
+    //获取当前协程调度器的调度协程
     static Fiber* GetMainFiber();
-
+    //启动协程调度器
     void start();
+    //停止协程调度器
     void stop();
 
+    //调度协程
+    //fc 协程或函数
+    //thread 协程执行的线程id，-1标识任意线程
     template<class FiberOrCb>
     void schedule(FiberOrCb fc, int thread = -1) {
         bool need_tickle = false;
@@ -41,6 +46,7 @@ public:
         }
     }
 
+    //批量调度协程
     template<class InputIterator>
     void schedule(InputIterator begin, InputIterator end) {
         bool need_tickle = false;
@@ -56,15 +62,18 @@ public:
         }
     }
 protected:
-    //唤醒线程
+    //通知协程调度器有任务了
     virtual void tickle();
+    //协程调度函数
     void run();
-    virtual bool stoppping();//子类需要清理任务的机会
-    //什么都不做，站着任务或者sleep让出执行时间
+    //返回是否可以停止
+    virtual bool stopping();//子类需要清理任务的机会
+    //协程无任务可调度时执行idle协程
     virtual void idle();
-
+    //设置当前协程的调度器
     void setThis();
 private:
+    //协程调度器启动
     template<class FiberOrCb>
     bool scheduleNoLock(FiberOrCb fc, int thread) {
         bool need_tickle = m_fibers.empty(); //若为true，表示目前没有任务，可能所有线程陷入到内核态，放进去了就唤醒
@@ -75,6 +84,7 @@ private:
         return need_tickle;
     }
 private:
+    //协程/函数/线程组
     struct FiberAndThread {
         Fiber::ptr fiber;
         std::function<void()> cb;
@@ -103,6 +113,7 @@ private:
             :thread(-1) {
         }
 
+        //重置数据
         void reset() {
             fiber = nullptr;
             cb = nullptr;
@@ -115,7 +126,7 @@ private:
     std::vector<Thread::ptr> m_threads;
     //即将要执行或计划要执行的协程
     std::list<FiberAndThread> m_fibers;
-    //主协程
+    //use_call有效时，调度携程
     Fiber::ptr m_rootFiber;
     //调度器名
     std::string m_name;
@@ -128,11 +139,11 @@ protected:
     std::atomic<size_t> m_activeThreadCount = {0};
     //空闲线程数量
     std::atomic<size_t> m_idleThreadCount = {0};
-    //停止
+    //是否正在停止
     bool m_stopping = true;
-    //自动停止
+    //是否自动停止
     bool m_autoStop = false;
-    //主线程id
+    //主线程id(use_call)
     int m_rootThread = 0;
 };
 
