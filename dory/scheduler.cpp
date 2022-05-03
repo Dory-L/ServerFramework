@@ -30,7 +30,7 @@ Scheduler::Scheduler(size_t threads, bool use_caller, const std::string& name)
         m_rootThread = dory::GetThreadId();
         m_threadIds.push_back(m_rootThread);
     } else {
-        m_rootThread = -1;
+        m_rootThread = -1;  //这个线程不参与调度
     }
     m_threadCount = threads;
 }
@@ -66,7 +66,7 @@ void Scheduler::start() {
                             , m_name + "_" + std::to_string(i)));
         m_threadIds.push_back(m_threads[i]->getId());
     }
-    lock.unlock();
+    // lock.unlock();
     //use_caller
     // if (m_rootFiber) {
     //     // m_rootFiber->swapIn();
@@ -98,7 +98,7 @@ void Scheduler::stop() {
     }
 
     m_stopping = true; //通知每一个线程结束
-    for (size_t i = 0; i <m_threadCount; ++i) {
+    for (size_t i = 0; i < m_threadCount; ++i) {
         tickle();
     }
 
@@ -144,11 +144,11 @@ void Scheduler::run() {
     DORY_LOG_INFO(g_logger) << "run";
     setThis();
 
-    if (dory::GetThreadId() != m_rootThread) {
+    if (dory::GetThreadId() != m_rootThread) { //子线程也要创建自己的主协程
         t_fiber = Fiber::GetThis().get();
     }
 
-    Fiber::ptr idle_fiber(new Fiber(std::bind(&Scheduler::idle, this))); //什么都不做的协程
+    Fiber::ptr idle_fiber(new Fiber(std::bind(&Scheduler::idle, this))); //什么都不做的协程，衍生类绑定自己的idle
     Fiber::ptr cb_fiber;
 
     FiberAndThread ft;

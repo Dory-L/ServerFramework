@@ -72,6 +72,8 @@ protected:
     virtual void idle();
     //设置当前协程的调度器
     void setThis();
+
+    bool hasIdleThreas() { return m_idleThreadCount > 0; }
 private:
     //协程调度器启动
     template<class FiberOrCb>

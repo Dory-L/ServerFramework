@@ -15,11 +15,12 @@ void test_fiber() {
 int main(int argc, char const *argv[])
 {
     DORY_LOG_INFO(g_logger) << "main";
-    dory::Scheduler sc(3, false, "test");
+    dory::Scheduler sc(3, false , "test");
     sc.start();
     sleep(1);
     DORY_LOG_INFO(g_logger) << "schedule";
     sc.schedule(&test_fiber);
+    sleep(10);
     sc.stop();
     DORY_LOG_INFO(g_logger) << "over";
     return 0;

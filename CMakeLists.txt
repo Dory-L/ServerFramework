@@ -21,6 +21,7 @@ set(LIB_SRC
     dory/Thread.cpp
     dory/fiber.cpp
     dory/scheduler.cpp
+    dory/iomanager.cpp
     )
 
 add_library(dory SHARED ${LIB_SRC})
@@ -54,6 +55,11 @@ add_executable(test_scheduler tests/test_scheduler.cpp)
 redefine_file_macro(test_scheduler)
 add_dependencies(test_scheduler dory)
 target_link_libraries(test_scheduler dory yaml-cpp)
+
+add_executable(test_iomanager tests/test_iomanager.cpp)
+redefine_file_macro(test_iomanager)
+add_dependencies(test_iomanager dory)
+target_link_libraries(test_iomanager dory yaml-cpp)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

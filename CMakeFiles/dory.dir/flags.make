@@ -20,3 +20,5 @@ CXX_INCLUDES =
 
 # Custom defines: CMakeFiles/dory.dir/dory/scheduler.cpp.o_DEFINES = __FILE__="dory/scheduler.cpp"
 
+# Custom defines: CMakeFiles/dory.dir/dory/iomanager.cpp.o_DEFINES = __FILE__="dory/iomanager.cpp"
+

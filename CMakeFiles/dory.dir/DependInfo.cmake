@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/lly/projectfile/dory/workspace/dory/Thread.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/Thread.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/config.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/config.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/fiber.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/fiber.cpp.o"
+  "/home/lly/projectfile/dory/workspace/dory/iomanager.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/iomanager.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/log.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/log.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/scheduler.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/scheduler.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/util.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/util.cpp.o"

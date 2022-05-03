@@ -114,6 +114,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_iomanager
+
+# Build rule for target.
+test_iomanager: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_iomanager
+.PHONY : test_iomanager
+
+# fast build rule for target.
+test_iomanager/fast:
+	$(MAKE) -f CMakeFiles/test_iomanager.dir/build.make CMakeFiles/test_iomanager.dir/build
+.PHONY : test_iomanager/fast
+
+#=============================================================================
 # Target rules for targets named test_scheduler
 
 # Build rule for target.
@@ -285,6 +298,33 @@ dory/fiber.cpp.s:
 	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/fiber.cpp.s
 .PHONY : dory/fiber.cpp.s
 
+dory/iomanager.o: dory/iomanager.cpp.o
+
+.PHONY : dory/iomanager.o
+
+# target to build an object file
+dory/iomanager.cpp.o:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/iomanager.cpp.o
+.PHONY : dory/iomanager.cpp.o
+
+dory/iomanager.i: dory/iomanager.cpp.i
+
+.PHONY : dory/iomanager.i
+
+# target to preprocess a source file
+dory/iomanager.cpp.i:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/iomanager.cpp.i
+.PHONY : dory/iomanager.cpp.i
+
+dory/iomanager.s: dory/iomanager.cpp.s
+
+.PHONY : dory/iomanager.s
+
+# target to generate assembly for a file
+dory/iomanager.cpp.s:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/iomanager.cpp.s
+.PHONY : dory/iomanager.cpp.s
+
 dory/log.o: dory/log.cpp.o
 
 .PHONY : dory/log.o
@@ -447,6 +487,33 @@ tests/test_fiber.cpp.s:
 	$(MAKE) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.s
 .PHONY : tests/test_fiber.cpp.s
 
+tests/test_iomanager.o: tests/test_iomanager.cpp.o
+
+.PHONY : tests/test_iomanager.o
+
+# target to build an object file
+tests/test_iomanager.cpp.o:
+	$(MAKE) -f CMakeFiles/test_iomanager.dir/build.make CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.o
+.PHONY : tests/test_iomanager.cpp.o
+
+tests/test_iomanager.i: tests/test_iomanager.cpp.i
+
+.PHONY : tests/test_iomanager.i
+
+# target to preprocess a source file
+tests/test_iomanager.cpp.i:
+	$(MAKE) -f CMakeFiles/test_iomanager.dir/build.make CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.i
+.PHONY : tests/test_iomanager.cpp.i
+
+tests/test_iomanager.s: tests/test_iomanager.cpp.s
+
+.PHONY : tests/test_iomanager.s
+
+# target to generate assembly for a file
+tests/test_iomanager.cpp.s:
+	$(MAKE) -f CMakeFiles/test_iomanager.dir/build.make CMakeFiles/test_iomanager.dir/tests/test_iomanager.cpp.s
+.PHONY : tests/test_iomanager.cpp.s
+
 tests/test_scheduler.o: tests/test_scheduler.cpp.o
 
 .PHONY : tests/test_scheduler.o
@@ -534,6 +601,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... test_iomanager"
 	@echo "... test_scheduler"
 	@echo "... test_fiber"
 	@echo "... rebuild_cache"
@@ -552,6 +620,9 @@ help:
 	@echo "... dory/fiber.o"
 	@echo "... dory/fiber.i"
 	@echo "... dory/fiber.s"
+	@echo "... dory/iomanager.o"
+	@echo "... dory/iomanager.i"
+	@echo "... dory/iomanager.s"
 	@echo "... dory/log.o"
 	@echo "... dory/log.i"
 	@echo "... dory/log.s"
@@ -570,6 +641,9 @@ help:
 	@echo "... tests/test_fiber.o"
 	@echo "... tests/test_fiber.i"
 	@echo "... tests/test_fiber.s"
+	@echo "... tests/test_iomanager.o"
+	@echo "... tests/test_iomanager.i"
+	@echo "... tests/test_iomanager.s"
 	@echo "... tests/test_scheduler.o"
 	@echo "... tests/test_scheduler.i"
 	@echo "... tests/test_scheduler.s"

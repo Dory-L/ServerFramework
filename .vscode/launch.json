@@ -8,7 +8,7 @@
             "name": "g++ - 生成和调试活动文件",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/test_scheduler",
+            "program": "${workspaceFolder}/bin/test_iomanager",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${fileDirname}",
