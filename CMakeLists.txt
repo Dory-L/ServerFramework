@@ -22,6 +22,7 @@ set(LIB_SRC
     dory/fiber.cpp
     dory/scheduler.cpp
     dory/iomanager.cpp
+    dory/timer.cpp
     )
 
 add_library(dory SHARED ${LIB_SRC})

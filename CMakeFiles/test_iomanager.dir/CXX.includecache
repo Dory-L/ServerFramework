@@ -83,6 +83,8 @@ Thread.h
 /home/lly/projectfile/dory/workspace/dory/iomanager.h
 scheduler.h
 /home/lly/projectfile/dory/workspace/dory/scheduler.h
+timer.h
+/home/lly/projectfile/dory/workspace/dory/timer.h
 
 /home/lly/projectfile/dory/workspace/dory/log.h
 string
@@ -136,6 +138,16 @@ Thread.h
 
 /home/lly/projectfile/dory/workspace/dory/singleton.h
 
+/home/lly/projectfile/dory/workspace/dory/timer.h
+memory
+-
+set
+-
+vector
+-
+Thread.h
+/home/lly/projectfile/dory/workspace/dory/Thread.h
+
 /home/lly/projectfile/dory/workspace/dory/util.h
 thread
 -
@@ -151,6 +163,8 @@ string
 /home/lly/projectfile/dory/workspace/dory/dory.h
 ../dory/iomanager.h
 /home/lly/projectfile/dory/workspace/dory/iomanager.h
+../dory/timer.h
+/home/lly/projectfile/dory/workspace/dory/timer.h
 sys/types.h
 -
 sys/socket.h

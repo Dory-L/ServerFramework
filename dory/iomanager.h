@@ -1,10 +1,11 @@
 #pragma once
 
 #include "scheduler.h"
+#include "timer.h"
 
 namespace dory {
 
-class IOManager : public Scheduler {
+class IOManager : public Scheduler, public TimerManager {
 public:
     typedef std::shared_ptr<IOManager> ptr;
     typedef RWMutex RWMutexType;
@@ -77,10 +78,13 @@ protected:
     void tickle() override;
     bool stopping() override;
     void idle() override;
+    //有新的定时器被加到了前面要处理的事情
+    void onTimerInsertedAtFront() override;
 
     //重置句柄上下文的容器大小
     //size 容器大小
     void contextResize(size_t size);
+    bool stopping(uint64_t& timeout);
 private:
     int m_epfd = 0;
     int m_tickleFds[2];

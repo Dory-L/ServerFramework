@@ -22,3 +22,5 @@ CXX_INCLUDES =
 
 # Custom defines: CMakeFiles/dory.dir/dory/iomanager.cpp.o_DEFINES = __FILE__="dory/iomanager.cpp"
 
+# Custom defines: CMakeFiles/dory.dir/dory/timer.cpp.o_DEFINES = __FILE__="dory/timer.cpp"
+

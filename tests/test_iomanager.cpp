@@ -1,5 +1,6 @@
 #include "../dory/dory.h"
 #include "../dory/iomanager.h"
+#include "../dory/timer.h"
 
 #include <sys/types.h>          /* See NOTES */
 #include <sys/socket.h>
@@ -44,8 +45,23 @@ void test1() {
     iom.schedule(&test_fiber);
 }
 
+dory::Timer::ptr timer;
+
+void test_timer() {
+    dory::IOManager iom(2);
+    timer = iom.addTimer(1000, [](){ //不能用值传递，不然会自动释放timer,也不能用引用，
+        static int i = 0;
+        DORY_LOG_INFO(g_logger) << "hello timer i=" << i;
+        if (++i == 5) {
+            timer->reset(2000, true);
+            // timer->cancel();
+        }
+    }, true);
+}
+
 int main(int argc, char const *argv[])
 {
-    test1();
+    // test1();
+    test_timer();
     return 0;
 }

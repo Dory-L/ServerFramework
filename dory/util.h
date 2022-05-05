@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 
+
 namespace dory {
 //线程号
 pid_t GetThreadId();
@@ -15,5 +16,10 @@ void Backtrace(std::vector<std::string>& bt, int size, int skip = 2);
 
 //prefix自定义前缀
 std::string BacktraceToString(int size = 64, int skip = 2, const std::string& prefix = "");
+
+//时间ms
+uint64_t GetCurrentMS();
+//时间us
+uint64_t GetCurrentUS();
 
 } // namespace dory

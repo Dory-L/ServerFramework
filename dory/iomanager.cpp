@@ -267,9 +267,17 @@ void IOManager::tickle() {
     DORY_ASSERT(rt == 1);
 }
 
+//idle用,可以返回最近的timer执行时间
+bool IOManager::stopping(uint64_t& timeout) {
+    timeout = getNextTimer();
+    return timeout == ~0ull
+        && m_pendingEventCount == 0
+        && Scheduler::stopping();
+}
+
 bool IOManager::stopping() {
-    return Scheduler::stopping()
-        && m_pendingEventCount == 0;
+    uint64_t timeout = 0;
+    return stopping(timeout);
 }
 
 void IOManager::idle() {
@@ -279,21 +287,39 @@ void IOManager::idle() {
     });
 
     while(true) {
-        if (stopping()) {
-            DORY_LOG_INFO(g_logger) << "name=" << getName() << " idle stopping exit";
+        uint64_t next_timeout = 0;
+        if (stopping(next_timeout)) {
+            DORY_LOG_INFO(g_logger) << "name=" << getName() 
+                                    << " idle stopping exit";
             break;
         }
 
         int rt = 0;
         do {
-            static const int MAX_TIME_OUT = 5000;
-            rt = epoll_wait(m_epfd, events, 64, MAX_TIME_OUT);
+            static const int MAX_TIME_OUT = 3000;
+            if (next_timeout != ~0ull) {
+                //如果存在timer，就取最小值
+                next_timeout = (int)next_timeout > MAX_TIME_OUT
+                                ? MAX_TIME_OUT : next_timeout;
+            } else {
+                next_timeout = MAX_TIME_OUT;
+            }
+            rt = epoll_wait(m_epfd, events, 64, (int)next_timeout);
 
             if (rt < 0 && errno == EINTR) { //被中断了，应该重试
             } else {
                 break;
             }
         } while (true);
+
+        //检查定时器
+        std::vector<std::function<void()> > cbs;
+        listExpiredCb(cbs);
+        if (!cbs.empty()) {
+            // DORY_LOG_DEBUG(g_logger) << "on timer cbs.size=" << cbs.size();
+            schedule(cbs.begin(), cbs.end());
+            cbs.clear();
+        }
 
         for (int i = 0; i < rt; ++i) {
             epoll_event& event = events[i];
@@ -348,7 +374,10 @@ void IOManager::idle() {
 
         raw_ptr->swapOut();//回到main_fiber
     }
-    
+}
+
+void IOManager::onTimerInsertedAtFront() {
+    tickle();
 }
 
 }

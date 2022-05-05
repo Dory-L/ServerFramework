@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/lly/projectfile/dory/workspace/dory/iomanager.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/iomanager.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/log.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/log.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/scheduler.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/scheduler.cpp.o"
+  "/home/lly/projectfile/dory/workspace/dory/timer.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/timer.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/util.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/util.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

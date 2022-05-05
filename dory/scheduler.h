@@ -53,7 +53,7 @@ public:
         {
             MutexType::Lock lock(m_mutex);
             while (begin != end) {
-                need_tickle = scheduleNoLock(&*begin) || need_tickle; //用的指针，会被swap
+                need_tickle = scheduleNoLock(&*begin, -1) || need_tickle; //用的指针，会被swap
                 ++begin;
             }
         }
