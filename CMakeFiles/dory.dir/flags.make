@@ -24,3 +24,5 @@ CXX_INCLUDES =
 
 # Custom defines: CMakeFiles/dory.dir/dory/timer.cpp.o_DEFINES = __FILE__="dory/timer.cpp"
 
+# Custom defines: CMakeFiles/dory.dir/dory/hook.cpp.o_DEFINES = __FILE__="dory/hook.cpp"
+

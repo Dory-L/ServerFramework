@@ -1,6 +1,7 @@
 #include "scheduler.h"
 #include "log.h"
 #include "macro.h"
+#include "hook.h"
 
 namespace dory {
 
@@ -142,8 +143,8 @@ void Scheduler::setThis() {
 //执行协程调度的方法
 void Scheduler::run() {
     DORY_LOG_INFO(g_logger) << "run";
+    set_hook_enable(true);
     setThis();
-
     if (dory::GetThreadId() != m_rootThread) { //子线程也要创建自己的主协程
         t_fiber = Fiber::GetThis().get();
     }

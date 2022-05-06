@@ -114,6 +114,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_hook
+
+# Build rule for target.
+test_hook: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_hook
+.PHONY : test_hook
+
+# fast build rule for target.
+test_hook/fast:
+	$(MAKE) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/build
+.PHONY : test_hook/fast
+
+#=============================================================================
 # Target rules for targets named test_iomanager
 
 # Build rule for target.
@@ -297,6 +310,33 @@ dory/fiber.s: dory/fiber.cpp.s
 dory/fiber.cpp.s:
 	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/fiber.cpp.s
 .PHONY : dory/fiber.cpp.s
+
+dory/hook.o: dory/hook.cpp.o
+
+.PHONY : dory/hook.o
+
+# target to build an object file
+dory/hook.cpp.o:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/hook.cpp.o
+.PHONY : dory/hook.cpp.o
+
+dory/hook.i: dory/hook.cpp.i
+
+.PHONY : dory/hook.i
+
+# target to preprocess a source file
+dory/hook.cpp.i:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/hook.cpp.i
+.PHONY : dory/hook.cpp.i
+
+dory/hook.s: dory/hook.cpp.s
+
+.PHONY : dory/hook.s
+
+# target to generate assembly for a file
+dory/hook.cpp.s:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/hook.cpp.s
+.PHONY : dory/hook.cpp.s
 
 dory/iomanager.o: dory/iomanager.cpp.o
 
@@ -514,6 +554,33 @@ tests/test_fiber.cpp.s:
 	$(MAKE) -f CMakeFiles/test_fiber.dir/build.make CMakeFiles/test_fiber.dir/tests/test_fiber.cpp.s
 .PHONY : tests/test_fiber.cpp.s
 
+tests/test_hook.o: tests/test_hook.cpp.o
+
+.PHONY : tests/test_hook.o
+
+# target to build an object file
+tests/test_hook.cpp.o:
+	$(MAKE) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/tests/test_hook.cpp.o
+.PHONY : tests/test_hook.cpp.o
+
+tests/test_hook.i: tests/test_hook.cpp.i
+
+.PHONY : tests/test_hook.i
+
+# target to preprocess a source file
+tests/test_hook.cpp.i:
+	$(MAKE) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/tests/test_hook.cpp.i
+.PHONY : tests/test_hook.cpp.i
+
+tests/test_hook.s: tests/test_hook.cpp.s
+
+.PHONY : tests/test_hook.s
+
+# target to generate assembly for a file
+tests/test_hook.cpp.s:
+	$(MAKE) -f CMakeFiles/test_hook.dir/build.make CMakeFiles/test_hook.dir/tests/test_hook.cpp.s
+.PHONY : tests/test_hook.cpp.s
+
 tests/test_iomanager.o: tests/test_iomanager.cpp.o
 
 .PHONY : tests/test_iomanager.o
@@ -628,6 +695,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... test_hook"
 	@echo "... test_iomanager"
 	@echo "... test_scheduler"
 	@echo "... test_fiber"
@@ -647,6 +715,9 @@ help:
 	@echo "... dory/fiber.o"
 	@echo "... dory/fiber.i"
 	@echo "... dory/fiber.s"
+	@echo "... dory/hook.o"
+	@echo "... dory/hook.i"
+	@echo "... dory/hook.s"
 	@echo "... dory/iomanager.o"
 	@echo "... dory/iomanager.i"
 	@echo "... dory/iomanager.s"
@@ -671,6 +742,9 @@ help:
 	@echo "... tests/test_fiber.o"
 	@echo "... tests/test_fiber.i"
 	@echo "... tests/test_fiber.s"
+	@echo "... tests/test_hook.o"
+	@echo "... tests/test_hook.i"
+	@echo "... tests/test_hook.s"
 	@echo "... tests/test_iomanager.o"
 	@echo "... tests/test_iomanager.i"
 	@echo "... tests/test_iomanager.s"
