@@ -7,7 +7,7 @@
 #include "log.h"
 #include "fiber.h"
 
-dory::Logger::ptr g_logger = DORY_LOG_NAME("system"); //系统的用system，用户的用root，不然会混到一起
+static dory::Logger::ptr g_logger = DORY_LOG_NAME("system"); //系统的用system，用户的用root，不然会混到一起
 
 namespace dory
 {

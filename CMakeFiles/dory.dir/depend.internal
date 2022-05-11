@@ -14,6 +14,16 @@ CMakeFiles/dory.dir/dory/config.cpp.o
  /home/lly/projectfile/dory/workspace/dory/log.h
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/util.h
+CMakeFiles/dory.dir/dory/fd_manager.cpp.o
+ /home/lly/projectfile/dory/workspace/dory/Thread.h
+ /home/lly/projectfile/dory/workspace/dory/fd_manager.cpp
+ /home/lly/projectfile/dory/workspace/dory/fd_manager.h
+ /home/lly/projectfile/dory/workspace/dory/fiber.h
+ /home/lly/projectfile/dory/workspace/dory/hook.h
+ /home/lly/projectfile/dory/workspace/dory/iomanager.h
+ /home/lly/projectfile/dory/workspace/dory/scheduler.h
+ /home/lly/projectfile/dory/workspace/dory/singleton.h
+ /home/lly/projectfile/dory/workspace/dory/timer.h
 CMakeFiles/dory.dir/dory/fiber.cpp.o
  /home/lly/projectfile/dory/workspace/dory/Thread.h
  /home/lly/projectfile/dory/workspace/dory/config.h
@@ -26,12 +36,16 @@ CMakeFiles/dory.dir/dory/fiber.cpp.o
  /home/lly/projectfile/dory/workspace/dory/util.h
 CMakeFiles/dory.dir/dory/hook.cpp.o
  /home/lly/projectfile/dory/workspace/dory/Thread.h
+ /home/lly/projectfile/dory/workspace/dory/fd_manager.h
  /home/lly/projectfile/dory/workspace/dory/fiber.h
  /home/lly/projectfile/dory/workspace/dory/hook.cpp
  /home/lly/projectfile/dory/workspace/dory/hook.h
  /home/lly/projectfile/dory/workspace/dory/iomanager.h
+ /home/lly/projectfile/dory/workspace/dory/log.h
  /home/lly/projectfile/dory/workspace/dory/scheduler.h
+ /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/timer.h
+ /home/lly/projectfile/dory/workspace/dory/util.h
 CMakeFiles/dory.dir/dory/iomanager.cpp.o
  /home/lly/projectfile/dory/workspace/dory/Thread.h
  /home/lly/projectfile/dory/workspace/dory/fiber.h

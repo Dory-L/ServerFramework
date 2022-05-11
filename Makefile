@@ -284,6 +284,33 @@ dory/config.cpp.s:
 	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/config.cpp.s
 .PHONY : dory/config.cpp.s
 
+dory/fd_manager.o: dory/fd_manager.cpp.o
+
+.PHONY : dory/fd_manager.o
+
+# target to build an object file
+dory/fd_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/fd_manager.cpp.o
+.PHONY : dory/fd_manager.cpp.o
+
+dory/fd_manager.i: dory/fd_manager.cpp.i
+
+.PHONY : dory/fd_manager.i
+
+# target to preprocess a source file
+dory/fd_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/fd_manager.cpp.i
+.PHONY : dory/fd_manager.cpp.i
+
+dory/fd_manager.s: dory/fd_manager.cpp.s
+
+.PHONY : dory/fd_manager.s
+
+# target to generate assembly for a file
+dory/fd_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/fd_manager.cpp.s
+.PHONY : dory/fd_manager.cpp.s
+
 dory/fiber.o: dory/fiber.cpp.o
 
 .PHONY : dory/fiber.o
@@ -712,6 +739,9 @@ help:
 	@echo "... dory/config.o"
 	@echo "... dory/config.i"
 	@echo "... dory/config.s"
+	@echo "... dory/fd_manager.o"
+	@echo "... dory/fd_manager.i"
+	@echo "... dory/fd_manager.s"
 	@echo "... dory/fiber.o"
 	@echo "... dory/fiber.i"
 	@echo "... dory/fiber.s"

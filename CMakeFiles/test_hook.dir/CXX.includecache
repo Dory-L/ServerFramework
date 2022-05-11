@@ -85,6 +85,20 @@ unistd.h
 -
 time.h
 -
+sys/types.h
+-
+sys/socket.h
+-
+sys/uio.h
+-
+fcntl.h
+-
+sys/ioctl.h
+-
+functional
+-
+stdarg.h
+-
 
 /home/lly/projectfile/dory/workspace/dory/iomanager.h
 scheduler.h

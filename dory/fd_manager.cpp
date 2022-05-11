@@ -40,7 +40,7 @@ bool FdCtx::init() {
 
     if (m_isSocket) {
         int flags = fcntl_f(m_fd, F_GETFL, 0); //hook函数
-        if (!(flags * O_NONBLOCK)) {
+        if (!(flags & O_NONBLOCK)) {
             fcntl_f(m_fd, F_SETFL, flags | O_NONBLOCK);
         }
         m_sysNonblock = true;
@@ -74,10 +74,10 @@ FdManager::FdManager() {
     m_datas.resize(64);
 }
 
-FdCtx::ptr FdManager::get(int fd, bool auto_create = false) {
+FdCtx::ptr FdManager::get(int fd, bool auto_create) {
     RWMutexType::ReadLock lock(m_mutex);
-    if (m_datas.size() <= fd) { //容量不足
-        if (auto_create = false) {
+    if ((int)m_datas.size() <= fd) { //容量不足
+        if (auto_create == false) {
             return nullptr;
         }
     } else {
@@ -93,9 +93,9 @@ FdCtx::ptr FdManager::get(int fd, bool auto_create = false) {
     return ctx;
 }
 
-void FdManager::def(int fd) {
+void FdManager::del(int fd) {
     RWMutexType::WriteLock lock(m_mutex);
-    if (m_datas.size() <= fd) {
+    if ((int)m_datas.size() <= fd) {
         return;
     }
     m_datas[fd].reset();

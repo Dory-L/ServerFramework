@@ -23,6 +23,7 @@ set(LIB_SRC
     dory/scheduler.cpp
     dory/iomanager.cpp
     dory/timer.cpp
+    dory/fd_manager.cpp
     dory/hook.cpp
     )
 

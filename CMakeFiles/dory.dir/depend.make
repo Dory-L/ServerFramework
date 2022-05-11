@@ -14,6 +14,16 @@ CMakeFiles/dory.dir/dory/config.cpp.o: dory/log.h
 CMakeFiles/dory.dir/dory/config.cpp.o: dory/singleton.h
 CMakeFiles/dory.dir/dory/config.cpp.o: dory/util.h
 
+CMakeFiles/dory.dir/dory/fd_manager.cpp.o: dory/Thread.h
+CMakeFiles/dory.dir/dory/fd_manager.cpp.o: dory/fd_manager.cpp
+CMakeFiles/dory.dir/dory/fd_manager.cpp.o: dory/fd_manager.h
+CMakeFiles/dory.dir/dory/fd_manager.cpp.o: dory/fiber.h
+CMakeFiles/dory.dir/dory/fd_manager.cpp.o: dory/hook.h
+CMakeFiles/dory.dir/dory/fd_manager.cpp.o: dory/iomanager.h
+CMakeFiles/dory.dir/dory/fd_manager.cpp.o: dory/scheduler.h
+CMakeFiles/dory.dir/dory/fd_manager.cpp.o: dory/singleton.h
+CMakeFiles/dory.dir/dory/fd_manager.cpp.o: dory/timer.h
+
 CMakeFiles/dory.dir/dory/fiber.cpp.o: dory/Thread.h
 CMakeFiles/dory.dir/dory/fiber.cpp.o: dory/config.h
 CMakeFiles/dory.dir/dory/fiber.cpp.o: dory/fiber.cpp
@@ -25,12 +35,16 @@ CMakeFiles/dory.dir/dory/fiber.cpp.o: dory/singleton.h
 CMakeFiles/dory.dir/dory/fiber.cpp.o: dory/util.h
 
 CMakeFiles/dory.dir/dory/hook.cpp.o: dory/Thread.h
+CMakeFiles/dory.dir/dory/hook.cpp.o: dory/fd_manager.h
 CMakeFiles/dory.dir/dory/hook.cpp.o: dory/fiber.h
 CMakeFiles/dory.dir/dory/hook.cpp.o: dory/hook.cpp
 CMakeFiles/dory.dir/dory/hook.cpp.o: dory/hook.h
 CMakeFiles/dory.dir/dory/hook.cpp.o: dory/iomanager.h
+CMakeFiles/dory.dir/dory/hook.cpp.o: dory/log.h
 CMakeFiles/dory.dir/dory/hook.cpp.o: dory/scheduler.h
+CMakeFiles/dory.dir/dory/hook.cpp.o: dory/singleton.h
 CMakeFiles/dory.dir/dory/hook.cpp.o: dory/timer.h
+CMakeFiles/dory.dir/dory/hook.cpp.o: dory/util.h
 
 CMakeFiles/dory.dir/dory/iomanager.cpp.o: dory/Thread.h
 CMakeFiles/dory.dir/dory/iomanager.cpp.o: dory/fiber.h

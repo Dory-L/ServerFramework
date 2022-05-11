@@ -17,7 +17,7 @@ public:
     ~FdCtx();
 
     bool init();
-    bool isInit() const { return isInit; };
+    bool isInit() const { return m_isInit; };
     bool isSocket() const { return m_isSocket; }
     bool isClosed() const { return m_isClosed; }
     bool close();
@@ -57,7 +57,7 @@ public:
     //auto_create 是否自动创建
     FdCtx::ptr get(int fd, bool auto_create = false);
     //删除文件句柄
-    void def(int fd);
+    void del(int fd);
 
 private:
     RWMutexType m_mutex;
