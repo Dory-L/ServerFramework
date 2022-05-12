@@ -19,6 +19,8 @@ semaphore.h
 -
 atomic
 -
+noncopyable.h
+/home/lly/projectfile/dory/workspace/dory/noncopyable.h
 
 /home/lly/projectfile/dory/workspace/dory/config.h
 memory
@@ -119,6 +121,8 @@ assert.h
 -
 util.h
 /home/lly/projectfile/dory/workspace/dory/util.h
+
+/home/lly/projectfile/dory/workspace/dory/noncopyable.h
 
 /home/lly/projectfile/dory/workspace/dory/scheduler.h
 memory

@@ -5,6 +5,7 @@ CMakeFiles/dory.dir/dory/Thread.cpp.o
  /home/lly/projectfile/dory/workspace/dory/Thread.cpp
  /home/lly/projectfile/dory/workspace/dory/Thread.h
  /home/lly/projectfile/dory/workspace/dory/log.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/util.h
 CMakeFiles/dory.dir/dory/config.cpp.o
@@ -12,6 +13,7 @@ CMakeFiles/dory.dir/dory/config.cpp.o
  /home/lly/projectfile/dory/workspace/dory/config.cpp
  /home/lly/projectfile/dory/workspace/dory/config.h
  /home/lly/projectfile/dory/workspace/dory/log.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/util.h
 CMakeFiles/dory.dir/dory/fd_manager.cpp.o
@@ -21,6 +23,7 @@ CMakeFiles/dory.dir/dory/fd_manager.cpp.o
  /home/lly/projectfile/dory/workspace/dory/fiber.h
  /home/lly/projectfile/dory/workspace/dory/hook.h
  /home/lly/projectfile/dory/workspace/dory/iomanager.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
  /home/lly/projectfile/dory/workspace/dory/scheduler.h
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/timer.h
@@ -31,17 +34,20 @@ CMakeFiles/dory.dir/dory/fiber.cpp.o
  /home/lly/projectfile/dory/workspace/dory/fiber.h
  /home/lly/projectfile/dory/workspace/dory/log.h
  /home/lly/projectfile/dory/workspace/dory/macro.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
  /home/lly/projectfile/dory/workspace/dory/scheduler.h
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/util.h
 CMakeFiles/dory.dir/dory/hook.cpp.o
  /home/lly/projectfile/dory/workspace/dory/Thread.h
+ /home/lly/projectfile/dory/workspace/dory/config.h
  /home/lly/projectfile/dory/workspace/dory/fd_manager.h
  /home/lly/projectfile/dory/workspace/dory/fiber.h
  /home/lly/projectfile/dory/workspace/dory/hook.cpp
  /home/lly/projectfile/dory/workspace/dory/hook.h
  /home/lly/projectfile/dory/workspace/dory/iomanager.h
  /home/lly/projectfile/dory/workspace/dory/log.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
  /home/lly/projectfile/dory/workspace/dory/scheduler.h
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/timer.h
@@ -53,6 +59,7 @@ CMakeFiles/dory.dir/dory/iomanager.cpp.o
  /home/lly/projectfile/dory/workspace/dory/iomanager.h
  /home/lly/projectfile/dory/workspace/dory/log.h
  /home/lly/projectfile/dory/workspace/dory/macro.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
  /home/lly/projectfile/dory/workspace/dory/scheduler.h
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/timer.h
@@ -62,6 +69,7 @@ CMakeFiles/dory.dir/dory/log.cpp.o
  /home/lly/projectfile/dory/workspace/dory/config.h
  /home/lly/projectfile/dory/workspace/dory/log.cpp
  /home/lly/projectfile/dory/workspace/dory/log.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/util.h
 CMakeFiles/dory.dir/dory/scheduler.cpp.o
@@ -70,12 +78,14 @@ CMakeFiles/dory.dir/dory/scheduler.cpp.o
  /home/lly/projectfile/dory/workspace/dory/hook.h
  /home/lly/projectfile/dory/workspace/dory/log.h
  /home/lly/projectfile/dory/workspace/dory/macro.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
  /home/lly/projectfile/dory/workspace/dory/scheduler.cpp
  /home/lly/projectfile/dory/workspace/dory/scheduler.h
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/util.h
 CMakeFiles/dory.dir/dory/timer.cpp.o
  /home/lly/projectfile/dory/workspace/dory/Thread.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
  /home/lly/projectfile/dory/workspace/dory/timer.cpp
  /home/lly/projectfile/dory/workspace/dory/timer.h
  /home/lly/projectfile/dory/workspace/dory/util.h
@@ -83,6 +93,7 @@ CMakeFiles/dory.dir/dory/util.cpp.o
  /home/lly/projectfile/dory/workspace/dory/Thread.h
  /home/lly/projectfile/dory/workspace/dory/fiber.h
  /home/lly/projectfile/dory/workspace/dory/log.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/util.cpp
  /home/lly/projectfile/dory/workspace/dory/util.h

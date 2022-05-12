@@ -3,6 +3,7 @@
 
 CMakeFiles/test.dir/tests/test.cpp.o: dory/Thread.h
 CMakeFiles/test.dir/tests/test.cpp.o: dory/log.h
+CMakeFiles/test.dir/tests/test.cpp.o: dory/noncopyable.h
 CMakeFiles/test.dir/tests/test.cpp.o: dory/singleton.h
 CMakeFiles/test.dir/tests/test.cpp.o: dory/util.h
 CMakeFiles/test.dir/tests/test.cpp.o: tests/test.cpp

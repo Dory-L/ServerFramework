@@ -19,6 +19,8 @@ semaphore.h
 -
 atomic
 -
+noncopyable.h
+/home/lly/projectfile/dory/workspace/dory/noncopyable.h
 
 /home/lly/projectfile/dory/workspace/dory/log.h
 string
@@ -45,6 +47,8 @@ util.h
 /home/lly/projectfile/dory/workspace/dory/util.h
 Thread.h
 /home/lly/projectfile/dory/workspace/dory/Thread.h
+
+/home/lly/projectfile/dory/workspace/dory/noncopyable.h
 
 /home/lly/projectfile/dory/workspace/dory/singleton.h
 

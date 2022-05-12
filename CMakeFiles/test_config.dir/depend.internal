@@ -5,6 +5,7 @@ CMakeFiles/test_config.dir/tests/test_config.cpp.o
  /home/lly/projectfile/dory/workspace/dory/Thread.h
  /home/lly/projectfile/dory/workspace/dory/config.h
  /home/lly/projectfile/dory/workspace/dory/log.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/util.h
  /home/lly/projectfile/dory/workspace/tests/test_config.cpp

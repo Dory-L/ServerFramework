@@ -5,10 +5,14 @@
 #include "iomanager.h"
 #include "fd_manager.h"
 #include "log.h"
+#include "config.h"
 
 
 static dory::Logger::ptr g_logger = DORY_LOG_NAME("system");
 namespace dory {
+
+static dory::ConfigVar<int>::ptr g_tcp_connect_timeout =
+    dory::Config::Lookup("tcp.connect.timeout", 5000, "tcp connect timeout");
 
 static thread_local bool t_hook_enable = false;
 
@@ -45,10 +49,17 @@ void hook_init() {
     HOOK_FUN(XX);
 #undef XX
 }
-
+static uint64_t s_connect_timeout = -1;//connect超时时间
 struct _HookIniter {
     _HookIniter() {
         hook_init();
+        s_connect_timeout = g_tcp_connect_timeout->getValue();
+
+        g_tcp_connect_timeout->addListener([](const int& old_vlaue, const int& new_value){
+            DORY_LOG_INFO(g_logger) << "tcp connect timeout changed from " << old_vlaue
+                                    << " to " << new_value;
+            s_connect_timeout = new_value;
+        });
     }
 };
 
@@ -192,7 +203,7 @@ int socket(int domain, int type, int protocol) {
     if (!dory::t_hook_enable) { //没有hook住，就返回原函数的结果
         return socket_f(domain, type, protocol);
     }
-    int fd = socket_f(domain, type, domain);
+    int fd = socket_f(domain, type, protocol);
     if (fd == -1) {
         return fd;
     }
@@ -273,7 +284,7 @@ int connect_with_timeout(int fd, const struct sockaddr *addr, socklen_t addrlen,
 }
 
 int connect(int sockfd, const struct sockaddr *addr, socklen_t addrlen) {
-    return connect_f(sockfd, addr, addrlen);
+    return connect_with_timeout(sockfd, addr, addrlen, dory::s_connect_timeout);
 }
 
 int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen) {

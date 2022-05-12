@@ -4,6 +4,7 @@
 CMakeFiles/test_config.dir/tests/test_config.cpp.o: dory/Thread.h
 CMakeFiles/test_config.dir/tests/test_config.cpp.o: dory/config.h
 CMakeFiles/test_config.dir/tests/test_config.cpp.o: dory/log.h
+CMakeFiles/test_config.dir/tests/test_config.cpp.o: dory/noncopyable.h
 CMakeFiles/test_config.dir/tests/test_config.cpp.o: dory/singleton.h
 CMakeFiles/test_config.dir/tests/test_config.cpp.o: dory/util.h
 CMakeFiles/test_config.dir/tests/test_config.cpp.o: tests/test_config.cpp
