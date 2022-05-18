@@ -9,7 +9,7 @@
 
 namespace dory {
 
-static dory::Logger::ptr g_logger = DORY_LOG_ROOT();
+static dory::Logger::ptr g_logger = DORY_LOG_NAME("system");
 
 template<class T>
 static T CreateMask(uint32_t bits) {
