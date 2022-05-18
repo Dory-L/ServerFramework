@@ -153,6 +153,19 @@ test_scheduler/fast:
 .PHONY : test_scheduler/fast
 
 #=============================================================================
+# Target rules for targets named test_address
+
+# Build rule for target.
+test_address: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_address
+.PHONY : test_address
+
+# fast build rule for target.
+test_address/fast:
+	$(MAKE) -f CMakeFiles/test_address.dir/build.make CMakeFiles/test_address.dir/build
+.PHONY : test_address/fast
+
+#=============================================================================
 # Target rules for targets named test_fiber
 
 # Build rule for target.
@@ -256,6 +269,33 @@ dory/Thread.s: dory/Thread.cpp.s
 dory/Thread.cpp.s:
 	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/Thread.cpp.s
 .PHONY : dory/Thread.cpp.s
+
+dory/address.o: dory/address.cpp.o
+
+.PHONY : dory/address.o
+
+# target to build an object file
+dory/address.cpp.o:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/address.cpp.o
+.PHONY : dory/address.cpp.o
+
+dory/address.i: dory/address.cpp.i
+
+.PHONY : dory/address.i
+
+# target to preprocess a source file
+dory/address.cpp.i:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/address.cpp.i
+.PHONY : dory/address.cpp.i
+
+dory/address.s: dory/address.cpp.s
+
+.PHONY : dory/address.s
+
+# target to generate assembly for a file
+dory/address.cpp.s:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/address.cpp.s
+.PHONY : dory/address.cpp.s
 
 dory/config.o: dory/config.cpp.o
 
@@ -527,6 +567,33 @@ tests/test.cpp.s:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cpp.s
 .PHONY : tests/test.cpp.s
 
+tests/test_address.o: tests/test_address.cpp.o
+
+.PHONY : tests/test_address.o
+
+# target to build an object file
+tests/test_address.cpp.o:
+	$(MAKE) -f CMakeFiles/test_address.dir/build.make CMakeFiles/test_address.dir/tests/test_address.cpp.o
+.PHONY : tests/test_address.cpp.o
+
+tests/test_address.i: tests/test_address.cpp.i
+
+.PHONY : tests/test_address.i
+
+# target to preprocess a source file
+tests/test_address.cpp.i:
+	$(MAKE) -f CMakeFiles/test_address.dir/build.make CMakeFiles/test_address.dir/tests/test_address.cpp.i
+.PHONY : tests/test_address.cpp.i
+
+tests/test_address.s: tests/test_address.cpp.s
+
+.PHONY : tests/test_address.s
+
+# target to generate assembly for a file
+tests/test_address.cpp.s:
+	$(MAKE) -f CMakeFiles/test_address.dir/build.make CMakeFiles/test_address.dir/tests/test_address.cpp.s
+.PHONY : tests/test_address.cpp.s
+
 tests/test_config.o: tests/test_config.cpp.o
 
 .PHONY : tests/test_config.o
@@ -725,6 +792,7 @@ help:
 	@echo "... test_hook"
 	@echo "... test_iomanager"
 	@echo "... test_scheduler"
+	@echo "... test_address"
 	@echo "... test_fiber"
 	@echo "... rebuild_cache"
 	@echo "... test_util"
@@ -736,6 +804,9 @@ help:
 	@echo "... dory/Thread.o"
 	@echo "... dory/Thread.i"
 	@echo "... dory/Thread.s"
+	@echo "... dory/address.o"
+	@echo "... dory/address.i"
+	@echo "... dory/address.s"
 	@echo "... dory/config.o"
 	@echo "... dory/config.i"
 	@echo "... dory/config.s"
@@ -766,6 +837,9 @@ help:
 	@echo "... tests/test.o"
 	@echo "... tests/test.i"
 	@echo "... tests/test.s"
+	@echo "... tests/test_address.o"
+	@echo "... tests/test_address.i"
+	@echo "... tests/test_address.s"
 	@echo "... tests/test_config.o"
 	@echo "... tests/test_config.i"
 	@echo "... tests/test_config.s"

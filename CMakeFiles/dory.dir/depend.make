@@ -8,6 +8,15 @@ CMakeFiles/dory.dir/dory/Thread.cpp.o: dory/noncopyable.h
 CMakeFiles/dory.dir/dory/Thread.cpp.o: dory/singleton.h
 CMakeFiles/dory.dir/dory/Thread.cpp.o: dory/util.h
 
+CMakeFiles/dory.dir/dory/address.cpp.o: dory/Thread.h
+CMakeFiles/dory.dir/dory/address.cpp.o: dory/address.cpp
+CMakeFiles/dory.dir/dory/address.cpp.o: dory/address.h
+CMakeFiles/dory.dir/dory/address.cpp.o: dory/endian.h
+CMakeFiles/dory.dir/dory/address.cpp.o: dory/log.h
+CMakeFiles/dory.dir/dory/address.cpp.o: dory/noncopyable.h
+CMakeFiles/dory.dir/dory/address.cpp.o: dory/singleton.h
+CMakeFiles/dory.dir/dory/address.cpp.o: dory/util.h
+
 CMakeFiles/dory.dir/dory/config.cpp.o: dory/Thread.h
 CMakeFiles/dory.dir/dory/config.cpp.o: dory/config.cpp
 CMakeFiles/dory.dir/dory/config.cpp.o: dory/config.h

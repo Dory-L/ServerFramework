@@ -28,3 +28,5 @@ CXX_INCLUDES =
 
 # Custom defines: CMakeFiles/dory.dir/dory/hook.cpp.o_DEFINES = __FILE__="dory/hook.cpp"
 
+# Custom defines: CMakeFiles/dory.dir/dory/address.cpp.o_DEFINES = __FILE__="dory/address.cpp"
+

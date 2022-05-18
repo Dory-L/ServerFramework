@@ -8,6 +8,15 @@ CMakeFiles/dory.dir/dory/Thread.cpp.o
  /home/lly/projectfile/dory/workspace/dory/noncopyable.h
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/util.h
+CMakeFiles/dory.dir/dory/address.cpp.o
+ /home/lly/projectfile/dory/workspace/dory/Thread.h
+ /home/lly/projectfile/dory/workspace/dory/address.cpp
+ /home/lly/projectfile/dory/workspace/dory/address.h
+ /home/lly/projectfile/dory/workspace/dory/endian.h
+ /home/lly/projectfile/dory/workspace/dory/log.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
+ /home/lly/projectfile/dory/workspace/dory/singleton.h
+ /home/lly/projectfile/dory/workspace/dory/util.h
 CMakeFiles/dory.dir/dory/config.cpp.o
  /home/lly/projectfile/dory/workspace/dory/Thread.h
  /home/lly/projectfile/dory/workspace/dory/config.cpp
