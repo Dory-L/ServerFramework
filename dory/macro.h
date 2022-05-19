@@ -4,9 +4,9 @@
 #include <assert.h>
 #include "util.h"
 
-#ifdef defined __GNUC__ || defined __llvm__
-#   define DORY_LIKELY(x)      __builtin_except(!!(x), 1)
-#   define DORY_UNLIKELY(x)      __builtin_except(!!(x), 0)
+#if defined __GNUC__ || defined __llvm__
+#   define DORY_LIKELY(x)      __builtin_expect(!!(x), 1)
+#   define DORY_UNLIKELY(x)      __builtin_expect(!!(x), 0)
 #else
 #   define DORY_LIKELY(x)       (x)
 #   define DORY_UNLIKELY(x)       (x)

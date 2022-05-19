@@ -92,6 +92,22 @@ CMakeFiles/dory.dir/dory/scheduler.cpp.o: dory/scheduler.h
 CMakeFiles/dory.dir/dory/scheduler.cpp.o: dory/singleton.h
 CMakeFiles/dory.dir/dory/scheduler.cpp.o: dory/util.h
 
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/Thread.h
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/address.h
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/fd_manager.h
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/fiber.h
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/hook.h
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/iomanager.h
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/log.h
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/macro.h
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/noncopyable.h
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/scheduler.h
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/singleton.h
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/socket.cpp
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/socket.h
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/timer.h
+CMakeFiles/dory.dir/dory/socket.cpp.o: dory/util.h
+
 CMakeFiles/dory.dir/dory/timer.cpp.o: dory/Thread.h
 CMakeFiles/dory.dir/dory/timer.cpp.o: dory/noncopyable.h
 CMakeFiles/dory.dir/dory/timer.cpp.o: dory/timer.cpp

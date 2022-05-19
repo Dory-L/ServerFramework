@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/dory.dir/dory/iomanager.cpp.o"
   "CMakeFiles/dory.dir/dory/log.cpp.o"
   "CMakeFiles/dory.dir/dory/scheduler.cpp.o"
+  "CMakeFiles/dory.dir/dory/socket.cpp.o"
   "CMakeFiles/dory.dir/dory/timer.cpp.o"
   "CMakeFiles/dory.dir/dory/util.cpp.o"
   "lib/libdory.pdb"

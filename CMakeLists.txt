@@ -26,6 +26,7 @@ set(LIB_SRC
     dory/fd_manager.cpp
     dory/hook.cpp
     dory/address.cpp
+    dory/socket.cpp
     )
 
 set(LIBS 
@@ -81,6 +82,11 @@ add_executable(test_address tests/test_address.cpp)
 redefine_file_macro(test_address)
 add_dependencies(test_address dory)
 target_link_libraries(test_address ${LIBS})
+
+add_executable(test_socket tests/test_socket.cpp)
+redefine_file_macro(test_socket)
+add_dependencies(test_socket dory)
+target_link_libraries(test_socket ${LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

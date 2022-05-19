@@ -30,3 +30,5 @@ CXX_INCLUDES =
 
 # Custom defines: CMakeFiles/dory.dir/dory/address.cpp.o_DEFINES = __FILE__="dory/address.cpp"
 
+# Custom defines: CMakeFiles/dory.dir/dory/socket.cpp.o_DEFINES = __FILE__="dory/socket.cpp"
+

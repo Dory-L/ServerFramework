@@ -114,6 +114,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test_socket
+
+# Build rule for target.
+test_socket: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_socket
+.PHONY : test_socket
+
+# fast build rule for target.
+test_socket/fast:
+	$(MAKE) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/build
+.PHONY : test_socket/fast
+
+#=============================================================================
 # Target rules for targets named test_hook
 
 # Build rule for target.
@@ -486,6 +499,33 @@ dory/scheduler.cpp.s:
 	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/scheduler.cpp.s
 .PHONY : dory/scheduler.cpp.s
 
+dory/socket.o: dory/socket.cpp.o
+
+.PHONY : dory/socket.o
+
+# target to build an object file
+dory/socket.cpp.o:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/socket.cpp.o
+.PHONY : dory/socket.cpp.o
+
+dory/socket.i: dory/socket.cpp.i
+
+.PHONY : dory/socket.i
+
+# target to preprocess a source file
+dory/socket.cpp.i:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/socket.cpp.i
+.PHONY : dory/socket.cpp.i
+
+dory/socket.s: dory/socket.cpp.s
+
+.PHONY : dory/socket.s
+
+# target to generate assembly for a file
+dory/socket.cpp.s:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/socket.cpp.s
+.PHONY : dory/socket.cpp.s
+
 dory/timer.o: dory/timer.cpp.o
 
 .PHONY : dory/timer.o
@@ -729,6 +769,33 @@ tests/test_scheduler.cpp.s:
 	$(MAKE) -f CMakeFiles/test_scheduler.dir/build.make CMakeFiles/test_scheduler.dir/tests/test_scheduler.cpp.s
 .PHONY : tests/test_scheduler.cpp.s
 
+tests/test_socket.o: tests/test_socket.cpp.o
+
+.PHONY : tests/test_socket.o
+
+# target to build an object file
+tests/test_socket.cpp.o:
+	$(MAKE) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/tests/test_socket.cpp.o
+.PHONY : tests/test_socket.cpp.o
+
+tests/test_socket.i: tests/test_socket.cpp.i
+
+.PHONY : tests/test_socket.i
+
+# target to preprocess a source file
+tests/test_socket.cpp.i:
+	$(MAKE) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/tests/test_socket.cpp.i
+.PHONY : tests/test_socket.cpp.i
+
+tests/test_socket.s: tests/test_socket.cpp.s
+
+.PHONY : tests/test_socket.s
+
+# target to generate assembly for a file
+tests/test_socket.cpp.s:
+	$(MAKE) -f CMakeFiles/test_socket.dir/build.make CMakeFiles/test_socket.dir/tests/test_socket.cpp.s
+.PHONY : tests/test_socket.cpp.s
+
 tests/test_thread.o: tests/test_thread.cpp.o
 
 .PHONY : tests/test_thread.o
@@ -789,6 +856,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... test_socket"
 	@echo "... test_hook"
 	@echo "... test_iomanager"
 	@echo "... test_scheduler"
@@ -828,6 +896,9 @@ help:
 	@echo "... dory/scheduler.o"
 	@echo "... dory/scheduler.i"
 	@echo "... dory/scheduler.s"
+	@echo "... dory/socket.o"
+	@echo "... dory/socket.i"
+	@echo "... dory/socket.s"
 	@echo "... dory/timer.o"
 	@echo "... dory/timer.i"
 	@echo "... dory/timer.s"
@@ -855,6 +926,9 @@ help:
 	@echo "... tests/test_scheduler.o"
 	@echo "... tests/test_scheduler.i"
 	@echo "... tests/test_scheduler.s"
+	@echo "... tests/test_socket.o"
+	@echo "... tests/test_socket.i"
+	@echo "... tests/test_socket.s"
 	@echo "... tests/test_thread.o"
 	@echo "... tests/test_thread.i"
 	@echo "... tests/test_thread.s"

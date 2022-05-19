@@ -92,6 +92,22 @@ CMakeFiles/dory.dir/dory/scheduler.cpp.o
  /home/lly/projectfile/dory/workspace/dory/scheduler.h
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/util.h
+CMakeFiles/dory.dir/dory/socket.cpp.o
+ /home/lly/projectfile/dory/workspace/dory/Thread.h
+ /home/lly/projectfile/dory/workspace/dory/address.h
+ /home/lly/projectfile/dory/workspace/dory/fd_manager.h
+ /home/lly/projectfile/dory/workspace/dory/fiber.h
+ /home/lly/projectfile/dory/workspace/dory/hook.h
+ /home/lly/projectfile/dory/workspace/dory/iomanager.h
+ /home/lly/projectfile/dory/workspace/dory/log.h
+ /home/lly/projectfile/dory/workspace/dory/macro.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
+ /home/lly/projectfile/dory/workspace/dory/scheduler.h
+ /home/lly/projectfile/dory/workspace/dory/singleton.h
+ /home/lly/projectfile/dory/workspace/dory/socket.cpp
+ /home/lly/projectfile/dory/workspace/dory/socket.h
+ /home/lly/projectfile/dory/workspace/dory/timer.h
+ /home/lly/projectfile/dory/workspace/dory/util.h
 CMakeFiles/dory.dir/dory/timer.cpp.o
  /home/lly/projectfile/dory/workspace/dory/Thread.h
  /home/lly/projectfile/dory/workspace/dory/noncopyable.h
