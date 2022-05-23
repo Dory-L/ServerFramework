@@ -27,6 +27,7 @@ set(LIB_SRC
     dory/hook.cpp
     dory/address.cpp
     dory/socket.cpp
+    dory/bytearray.cpp
     )
 
 set(LIBS 
@@ -87,6 +88,11 @@ add_executable(test_socket tests/test_socket.cpp)
 redefine_file_macro(test_socket)
 add_dependencies(test_socket dory)
 target_link_libraries(test_socket ${LIBS})
+
+add_executable(test_bytearray tests/test_bytearray.cpp)
+redefine_file_macro(test_bytearray)
+add_dependencies(test_bytearray dory)
+target_link_libraries(test_bytearray ${LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

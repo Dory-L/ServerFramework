@@ -8,7 +8,7 @@
             "name": "g++ - 生成和调试活动文件",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/test_socket",
+            "program": "${workspaceFolder}/bin/test_bytearray",
             "args": [],
             "stopAtEntry": true,
             "cwd": "${fileDirname}",
