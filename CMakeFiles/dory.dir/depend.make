@@ -131,3 +131,27 @@ CMakeFiles/dory.dir/dory/util.cpp.o: dory/singleton.h
 CMakeFiles/dory.dir/dory/util.cpp.o: dory/util.cpp
 CMakeFiles/dory.dir/dory/util.cpp.o: dory/util.h
 
+CMakeFiles/dory.dir/http/http.cpp.o: http/http.cpp
+CMakeFiles/dory.dir/http/http.cpp.o: http/http.h
+
+CMakeFiles/dory.dir/http/http11_parser.rl.cpp.o: http/http11_common.h
+CMakeFiles/dory.dir/http/http11_parser.rl.cpp.o: http/http11_parser.h
+CMakeFiles/dory.dir/http/http11_parser.rl.cpp.o: http/http11_parser.rl.cpp
+
+CMakeFiles/dory.dir/http/http_parser.cpp.o: dory/Thread.h
+CMakeFiles/dory.dir/http/http_parser.cpp.o: dory/config.h
+CMakeFiles/dory.dir/http/http_parser.cpp.o: dory/log.h
+CMakeFiles/dory.dir/http/http_parser.cpp.o: dory/noncopyable.h
+CMakeFiles/dory.dir/http/http_parser.cpp.o: dory/singleton.h
+CMakeFiles/dory.dir/http/http_parser.cpp.o: dory/util.h
+CMakeFiles/dory.dir/http/http_parser.cpp.o: http/http.h
+CMakeFiles/dory.dir/http/http_parser.cpp.o: http/http11_common.h
+CMakeFiles/dory.dir/http/http_parser.cpp.o: http/http11_parser.h
+CMakeFiles/dory.dir/http/http_parser.cpp.o: http/http_parser.cpp
+CMakeFiles/dory.dir/http/http_parser.cpp.o: http/http_parser.h
+CMakeFiles/dory.dir/http/http_parser.cpp.o: http/httpclient_parser.h
+
+CMakeFiles/dory.dir/http/httpclient_parser.rl.cpp.o: http/http11_common.h
+CMakeFiles/dory.dir/http/httpclient_parser.rl.cpp.o: http/httpclient_parser.h
+CMakeFiles/dory.dir/http/httpclient_parser.rl.cpp.o: http/httpclient_parser.rl.cpp
+

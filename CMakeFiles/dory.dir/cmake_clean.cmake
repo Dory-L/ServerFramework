@@ -12,6 +12,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/dory.dir/dory/socket.cpp.o"
   "CMakeFiles/dory.dir/dory/timer.cpp.o"
   "CMakeFiles/dory.dir/dory/util.cpp.o"
+  "CMakeFiles/dory.dir/http/http.cpp.o"
+  "CMakeFiles/dory.dir/http/http11_parser.rl.cpp.o"
+  "CMakeFiles/dory.dir/http/http_parser.cpp.o"
+  "CMakeFiles/dory.dir/http/httpclient_parser.rl.cpp.o"
   "lib/libdory.pdb"
   "lib/libdory.so"
 )

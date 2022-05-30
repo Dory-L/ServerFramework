@@ -28,6 +28,10 @@ set(LIB_SRC
     dory/address.cpp
     dory/socket.cpp
     dory/bytearray.cpp
+    http/http.cpp
+    http/http11_parser.rl.cpp
+    http/httpclient_parser.rl.cpp
+    http/http_parser.cpp
     )
 
 set(LIBS 
@@ -93,6 +97,16 @@ add_executable(test_bytearray tests/test_bytearray.cpp)
 redefine_file_macro(test_bytearray)
 add_dependencies(test_bytearray dory)
 target_link_libraries(test_bytearray ${LIBS})
+
+add_executable(test_http tests/test_http.cpp)
+redefine_file_macro(test_http)
+add_dependencies(test_http dory)
+target_link_libraries(test_http ${LIBS})
+
+add_executable(test_http_parser tests/test_http_parser.cpp)
+redefine_file_macro(test_http_parser)
+add_dependencies(test_http_parser dory)
+target_link_libraries(test_http_parser ${LIBS})
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

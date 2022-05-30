@@ -17,6 +17,10 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/lly/projectfile/dory/workspace/dory/socket.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/socket.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/timer.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/timer.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/util.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/util.cpp.o"
+  "/home/lly/projectfile/dory/workspace/http/http.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/http/http.cpp.o"
+  "/home/lly/projectfile/dory/workspace/http/http11_parser.rl.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/http/http11_parser.rl.cpp.o"
+  "/home/lly/projectfile/dory/workspace/http/http_parser.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/http/http_parser.cpp.o"
+  "/home/lly/projectfile/dory/workspace/http/httpclient_parser.rl.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/http/httpclient_parser.rl.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

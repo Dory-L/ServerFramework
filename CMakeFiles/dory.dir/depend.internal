@@ -131,3 +131,27 @@ CMakeFiles/dory.dir/dory/util.cpp.o
  /home/lly/projectfile/dory/workspace/dory/singleton.h
  /home/lly/projectfile/dory/workspace/dory/util.cpp
  /home/lly/projectfile/dory/workspace/dory/util.h
+CMakeFiles/dory.dir/http/http.cpp.o
+ /home/lly/projectfile/dory/workspace/http/http.cpp
+ /home/lly/projectfile/dory/workspace/http/http.h
+CMakeFiles/dory.dir/http/http11_parser.rl.cpp.o
+ /home/lly/projectfile/dory/workspace/http/http11_common.h
+ /home/lly/projectfile/dory/workspace/http/http11_parser.h
+ /home/lly/projectfile/dory/workspace/http/http11_parser.rl.cpp
+CMakeFiles/dory.dir/http/http_parser.cpp.o
+ /home/lly/projectfile/dory/workspace/dory/Thread.h
+ /home/lly/projectfile/dory/workspace/dory/config.h
+ /home/lly/projectfile/dory/workspace/dory/log.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
+ /home/lly/projectfile/dory/workspace/dory/singleton.h
+ /home/lly/projectfile/dory/workspace/dory/util.h
+ /home/lly/projectfile/dory/workspace/http/http.h
+ /home/lly/projectfile/dory/workspace/http/http11_common.h
+ /home/lly/projectfile/dory/workspace/http/http11_parser.h
+ /home/lly/projectfile/dory/workspace/http/http_parser.cpp
+ /home/lly/projectfile/dory/workspace/http/http_parser.h
+ /home/lly/projectfile/dory/workspace/http/httpclient_parser.h
+CMakeFiles/dory.dir/http/httpclient_parser.rl.cpp.o
+ /home/lly/projectfile/dory/workspace/http/http11_common.h
+ /home/lly/projectfile/dory/workspace/http/httpclient_parser.h
+ /home/lly/projectfile/dory/workspace/http/httpclient_parser.rl.cpp

@@ -1,8 +1,10 @@
-/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir
-/home/lly/projectfile/dory/workspace/CMakeFiles/test.dir
-/home/lly/projectfile/dory/workspace/CMakeFiles/test_thread.dir
 /home/lly/projectfile/dory/workspace/CMakeFiles/rebuild_cache.dir
 /home/lly/projectfile/dory/workspace/CMakeFiles/edit_cache.dir
+/home/lly/projectfile/dory/workspace/CMakeFiles/test_http_parser.dir
+/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir
+/home/lly/projectfile/dory/workspace/CMakeFiles/test_http.dir
+/home/lly/projectfile/dory/workspace/CMakeFiles/test.dir
+/home/lly/projectfile/dory/workspace/CMakeFiles/test_thread.dir
 /home/lly/projectfile/dory/workspace/CMakeFiles/test_config.dir
 /home/lly/projectfile/dory/workspace/CMakeFiles/test_bytearray.dir
 /home/lly/projectfile/dory/workspace/CMakeFiles/test_util.dir
