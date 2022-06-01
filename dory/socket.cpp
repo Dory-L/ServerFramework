@@ -88,7 +88,7 @@ int64_t Socket::getRecvTimeout() {
 
 void Socket::setRecvTimeout(int64_t v) {
     struct timeval tv{int(v / 1000), int (v % 1000 * 1000)};
-    setOption(SOL_SOCKET, SO_RCVTIMEO, tv);  
+    setOption(SOL_SOCKET, SO_RCVTIMEO, tv); //设置socket接受超时时间
 }
 
 bool Socket::getOption(int level, int option, void* result, socklen_t* len) {
@@ -322,6 +322,7 @@ Address::ptr Socket::getRemoteAddress() {
             break;
     }
     socklen_t addrlen = result->getAddrLen();
+    //获取链接对方的地址结构
     if (getpeername(m_sock, result->getAddr(), &addrlen)) {
         DORY_LOG_ERROR(g_logger) << "getpeername error sock=" << m_sock
             << " errno=" << errno << " errstr=" << strerror(errno);
@@ -356,6 +357,7 @@ Address::ptr Socket::getLocalAddress() {
             break;
     }
     socklen_t addrlen = result->getAddrLen();
+    //获取本地地址结构
     if (getsockname(m_sock, result->getAddr(), &addrlen)) {
         DORY_LOG_ERROR(g_logger) << "getsockname error sock=" << m_sock
             << " errno=" << errno << " errstr=" << strerror(errno);

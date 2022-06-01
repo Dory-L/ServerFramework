@@ -121,7 +121,7 @@ retry: //失败了要重新读
                 if (!t || t->cancelled) { //条件不存在，或者设置错误直接返回
                     return;
                 }
-                t->cancelled = ETIMEDOUT;   //设置超时
+                t->cancelled = ETIMEDOUT;   //设置超时错误
                 iom->cancelEvent(fd, (dory::IOManager::Event)(event)); //超时了就不需要了
             }, winfo);
         }
