@@ -18,6 +18,7 @@ Socket::ptr Socket::CreateTCP(dory::Address::ptr address) {
     Socket::ptr sock(new Socket(address->getFamily(), TCP, 0));
     return sock;
 }
+
 Socket::ptr Socket::CreateUDP(dory::Address::ptr address) {
     Socket::ptr sock(new Socket(address->getFamily(), UDP, 0));
     return sock;
@@ -27,6 +28,7 @@ Socket::ptr Socket::CreateTCPSocket() {
     Socket::ptr sock(new Socket(IPv4, TCP, 0));
     return sock;
 }
+
 Socket::ptr Socket::CreateUDPSocket() {
     Socket::ptr sock(new Socket(IPv4, UDP, 0));
     return sock;
@@ -36,6 +38,7 @@ Socket::ptr Socket::CreateTCPSocket6() {
     Socket::ptr sock(new Socket(IPv6, TCP, 0));
     return sock;
 }
+
 Socket::ptr Socket::CreateUDPSocket6() {
     Socket::ptr sock(new Socket(IPv6, UDP, 0));
     return sock;
@@ -45,6 +48,7 @@ Socket::ptr Socket::CreateUnixTCPSocket() {
     Socket::ptr sock(new Socket(Unix, TCP, 0));
     return sock;
 }
+
 Socket::ptr Socket::CreateUnixUDPSocket() {
     Socket::ptr sock(new Socket(Unix, UDP, 0));
     return sock;
@@ -207,7 +211,7 @@ bool Socket::listen(int backlog) {
             << " errstr=" << strerror(errno);
         return false;
     }
-    return false;
+    return true;
 }
 bool Socket::close() {
     if (!m_isConnected && m_sock == -1) {
@@ -425,6 +429,10 @@ void Socket::newSock() {
             << ", " << m_type << ", " << m_protocol << ") errno="
             << errno << " errstr=" << strerror(errno);
     }
+}
+
+std::ostream& operator<<(std::ostream& os, const Socket& sock) {
+    return sock.dump(os);
 }
 
 }

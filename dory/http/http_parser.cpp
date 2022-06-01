@@ -1,6 +1,6 @@
 #include "http_parser.h"
-#include "../dory/log.h"
-#include "../dory/config.h"
+#include "../log.h"
+#include "../config.h"
 
 #include <string.h>
 

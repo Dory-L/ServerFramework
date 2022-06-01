@@ -22,6 +22,20 @@ atomic
 noncopyable.h
 /home/lly/projectfile/dory/workspace/dory/noncopyable.h
 
+/home/lly/projectfile/dory/workspace/dory/http/http.h
+memory
+-
+string
+-
+map
+-
+iostream
+-
+sstream
+-
+boost/lexical_cast.hpp
+-
+
 /home/lly/projectfile/dory/workspace/dory/log.h
 string
 -
@@ -62,23 +76,9 @@ vector
 string
 -
 
-/home/lly/projectfile/dory/workspace/http/http.h
-memory
--
-string
--
-map
--
-iostream
--
-sstream
--
-boost/lexical_cast.hpp
--
-
 /home/lly/projectfile/dory/workspace/tests/test_http.cpp
-../http/http.h
-/home/lly/projectfile/dory/workspace/http/http.h
+../dory/http/http.h
+/home/lly/projectfile/dory/workspace/dory/http/http.h
 ../dory/log.h
 /home/lly/projectfile/dory/workspace/dory/log.h
 

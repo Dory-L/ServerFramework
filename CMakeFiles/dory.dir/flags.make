@@ -34,11 +34,13 @@ CXX_INCLUDES =
 
 # Custom defines: CMakeFiles/dory.dir/dory/bytearray.cpp.o_DEFINES = __FILE__="dory/bytearray.cpp"
 
-# Custom defines: CMakeFiles/dory.dir/http/http.cpp.o_DEFINES = __FILE__="http/http.cpp"
+# Custom defines: CMakeFiles/dory.dir/dory/tcp_server.cpp.o_DEFINES = __FILE__="dory/tcp_server.cpp"
 
-# Custom defines: CMakeFiles/dory.dir/http/http11_parser.rl.cpp.o_DEFINES = __FILE__="http/http11_parser.rl.cpp"
+# Custom defines: CMakeFiles/dory.dir/dory/http/http.cpp.o_DEFINES = __FILE__="dory/http/http.cpp"
 
-# Custom defines: CMakeFiles/dory.dir/http/httpclient_parser.rl.cpp.o_DEFINES = __FILE__="http/httpclient_parser.rl.cpp"
+# Custom defines: CMakeFiles/dory.dir/dory/http/http11_parser.rl.cpp.o_DEFINES = __FILE__="dory/http/http11_parser.rl.cpp"
 
-# Custom defines: CMakeFiles/dory.dir/http/http_parser.cpp.o_DEFINES = __FILE__="http/http_parser.cpp"
+# Custom defines: CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.o_DEFINES = __FILE__="dory/http/httpclient_parser.rl.cpp"
+
+# Custom defines: CMakeFiles/dory.dir/dory/http/http_parser.cpp.o_DEFINES = __FILE__="dory/http/http_parser.cpp"
 

@@ -194,7 +194,7 @@ int Address::getFamily() const {
     return getAddr()->sa_family;
 }
 
-std::string Address::toString() {
+std::string Address::toString() const {
     std::stringstream ss;
     insert(ss);
     return ss.str();
@@ -483,7 +483,7 @@ UnixAddress::UnixAddress(const std::string& path) {
         --m_length;
     }
 
-    if (m_length <= sizeof(m_addr.sun_path)) {
+    if (m_length > sizeof(m_addr.sun_path)) {
         throw std::logic_error("path too long");
     }
 
@@ -541,6 +541,10 @@ const socklen_t UnknownAddress::getAddrLen() const {
 std::ostream& UnknownAddress::insert(std::ostream& os) const {
     os << "[UnkownAddress family=" << m_addr.sa_family << "]";
     return os;
+}
+
+std::ostream& operator<<(std::ostream& os, const Address& addr) {
+    return addr.insert(os);
 }
 
 } 

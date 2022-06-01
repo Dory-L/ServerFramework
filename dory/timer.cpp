@@ -103,7 +103,6 @@ Timer::ptr TimerManager::addTimer(uint64_t ms, std::function<void()> cb
                         ,bool recurring) {
     Timer::ptr timer(new Timer(ms, cb, recurring, this));
     RWMutexType::WriteLock lock(m_mutex);
-    lock.unlock();
     addTimer(timer, lock);
     return timer;
 }
