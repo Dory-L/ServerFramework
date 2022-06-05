@@ -29,10 +29,14 @@ set(LIB_SRC
     dory/socket.cpp
     dory/bytearray.cpp
     dory/tcp_server.cpp
+    dory/stream.cpp
+    dory/socket_stream.cpp
     dory/http/http.cpp
     dory/http/http11_parser.rl.cpp
     dory/http/httpclient_parser.rl.cpp
     dory/http/http_parser.cpp
+    dory/http/http_session.cpp
+    dory/http/http_server.cpp
     )
 
 set(LIBS 
@@ -114,10 +118,16 @@ redefine_file_macro(test_tcp_server)
 add_dependencies(test_tcp_server dory)
 target_link_libraries(test_tcp_server ${LIBS})
 
+add_executable(test_http_server tests/test_http_server.cpp)
+redefine_file_macro(test_http_server)
+add_dependencies(test_http_server dory)
+target_link_libraries(test_http_server ${LIBS})
+
 add_executable(echo_server examples/echo_server.cpp)
 redefine_file_macro(echo_server)
 add_dependencies(echo_server dory)
 target_link_libraries(echo_server ${LIBS})
+
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

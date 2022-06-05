@@ -257,6 +257,19 @@ test_fiber/fast:
 .PHONY : test_fiber/fast
 
 #=============================================================================
+# Target rules for targets named test_http_server
+
+# Build rule for target.
+test_http_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_http_server
+.PHONY : test_http_server
+
+# fast build rule for target.
+test_http_server/fast:
+	$(MAKE) -f CMakeFiles/test_http_server.dir/build.make CMakeFiles/test_http_server.dir/build
+.PHONY : test_http_server/fast
+
+#=============================================================================
 # Target rules for targets named test_address
 
 # Build rule for target.
@@ -591,6 +604,60 @@ dory/http/http_parser.cpp.s:
 	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/http_parser.cpp.s
 .PHONY : dory/http/http_parser.cpp.s
 
+dory/http/http_server.o: dory/http/http_server.cpp.o
+
+.PHONY : dory/http/http_server.o
+
+# target to build an object file
+dory/http/http_server.cpp.o:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/http_server.cpp.o
+.PHONY : dory/http/http_server.cpp.o
+
+dory/http/http_server.i: dory/http/http_server.cpp.i
+
+.PHONY : dory/http/http_server.i
+
+# target to preprocess a source file
+dory/http/http_server.cpp.i:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/http_server.cpp.i
+.PHONY : dory/http/http_server.cpp.i
+
+dory/http/http_server.s: dory/http/http_server.cpp.s
+
+.PHONY : dory/http/http_server.s
+
+# target to generate assembly for a file
+dory/http/http_server.cpp.s:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/http_server.cpp.s
+.PHONY : dory/http/http_server.cpp.s
+
+dory/http/http_session.o: dory/http/http_session.cpp.o
+
+.PHONY : dory/http/http_session.o
+
+# target to build an object file
+dory/http/http_session.cpp.o:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/http_session.cpp.o
+.PHONY : dory/http/http_session.cpp.o
+
+dory/http/http_session.i: dory/http/http_session.cpp.i
+
+.PHONY : dory/http/http_session.i
+
+# target to preprocess a source file
+dory/http/http_session.cpp.i:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/http_session.cpp.i
+.PHONY : dory/http/http_session.cpp.i
+
+dory/http/http_session.s: dory/http/http_session.cpp.s
+
+.PHONY : dory/http/http_session.s
+
+# target to generate assembly for a file
+dory/http/http_session.cpp.s:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/http_session.cpp.s
+.PHONY : dory/http/http_session.cpp.s
+
 dory/http/httpclient_parser.rl.o: dory/http/httpclient_parser.rl.cpp.o
 
 .PHONY : dory/http/httpclient_parser.rl.o
@@ -725,6 +792,60 @@ dory/socket.s: dory/socket.cpp.s
 dory/socket.cpp.s:
 	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/socket.cpp.s
 .PHONY : dory/socket.cpp.s
+
+dory/socket_stream.o: dory/socket_stream.cpp.o
+
+.PHONY : dory/socket_stream.o
+
+# target to build an object file
+dory/socket_stream.cpp.o:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/socket_stream.cpp.o
+.PHONY : dory/socket_stream.cpp.o
+
+dory/socket_stream.i: dory/socket_stream.cpp.i
+
+.PHONY : dory/socket_stream.i
+
+# target to preprocess a source file
+dory/socket_stream.cpp.i:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/socket_stream.cpp.i
+.PHONY : dory/socket_stream.cpp.i
+
+dory/socket_stream.s: dory/socket_stream.cpp.s
+
+.PHONY : dory/socket_stream.s
+
+# target to generate assembly for a file
+dory/socket_stream.cpp.s:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/socket_stream.cpp.s
+.PHONY : dory/socket_stream.cpp.s
+
+dory/stream.o: dory/stream.cpp.o
+
+.PHONY : dory/stream.o
+
+# target to build an object file
+dory/stream.cpp.o:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/stream.cpp.o
+.PHONY : dory/stream.cpp.o
+
+dory/stream.i: dory/stream.cpp.i
+
+.PHONY : dory/stream.i
+
+# target to preprocess a source file
+dory/stream.cpp.i:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/stream.cpp.i
+.PHONY : dory/stream.cpp.i
+
+dory/stream.s: dory/stream.cpp.s
+
+.PHONY : dory/stream.s
+
+# target to generate assembly for a file
+dory/stream.cpp.s:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/stream.cpp.s
+.PHONY : dory/stream.cpp.s
 
 dory/tcp_server.o: dory/tcp_server.cpp.o
 
@@ -1050,6 +1171,33 @@ tests/test_http_parser.cpp.s:
 	$(MAKE) -f CMakeFiles/test_http_parser.dir/build.make CMakeFiles/test_http_parser.dir/tests/test_http_parser.cpp.s
 .PHONY : tests/test_http_parser.cpp.s
 
+tests/test_http_server.o: tests/test_http_server.cpp.o
+
+.PHONY : tests/test_http_server.o
+
+# target to build an object file
+tests/test_http_server.cpp.o:
+	$(MAKE) -f CMakeFiles/test_http_server.dir/build.make CMakeFiles/test_http_server.dir/tests/test_http_server.cpp.o
+.PHONY : tests/test_http_server.cpp.o
+
+tests/test_http_server.i: tests/test_http_server.cpp.i
+
+.PHONY : tests/test_http_server.i
+
+# target to preprocess a source file
+tests/test_http_server.cpp.i:
+	$(MAKE) -f CMakeFiles/test_http_server.dir/build.make CMakeFiles/test_http_server.dir/tests/test_http_server.cpp.i
+.PHONY : tests/test_http_server.cpp.i
+
+tests/test_http_server.s: tests/test_http_server.cpp.s
+
+.PHONY : tests/test_http_server.s
+
+# target to generate assembly for a file
+tests/test_http_server.cpp.s:
+	$(MAKE) -f CMakeFiles/test_http_server.dir/build.make CMakeFiles/test_http_server.dir/tests/test_http_server.cpp.s
+.PHONY : tests/test_http_server.cpp.s
+
 tests/test_iomanager.o: tests/test_iomanager.cpp.o
 
 .PHONY : tests/test_iomanager.o
@@ -1231,6 +1379,7 @@ help:
 	@echo "... test_bytearray"
 	@echo "... test_util"
 	@echo "... test_fiber"
+	@echo "... test_http_server"
 	@echo "... test_address"
 	@echo "... test_scheduler"
 	@echo "... test_iomanager"
@@ -1266,6 +1415,12 @@ help:
 	@echo "... dory/http/http_parser.o"
 	@echo "... dory/http/http_parser.i"
 	@echo "... dory/http/http_parser.s"
+	@echo "... dory/http/http_server.o"
+	@echo "... dory/http/http_server.i"
+	@echo "... dory/http/http_server.s"
+	@echo "... dory/http/http_session.o"
+	@echo "... dory/http/http_session.i"
+	@echo "... dory/http/http_session.s"
 	@echo "... dory/http/httpclient_parser.rl.o"
 	@echo "... dory/http/httpclient_parser.rl.i"
 	@echo "... dory/http/httpclient_parser.rl.s"
@@ -1281,6 +1436,12 @@ help:
 	@echo "... dory/socket.o"
 	@echo "... dory/socket.i"
 	@echo "... dory/socket.s"
+	@echo "... dory/socket_stream.o"
+	@echo "... dory/socket_stream.i"
+	@echo "... dory/socket_stream.s"
+	@echo "... dory/stream.o"
+	@echo "... dory/stream.i"
+	@echo "... dory/stream.s"
 	@echo "... dory/tcp_server.o"
 	@echo "... dory/tcp_server.i"
 	@echo "... dory/tcp_server.s"
@@ -1317,6 +1478,9 @@ help:
 	@echo "... tests/test_http_parser.o"
 	@echo "... tests/test_http_parser.i"
 	@echo "... tests/test_http_parser.s"
+	@echo "... tests/test_http_server.o"
+	@echo "... tests/test_http_server.i"
+	@echo "... tests/test_http_server.s"
 	@echo "... tests/test_iomanager.o"
 	@echo "... tests/test_iomanager.i"
 	@echo "... tests/test_iomanager.s"

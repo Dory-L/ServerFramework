@@ -242,9 +242,35 @@ CMakeFiles/dory.dir/dory/tcp_server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dory.dir/dory/tcp_server.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/tcp_server.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lly/projectfile/dory/workspace/dory/tcp_server.cpp -o CMakeFiles/dory.dir/dory/tcp_server.cpp.s
 
+CMakeFiles/dory.dir/dory/stream.cpp.o: CMakeFiles/dory.dir/flags.make
+CMakeFiles/dory.dir/dory/stream.cpp.o: dory/stream.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/dory.dir/dory/stream.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"dory/stream.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dory.dir/dory/stream.cpp.o -c /home/lly/projectfile/dory/workspace/dory/stream.cpp
+
+CMakeFiles/dory.dir/dory/stream.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dory.dir/dory/stream.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/stream.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lly/projectfile/dory/workspace/dory/stream.cpp > CMakeFiles/dory.dir/dory/stream.cpp.i
+
+CMakeFiles/dory.dir/dory/stream.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dory.dir/dory/stream.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/stream.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lly/projectfile/dory/workspace/dory/stream.cpp -o CMakeFiles/dory.dir/dory/stream.cpp.s
+
+CMakeFiles/dory.dir/dory/socket_stream.cpp.o: CMakeFiles/dory.dir/flags.make
+CMakeFiles/dory.dir/dory/socket_stream.cpp.o: dory/socket_stream.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/dory.dir/dory/socket_stream.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"dory/socket_stream.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dory.dir/dory/socket_stream.cpp.o -c /home/lly/projectfile/dory/workspace/dory/socket_stream.cpp
+
+CMakeFiles/dory.dir/dory/socket_stream.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dory.dir/dory/socket_stream.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/socket_stream.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lly/projectfile/dory/workspace/dory/socket_stream.cpp > CMakeFiles/dory.dir/dory/socket_stream.cpp.i
+
+CMakeFiles/dory.dir/dory/socket_stream.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dory.dir/dory/socket_stream.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/socket_stream.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lly/projectfile/dory/workspace/dory/socket_stream.cpp -o CMakeFiles/dory.dir/dory/socket_stream.cpp.s
+
 CMakeFiles/dory.dir/dory/http/http.cpp.o: CMakeFiles/dory.dir/flags.make
 CMakeFiles/dory.dir/dory/http/http.cpp.o: dory/http/http.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/dory.dir/dory/http/http.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/dory.dir/dory/http/http.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"dory/http/http.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dory.dir/dory/http/http.cpp.o -c /home/lly/projectfile/dory/workspace/dory/http/http.cpp
 
 CMakeFiles/dory.dir/dory/http/http.cpp.i: cmake_force
@@ -257,7 +283,7 @@ CMakeFiles/dory.dir/dory/http/http.cpp.s: cmake_force
 
 CMakeFiles/dory.dir/dory/http/http11_parser.rl.cpp.o: CMakeFiles/dory.dir/flags.make
 CMakeFiles/dory.dir/dory/http/http11_parser.rl.cpp.o: dory/http/http11_parser.rl.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/dory.dir/dory/http/http11_parser.rl.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/dory.dir/dory/http/http11_parser.rl.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"dory/http/http11_parser.rl.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dory.dir/dory/http/http11_parser.rl.cpp.o -c /home/lly/projectfile/dory/workspace/dory/http/http11_parser.rl.cpp
 
 CMakeFiles/dory.dir/dory/http/http11_parser.rl.cpp.i: cmake_force
@@ -270,7 +296,7 @@ CMakeFiles/dory.dir/dory/http/http11_parser.rl.cpp.s: cmake_force
 
 CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.o: CMakeFiles/dory.dir/flags.make
 CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.o: dory/http/httpclient_parser.rl.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"dory/http/httpclient_parser.rl.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.o -c /home/lly/projectfile/dory/workspace/dory/http/httpclient_parser.rl.cpp
 
 CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.i: cmake_force
@@ -283,7 +309,7 @@ CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.s: cmake_force
 
 CMakeFiles/dory.dir/dory/http/http_parser.cpp.o: CMakeFiles/dory.dir/flags.make
 CMakeFiles/dory.dir/dory/http/http_parser.cpp.o: dory/http/http_parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/dory.dir/dory/http/http_parser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/dory.dir/dory/http/http_parser.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"dory/http/http_parser.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dory.dir/dory/http/http_parser.cpp.o -c /home/lly/projectfile/dory/workspace/dory/http/http_parser.cpp
 
 CMakeFiles/dory.dir/dory/http/http_parser.cpp.i: cmake_force
@@ -293,6 +319,32 @@ CMakeFiles/dory.dir/dory/http/http_parser.cpp.i: cmake_force
 CMakeFiles/dory.dir/dory/http/http_parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dory.dir/dory/http/http_parser.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/http/http_parser.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lly/projectfile/dory/workspace/dory/http/http_parser.cpp -o CMakeFiles/dory.dir/dory/http/http_parser.cpp.s
+
+CMakeFiles/dory.dir/dory/http/http_session.cpp.o: CMakeFiles/dory.dir/flags.make
+CMakeFiles/dory.dir/dory/http/http_session.cpp.o: dory/http/http_session.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/dory.dir/dory/http/http_session.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"dory/http/http_session.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dory.dir/dory/http/http_session.cpp.o -c /home/lly/projectfile/dory/workspace/dory/http/http_session.cpp
+
+CMakeFiles/dory.dir/dory/http/http_session.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dory.dir/dory/http/http_session.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/http/http_session.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lly/projectfile/dory/workspace/dory/http/http_session.cpp > CMakeFiles/dory.dir/dory/http/http_session.cpp.i
+
+CMakeFiles/dory.dir/dory/http/http_session.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dory.dir/dory/http/http_session.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/http/http_session.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lly/projectfile/dory/workspace/dory/http/http_session.cpp -o CMakeFiles/dory.dir/dory/http/http_session.cpp.s
+
+CMakeFiles/dory.dir/dory/http/http_server.cpp.o: CMakeFiles/dory.dir/flags.make
+CMakeFiles/dory.dir/dory/http/http_server.cpp.o: dory/http/http_server.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/dory.dir/dory/http/http_server.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) -D__FILE__=\"dory/http/http_server.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/dory.dir/dory/http/http_server.cpp.o -c /home/lly/projectfile/dory/workspace/dory/http/http_server.cpp
+
+CMakeFiles/dory.dir/dory/http/http_server.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/dory.dir/dory/http/http_server.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/http/http_server.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lly/projectfile/dory/workspace/dory/http/http_server.cpp > CMakeFiles/dory.dir/dory/http/http_server.cpp.i
+
+CMakeFiles/dory.dir/dory/http/http_server.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/dory.dir/dory/http/http_server.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) -D__FILE__=\"dory/http/http_server.cpp\" $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lly/projectfile/dory/workspace/dory/http/http_server.cpp -o CMakeFiles/dory.dir/dory/http/http_server.cpp.s
 
 # Object files for target dory
 dory_OBJECTS = \
@@ -310,10 +362,14 @@ dory_OBJECTS = \
 "CMakeFiles/dory.dir/dory/socket.cpp.o" \
 "CMakeFiles/dory.dir/dory/bytearray.cpp.o" \
 "CMakeFiles/dory.dir/dory/tcp_server.cpp.o" \
+"CMakeFiles/dory.dir/dory/stream.cpp.o" \
+"CMakeFiles/dory.dir/dory/socket_stream.cpp.o" \
 "CMakeFiles/dory.dir/dory/http/http.cpp.o" \
 "CMakeFiles/dory.dir/dory/http/http11_parser.rl.cpp.o" \
 "CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.o" \
-"CMakeFiles/dory.dir/dory/http/http_parser.cpp.o"
+"CMakeFiles/dory.dir/dory/http/http_parser.cpp.o" \
+"CMakeFiles/dory.dir/dory/http/http_session.cpp.o" \
+"CMakeFiles/dory.dir/dory/http/http_server.cpp.o"
 
 # External object files for target dory
 dory_EXTERNAL_OBJECTS =
@@ -332,13 +388,17 @@ lib/libdory.so: CMakeFiles/dory.dir/dory/address.cpp.o
 lib/libdory.so: CMakeFiles/dory.dir/dory/socket.cpp.o
 lib/libdory.so: CMakeFiles/dory.dir/dory/bytearray.cpp.o
 lib/libdory.so: CMakeFiles/dory.dir/dory/tcp_server.cpp.o
+lib/libdory.so: CMakeFiles/dory.dir/dory/stream.cpp.o
+lib/libdory.so: CMakeFiles/dory.dir/dory/socket_stream.cpp.o
 lib/libdory.so: CMakeFiles/dory.dir/dory/http/http.cpp.o
 lib/libdory.so: CMakeFiles/dory.dir/dory/http/http11_parser.rl.cpp.o
 lib/libdory.so: CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.o
 lib/libdory.so: CMakeFiles/dory.dir/dory/http/http_parser.cpp.o
+lib/libdory.so: CMakeFiles/dory.dir/dory/http/http_session.cpp.o
+lib/libdory.so: CMakeFiles/dory.dir/dory/http/http_server.cpp.o
 lib/libdory.so: CMakeFiles/dory.dir/build.make
 lib/libdory.so: CMakeFiles/dory.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX shared library lib/libdory.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lly/projectfile/dory/workspace/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Linking CXX shared library lib/libdory.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dory.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
