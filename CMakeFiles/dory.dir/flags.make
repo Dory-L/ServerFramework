@@ -52,3 +52,5 @@ CXX_INCLUDES =
 
 # Custom defines: CMakeFiles/dory.dir/dory/http/http_server.cpp.o_DEFINES = __FILE__="dory/http/http_server.cpp"
 
+# Custom defines: CMakeFiles/dory.dir/dory/http/servlet.cpp.o_DEFINES = __FILE__="dory/http/servlet.cpp"
+

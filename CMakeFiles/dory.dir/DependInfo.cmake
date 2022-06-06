@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/lly/projectfile/dory/workspace/dory/http/http_server.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/http/http_server.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/http/http_session.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/http/http_session.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/http/httpclient_parser.rl.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.o"
+  "/home/lly/projectfile/dory/workspace/dory/http/servlet.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/http/servlet.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/iomanager.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/iomanager.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/log.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/log.cpp.o"
   "/home/lly/projectfile/dory/workspace/dory/scheduler.cpp" "/home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir/dory/scheduler.cpp.o"

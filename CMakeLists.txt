@@ -37,6 +37,7 @@ set(LIB_SRC
     dory/http/http_parser.cpp
     dory/http/http_session.cpp
     dory/http/http_server.cpp
+    dory/http/servlet.cpp
     )
 
 set(LIBS 

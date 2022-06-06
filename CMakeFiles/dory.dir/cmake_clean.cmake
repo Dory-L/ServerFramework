@@ -12,6 +12,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/dory.dir/dory/http/http_server.cpp.o"
   "CMakeFiles/dory.dir/dory/http/http_session.cpp.o"
   "CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.o"
+  "CMakeFiles/dory.dir/dory/http/servlet.cpp.o"
   "CMakeFiles/dory.dir/dory/iomanager.cpp.o"
   "CMakeFiles/dory.dir/dory/log.cpp.o"
   "CMakeFiles/dory.dir/dory/scheduler.cpp.o"

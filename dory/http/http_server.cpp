@@ -10,7 +10,8 @@ HttpServer::HttpServer(bool keepalive
             ,dory::IOManager* worker
             ,dory::IOManager* accept)
     :TcpServer(worker, accept)
-    ,m_isKeepalive(keepalive){
+    ,m_isKeepalive(keepalive) {
+    m_dispatch.reset(new ServletDispatch);
 }
 
 void HttpServer::handleClient(Socket::ptr client) {
@@ -18,19 +19,22 @@ void HttpServer::handleClient(Socket::ptr client) {
     do {
         auto req = session->recvRequest();
         if (!req) {
-            DORY_LOG_WARN(g_logger) << "rece http request fail, error=" 
+            DORY_LOG_WARN(g_logger) << "recv http request fail, error=" 
                 << errno << " errstr=" << strerror(errno)
                 << " client" << *client;
             break;
         }
 
-        HttpResponse::ptr rsp(new HttpResponse(req->getVersion(), req->isClose() || !m_isKeepalive));
-        rsp->setBody("hello dory");
 
-        DORY_LOG_INFO(g_logger) << "request:" << std::endl
-            << *req;
-        DORY_LOG_INFO(g_logger) << "response:" << std::endl
-            << *rsp;
+        HttpResponse::ptr rsp(new HttpResponse(req->getVersion(), req->isClose() || !m_isKeepalive));
+        m_dispatch->handle(req, rsp, session);
+
+        // rsp->setBody("hello dory");
+
+        // DORY_LOG_INFO(g_logger) << "request:" << std::endl
+        //     << *req;
+        // DORY_LOG_INFO(g_logger) << "response:" << std::endl
+        //     << *rsp;
 
         session->sendResponse(rsp);
     } while (m_isKeepalive);

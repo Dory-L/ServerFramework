@@ -99,6 +99,7 @@ CMakeFiles/dory.dir/dory/http/http_server.cpp.o
  /home/lly/projectfile/dory/workspace/dory/http/http_server.cpp
  /home/lly/projectfile/dory/workspace/dory/http/http_server.h
  /home/lly/projectfile/dory/workspace/dory/http/http_session.h
+ /home/lly/projectfile/dory/workspace/dory/http/servlet.h
  /home/lly/projectfile/dory/workspace/dory/iomanager.h
  /home/lly/projectfile/dory/workspace/dory/log.h
  /home/lly/projectfile/dory/workspace/dory/noncopyable.h
@@ -128,6 +129,18 @@ CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.o
  /home/lly/projectfile/dory/workspace/dory/http/http11_common.h
  /home/lly/projectfile/dory/workspace/dory/http/httpclient_parser.h
  /home/lly/projectfile/dory/workspace/dory/http/httpclient_parser.rl.cpp
+CMakeFiles/dory.dir/dory/http/servlet.cpp.o
+ /home/lly/projectfile/dory/workspace/dory/Thread.h
+ /home/lly/projectfile/dory/workspace/dory/address.h
+ /home/lly/projectfile/dory/workspace/dory/bytearray.h
+ /home/lly/projectfile/dory/workspace/dory/http/http.h
+ /home/lly/projectfile/dory/workspace/dory/http/http_session.h
+ /home/lly/projectfile/dory/workspace/dory/http/servlet.cpp
+ /home/lly/projectfile/dory/workspace/dory/http/servlet.h
+ /home/lly/projectfile/dory/workspace/dory/noncopyable.h
+ /home/lly/projectfile/dory/workspace/dory/socket.h
+ /home/lly/projectfile/dory/workspace/dory/socket_stream.h
+ /home/lly/projectfile/dory/workspace/dory/stream.h
 CMakeFiles/dory.dir/dory/iomanager.cpp.o
  /home/lly/projectfile/dory/workspace/dory/Thread.h
  /home/lly/projectfile/dory/workspace/dory/fiber.h

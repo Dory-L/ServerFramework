@@ -98,6 +98,7 @@ CMakeFiles/dory.dir/dory/http/http_server.cpp.o: dory/http/http.h
 CMakeFiles/dory.dir/dory/http/http_server.cpp.o: dory/http/http_server.cpp
 CMakeFiles/dory.dir/dory/http/http_server.cpp.o: dory/http/http_server.h
 CMakeFiles/dory.dir/dory/http/http_server.cpp.o: dory/http/http_session.h
+CMakeFiles/dory.dir/dory/http/http_server.cpp.o: dory/http/servlet.h
 CMakeFiles/dory.dir/dory/http/http_server.cpp.o: dory/iomanager.h
 CMakeFiles/dory.dir/dory/http/http_server.cpp.o: dory/log.h
 CMakeFiles/dory.dir/dory/http/http_server.cpp.o: dory/noncopyable.h
@@ -127,6 +128,18 @@ CMakeFiles/dory.dir/dory/http/http_session.cpp.o: dory/stream.h
 CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.o: dory/http/http11_common.h
 CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.o: dory/http/httpclient_parser.h
 CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.o: dory/http/httpclient_parser.rl.cpp
+
+CMakeFiles/dory.dir/dory/http/servlet.cpp.o: dory/Thread.h
+CMakeFiles/dory.dir/dory/http/servlet.cpp.o: dory/address.h
+CMakeFiles/dory.dir/dory/http/servlet.cpp.o: dory/bytearray.h
+CMakeFiles/dory.dir/dory/http/servlet.cpp.o: dory/http/http.h
+CMakeFiles/dory.dir/dory/http/servlet.cpp.o: dory/http/http_session.h
+CMakeFiles/dory.dir/dory/http/servlet.cpp.o: dory/http/servlet.cpp
+CMakeFiles/dory.dir/dory/http/servlet.cpp.o: dory/http/servlet.h
+CMakeFiles/dory.dir/dory/http/servlet.cpp.o: dory/noncopyable.h
+CMakeFiles/dory.dir/dory/http/servlet.cpp.o: dory/socket.h
+CMakeFiles/dory.dir/dory/http/servlet.cpp.o: dory/socket_stream.h
+CMakeFiles/dory.dir/dory/http/servlet.cpp.o: dory/stream.h
 
 CMakeFiles/dory.dir/dory/iomanager.cpp.o: dory/Thread.h
 CMakeFiles/dory.dir/dory/iomanager.cpp.o: dory/fiber.h

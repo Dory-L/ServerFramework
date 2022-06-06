@@ -8,6 +8,7 @@ CMakeFiles/test_http_server.dir/tests/test_http_server.cpp.o: dory/fiber.h
 CMakeFiles/test_http_server.dir/tests/test_http_server.cpp.o: dory/http/http.h
 CMakeFiles/test_http_server.dir/tests/test_http_server.cpp.o: dory/http/http_server.h
 CMakeFiles/test_http_server.dir/tests/test_http_server.cpp.o: dory/http/http_session.h
+CMakeFiles/test_http_server.dir/tests/test_http_server.cpp.o: dory/http/servlet.h
 CMakeFiles/test_http_server.dir/tests/test_http_server.cpp.o: dory/iomanager.h
 CMakeFiles/test_http_server.dir/tests/test_http_server.cpp.o: dory/log.h
 CMakeFiles/test_http_server.dir/tests/test_http_server.cpp.o: dory/noncopyable.h

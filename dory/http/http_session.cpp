@@ -41,7 +41,7 @@ HttpRequest::ptr HttpSession::recvRequest() {
     int64_t length =  parser->getContentLength();
     if (length > 0) {
         std::string body;
-        body.reserve(length);
+        body.resize(length);
 
         body.append(data, offset);
         length -= offset;

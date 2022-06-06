@@ -9,6 +9,20 @@ void run() {
     while (!server->bind(addr)) {
         sleep(2);
     }
+    auto sd = server->getServletDispatch();
+    sd->addServlet("/dory/xx", [](dory::http::HttpRequest::ptr req
+                ,dory::http::HttpResponse::ptr rsp
+                ,dory::http::HttpSession::ptr session){
+        rsp->setBody(req->toString());
+        return 0;
+    });
+
+    sd->addGlobServlet("/dory/*", [](dory::http::HttpRequest::ptr req
+                ,dory::http::HttpResponse::ptr rsp
+                ,dory::http::HttpSession::ptr session){
+        rsp->setBody("Glob:\r\n" + req->toString());
+        return 0;
+    });
     server->start();
 }
 

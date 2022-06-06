@@ -685,6 +685,33 @@ dory/http/httpclient_parser.rl.cpp.s:
 	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/httpclient_parser.rl.cpp.s
 .PHONY : dory/http/httpclient_parser.rl.cpp.s
 
+dory/http/servlet.o: dory/http/servlet.cpp.o
+
+.PHONY : dory/http/servlet.o
+
+# target to build an object file
+dory/http/servlet.cpp.o:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/servlet.cpp.o
+.PHONY : dory/http/servlet.cpp.o
+
+dory/http/servlet.i: dory/http/servlet.cpp.i
+
+.PHONY : dory/http/servlet.i
+
+# target to preprocess a source file
+dory/http/servlet.cpp.i:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/servlet.cpp.i
+.PHONY : dory/http/servlet.cpp.i
+
+dory/http/servlet.s: dory/http/servlet.cpp.s
+
+.PHONY : dory/http/servlet.s
+
+# target to generate assembly for a file
+dory/http/servlet.cpp.s:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/servlet.cpp.s
+.PHONY : dory/http/servlet.cpp.s
+
 dory/iomanager.o: dory/iomanager.cpp.o
 
 .PHONY : dory/iomanager.o
@@ -1424,6 +1451,9 @@ help:
 	@echo "... dory/http/httpclient_parser.rl.o"
 	@echo "... dory/http/httpclient_parser.rl.i"
 	@echo "... dory/http/httpclient_parser.rl.s"
+	@echo "... dory/http/servlet.o"
+	@echo "... dory/http/servlet.i"
+	@echo "... dory/http/servlet.s"
 	@echo "... dory/iomanager.o"
 	@echo "... dory/iomanager.i"
 	@echo "... dory/iomanager.s"

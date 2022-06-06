@@ -6,6 +6,22 @@
 
 #IncludeRegexTransform: 
 
+/home/lly/projectfile/dory/workspace/dory/Thread.h
+thread
+-
+pthread.h
+-
+functional
+-
+memory
+-
+semaphore.h
+-
+atomic
+-
+noncopyable.h
+/home/lly/projectfile/dory/workspace/dory/noncopyable.h
+
 /home/lly/projectfile/dory/workspace/dory/address.h
 memory
 -
@@ -54,30 +70,6 @@ sstream
 boost/lexical_cast.hpp
 -
 
-/home/lly/projectfile/dory/workspace/dory/http/http11_common.h
-sys/types.h
--
-
-/home/lly/projectfile/dory/workspace/dory/http/http11_parser.h
-http11_common.h
-/home/lly/projectfile/dory/workspace/dory/http/http11_common.h
-
-/home/lly/projectfile/dory/workspace/dory/http/http_parser.h
-http.h
-/home/lly/projectfile/dory/workspace/dory/http/http.h
-http11_parser.h
-/home/lly/projectfile/dory/workspace/dory/http/http11_parser.h
-httpclient_parser.h
-/home/lly/projectfile/dory/workspace/dory/http/httpclient_parser.h
-memory
--
-
-/home/lly/projectfile/dory/workspace/dory/http/http_session.cpp
-http_session.h
-/home/lly/projectfile/dory/workspace/dory/http/http_session.h
-http_parser.h
-/home/lly/projectfile/dory/workspace/dory/http/http_parser.h
-
 /home/lly/projectfile/dory/workspace/dory/http/http_session.h
 ../socket_stream.h
 /home/lly/projectfile/dory/workspace/dory/socket_stream.h
@@ -86,9 +78,29 @@ http.h
 memory
 -
 
-/home/lly/projectfile/dory/workspace/dory/http/httpclient_parser.h
-http11_common.h
-/home/lly/projectfile/dory/workspace/dory/http/http11_common.h
+/home/lly/projectfile/dory/workspace/dory/http/servlet.cpp
+servlet.h
+/home/lly/projectfile/dory/workspace/dory/http/servlet.h
+fnmatch.h
+-
+
+/home/lly/projectfile/dory/workspace/dory/http/servlet.h
+memory
+-
+functional
+-
+string
+-
+vector
+-
+unordered_map
+-
+http.h
+/home/lly/projectfile/dory/workspace/dory/http/http.h
+http_session.h
+/home/lly/projectfile/dory/workspace/dory/http/http_session.h
+../Thread.h
+/home/lly/projectfile/dory/workspace/dory/Thread.h
 
 /home/lly/projectfile/dory/workspace/dory/noncopyable.h
 

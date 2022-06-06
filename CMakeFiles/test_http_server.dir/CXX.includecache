@@ -85,6 +85,8 @@ boost/lexical_cast.hpp
 /home/lly/projectfile/dory/workspace/dory/tcp_server.h
 http_session.h
 /home/lly/projectfile/dory/workspace/dory/http/http_session.h
+servlet.h
+/home/lly/projectfile/dory/workspace/dory/http/servlet.h
 
 /home/lly/projectfile/dory/workspace/dory/http/http_session.h
 ../socket_stream.h
@@ -93,6 +95,24 @@ http.h
 /home/lly/projectfile/dory/workspace/dory/http/http.h
 memory
 -
+
+/home/lly/projectfile/dory/workspace/dory/http/servlet.h
+memory
+-
+functional
+-
+string
+-
+vector
+-
+unordered_map
+-
+http.h
+/home/lly/projectfile/dory/workspace/dory/http/http.h
+http_session.h
+/home/lly/projectfile/dory/workspace/dory/http/http_session.h
+../Thread.h
+/home/lly/projectfile/dory/workspace/dory/Thread.h
 
 /home/lly/projectfile/dory/workspace/dory/iomanager.h
 scheduler.h
