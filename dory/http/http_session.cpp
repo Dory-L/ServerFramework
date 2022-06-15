@@ -43,10 +43,17 @@ HttpRequest::ptr HttpSession::recvRequest() {
         std::string body;
         body.resize(length);
 
-        body.append(data, offset);
+        int len = 0;
+        if (length >= offset) {
+            memcpy(&body[0], data, offset);
+            len = offset;
+        } else {
+            memcpy(&body[0], data, length);
+            len = length;
+        }
         length -= offset;
         if (length > 0) {
-            if (readFixSize(&body[body.size()], length) <= 0) {
+            if (readFixSize(&body[len], length) <= 0) {
                 return nullptr;
             }
         }

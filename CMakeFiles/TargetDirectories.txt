@@ -1,6 +1,8 @@
+/home/lly/projectfile/dory/workspace/CMakeFiles/echo_server.dir
 /home/lly/projectfile/dory/workspace/CMakeFiles/rebuild_cache.dir
 /home/lly/projectfile/dory/workspace/CMakeFiles/edit_cache.dir
-/home/lly/projectfile/dory/workspace/CMakeFiles/echo_server.dir
+/home/lly/projectfile/dory/workspace/CMakeFiles/test_uri.dir
+/home/lly/projectfile/dory/workspace/CMakeFiles/test_http_connection.dir
 /home/lly/projectfile/dory/workspace/CMakeFiles/test_tcp_server.dir
 /home/lly/projectfile/dory/workspace/CMakeFiles/test_http_parser.dir
 /home/lly/projectfile/dory/workspace/CMakeFiles/dory.dir

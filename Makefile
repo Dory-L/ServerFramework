@@ -127,6 +127,32 @@ echo_server/fast:
 .PHONY : echo_server/fast
 
 #=============================================================================
+# Target rules for targets named test_uri
+
+# Build rule for target.
+test_uri: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_uri
+.PHONY : test_uri
+
+# fast build rule for target.
+test_uri/fast:
+	$(MAKE) -f CMakeFiles/test_uri.dir/build.make CMakeFiles/test_uri.dir/build
+.PHONY : test_uri/fast
+
+#=============================================================================
+# Target rules for targets named test_http_connection
+
+# Build rule for target.
+test_http_connection: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_http_connection
+.PHONY : test_http_connection
+
+# fast build rule for target.
+test_http_connection/fast:
+	$(MAKE) -f CMakeFiles/test_http_connection.dir/build.make CMakeFiles/test_http_connection.dir/build
+.PHONY : test_http_connection/fast
+
+#=============================================================================
 # Target rules for targets named test_tcp_server
 
 # Build rule for target.
@@ -577,6 +603,33 @@ dory/http/http11_parser.rl.cpp.s:
 	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/http11_parser.rl.cpp.s
 .PHONY : dory/http/http11_parser.rl.cpp.s
 
+dory/http/http_connection.o: dory/http/http_connection.cpp.o
+
+.PHONY : dory/http/http_connection.o
+
+# target to build an object file
+dory/http/http_connection.cpp.o:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/http_connection.cpp.o
+.PHONY : dory/http/http_connection.cpp.o
+
+dory/http/http_connection.i: dory/http/http_connection.cpp.i
+
+.PHONY : dory/http/http_connection.i
+
+# target to preprocess a source file
+dory/http/http_connection.cpp.i:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/http_connection.cpp.i
+.PHONY : dory/http/http_connection.cpp.i
+
+dory/http/http_connection.s: dory/http/http_connection.cpp.s
+
+.PHONY : dory/http/http_connection.s
+
+# target to generate assembly for a file
+dory/http/http_connection.cpp.s:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/http/http_connection.cpp.s
+.PHONY : dory/http/http_connection.cpp.s
+
 dory/http/http_parser.o: dory/http/http_parser.cpp.o
 
 .PHONY : dory/http/http_parser.o
@@ -928,6 +981,33 @@ dory/timer.cpp.s:
 	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/timer.cpp.s
 .PHONY : dory/timer.cpp.s
 
+dory/uri.rl.o: dory/uri.rl.cpp.o
+
+.PHONY : dory/uri.rl.o
+
+# target to build an object file
+dory/uri.rl.cpp.o:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/uri.rl.cpp.o
+.PHONY : dory/uri.rl.cpp.o
+
+dory/uri.rl.i: dory/uri.rl.cpp.i
+
+.PHONY : dory/uri.rl.i
+
+# target to preprocess a source file
+dory/uri.rl.cpp.i:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/uri.rl.cpp.i
+.PHONY : dory/uri.rl.cpp.i
+
+dory/uri.rl.s: dory/uri.rl.cpp.s
+
+.PHONY : dory/uri.rl.s
+
+# target to generate assembly for a file
+dory/uri.rl.cpp.s:
+	$(MAKE) -f CMakeFiles/dory.dir/build.make CMakeFiles/dory.dir/dory/uri.rl.cpp.s
+.PHONY : dory/uri.rl.cpp.s
+
 dory/util.o: dory/util.cpp.o
 
 .PHONY : dory/util.o
@@ -1171,6 +1251,33 @@ tests/test_http.cpp.s:
 	$(MAKE) -f CMakeFiles/test_http.dir/build.make CMakeFiles/test_http.dir/tests/test_http.cpp.s
 .PHONY : tests/test_http.cpp.s
 
+tests/test_http_connection.o: tests/test_http_connection.cpp.o
+
+.PHONY : tests/test_http_connection.o
+
+# target to build an object file
+tests/test_http_connection.cpp.o:
+	$(MAKE) -f CMakeFiles/test_http_connection.dir/build.make CMakeFiles/test_http_connection.dir/tests/test_http_connection.cpp.o
+.PHONY : tests/test_http_connection.cpp.o
+
+tests/test_http_connection.i: tests/test_http_connection.cpp.i
+
+.PHONY : tests/test_http_connection.i
+
+# target to preprocess a source file
+tests/test_http_connection.cpp.i:
+	$(MAKE) -f CMakeFiles/test_http_connection.dir/build.make CMakeFiles/test_http_connection.dir/tests/test_http_connection.cpp.i
+.PHONY : tests/test_http_connection.cpp.i
+
+tests/test_http_connection.s: tests/test_http_connection.cpp.s
+
+.PHONY : tests/test_http_connection.s
+
+# target to generate assembly for a file
+tests/test_http_connection.cpp.s:
+	$(MAKE) -f CMakeFiles/test_http_connection.dir/build.make CMakeFiles/test_http_connection.dir/tests/test_http_connection.cpp.s
+.PHONY : tests/test_http_connection.cpp.s
+
 tests/test_http_parser.o: tests/test_http_parser.cpp.o
 
 .PHONY : tests/test_http_parser.o
@@ -1360,6 +1467,33 @@ tests/test_thread.cpp.s:
 	$(MAKE) -f CMakeFiles/test_thread.dir/build.make CMakeFiles/test_thread.dir/tests/test_thread.cpp.s
 .PHONY : tests/test_thread.cpp.s
 
+tests/test_uri.o: tests/test_uri.cpp.o
+
+.PHONY : tests/test_uri.o
+
+# target to build an object file
+tests/test_uri.cpp.o:
+	$(MAKE) -f CMakeFiles/test_uri.dir/build.make CMakeFiles/test_uri.dir/tests/test_uri.cpp.o
+.PHONY : tests/test_uri.cpp.o
+
+tests/test_uri.i: tests/test_uri.cpp.i
+
+.PHONY : tests/test_uri.i
+
+# target to preprocess a source file
+tests/test_uri.cpp.i:
+	$(MAKE) -f CMakeFiles/test_uri.dir/build.make CMakeFiles/test_uri.dir/tests/test_uri.cpp.i
+.PHONY : tests/test_uri.cpp.i
+
+tests/test_uri.s: tests/test_uri.cpp.s
+
+.PHONY : tests/test_uri.s
+
+# target to generate assembly for a file
+tests/test_uri.cpp.s:
+	$(MAKE) -f CMakeFiles/test_uri.dir/build.make CMakeFiles/test_uri.dir/tests/test_uri.cpp.s
+.PHONY : tests/test_uri.cpp.s
+
 tests/test_util.o: tests/test_util.cpp.o
 
 .PHONY : tests/test_util.o
@@ -1393,9 +1527,11 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... echo_server"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... echo_server"
+	@echo "... test_uri"
+	@echo "... test_http_connection"
 	@echo "... test_tcp_server"
 	@echo "... test_http_parser"
 	@echo "... dory"
@@ -1439,6 +1575,9 @@ help:
 	@echo "... dory/http/http11_parser.rl.o"
 	@echo "... dory/http/http11_parser.rl.i"
 	@echo "... dory/http/http11_parser.rl.s"
+	@echo "... dory/http/http_connection.o"
+	@echo "... dory/http/http_connection.i"
+	@echo "... dory/http/http_connection.s"
 	@echo "... dory/http/http_parser.o"
 	@echo "... dory/http/http_parser.i"
 	@echo "... dory/http/http_parser.s"
@@ -1478,6 +1617,9 @@ help:
 	@echo "... dory/timer.o"
 	@echo "... dory/timer.i"
 	@echo "... dory/timer.s"
+	@echo "... dory/uri.rl.o"
+	@echo "... dory/uri.rl.i"
+	@echo "... dory/uri.rl.s"
 	@echo "... dory/util.o"
 	@echo "... dory/util.i"
 	@echo "... dory/util.s"
@@ -1505,6 +1647,9 @@ help:
 	@echo "... tests/test_http.o"
 	@echo "... tests/test_http.i"
 	@echo "... tests/test_http.s"
+	@echo "... tests/test_http_connection.o"
+	@echo "... tests/test_http_connection.i"
+	@echo "... tests/test_http_connection.s"
 	@echo "... tests/test_http_parser.o"
 	@echo "... tests/test_http_parser.i"
 	@echo "... tests/test_http_parser.s"
@@ -1526,6 +1671,9 @@ help:
 	@echo "... tests/test_thread.o"
 	@echo "... tests/test_thread.i"
 	@echo "... tests/test_thread.s"
+	@echo "... tests/test_uri.o"
+	@echo "... tests/test_uri.i"
+	@echo "... tests/test_uri.s"
 	@echo "... tests/test_util.o"
 	@echo "... tests/test_util.i"
 	@echo "... tests/test_util.s"

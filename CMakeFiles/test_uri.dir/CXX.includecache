@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lly/projectfile/dory/workspace/dory/address.h
+memory
+-
+string
+-
+sys/socket.h
+-
+sys/types.h
+-
+iostream
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+sys/un.h
+-
+vector
+-
+map
+-
+
+/home/lly/projectfile/dory/workspace/dory/uri.h
+memory
+-
+string
+-
+stdint.h
+-
+address.h
+/home/lly/projectfile/dory/workspace/dory/address.h
+
+/home/lly/projectfile/dory/workspace/tests/test_uri.cpp
+../dory/uri.h
+/home/lly/projectfile/dory/workspace/dory/uri.h
+iostream
+-
+

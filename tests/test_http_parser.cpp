@@ -47,7 +47,7 @@ const char test_response_data[] = "HTTP/1.0 200 OK\r\n"
 void test_response() {
     dory::http::HttpResponseParser parser;
     std::string tmp = test_response_data;
-    size_t s = parser.excute(&tmp[0], tmp.size());
+    size_t s = parser.excute(&tmp[0], tmp.size(), false);
     DORY_LOG_INFO(g_logger) << "execute rt=" << s
         << " has_error=" << parser.hasError()
         << " is_finished=" << parser.isFinished()

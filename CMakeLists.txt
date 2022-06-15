@@ -31,6 +31,7 @@ set(LIB_SRC
     dory/tcp_server.cpp
     dory/stream.cpp
     dory/socket_stream.cpp
+    dory/uri.rl.cpp
     dory/http/http.cpp
     dory/http/http11_parser.rl.cpp
     dory/http/httpclient_parser.rl.cpp
@@ -38,7 +39,12 @@ set(LIB_SRC
     dory/http/http_session.cpp
     dory/http/http_server.cpp
     dory/http/servlet.cpp
+    dory/http/http_connection.cpp
     )
+
+ragelmaker(dory/http/http11_parser.rl LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/dory/http)
+ragelmaker(dory/http/httpclient_parser.rl LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/dory/http)
+ragelmaker(dory/uri.rl LIB_SRC ${CMAKE_CURRENT_SOURCE_DIR}/dory)
 
 set(LIBS 
         dory
@@ -123,6 +129,16 @@ add_executable(test_http_server tests/test_http_server.cpp)
 redefine_file_macro(test_http_server)
 add_dependencies(test_http_server dory)
 target_link_libraries(test_http_server ${LIBS})
+
+add_executable(test_http_connection tests/test_http_connection.cpp)
+redefine_file_macro(test_http_connection)
+add_dependencies(test_http_connection dory)
+target_link_libraries(test_http_connection ${LIBS})
+
+add_executable(test_uri tests/test_uri.cpp)
+redefine_file_macro(test_uri)
+add_dependencies(test_uri dory)
+target_link_libraries(test_uri ${LIBS})
 
 add_executable(echo_server examples/echo_server.cpp)
 redefine_file_macro(echo_server)

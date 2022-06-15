@@ -1,0 +1,6 @@
+# Hashes of file build rules.
+6c5fed78b68cecd78cc05096ff011904 dory/http/http11_parser.rl.cc
+c52a4096aef21c7f73e84c558671ab72 dory/http/http11_parser.rl.cpp
+bd0c104f70657ad4a3fbdc9491428027 dory/http/httpclient_parser.rl.cc
+680358b7aa6f031eaaa9424cc8c84304 dory/http/httpclient_parser.rl.cpp
+b32478aa4b7e0eda83494602298b38fd dory/uri.rl.cpp

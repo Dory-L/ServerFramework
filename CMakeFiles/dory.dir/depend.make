@@ -77,6 +77,25 @@ CMakeFiles/dory.dir/dory/http/http11_parser.rl.cpp.o: dory/http/http11_common.h
 CMakeFiles/dory.dir/dory/http/http11_parser.rl.cpp.o: dory/http/http11_parser.h
 CMakeFiles/dory.dir/dory/http/http11_parser.rl.cpp.o: dory/http/http11_parser.rl.cpp
 
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/Thread.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/address.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/bytearray.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/http/http.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/http/http11_common.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/http/http11_parser.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/http/http_connection.cpp
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/http/http_connection.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/http/http_parser.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/http/httpclient_parser.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/log.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/noncopyable.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/singleton.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/socket.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/socket_stream.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/stream.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/uri.h
+CMakeFiles/dory.dir/dory/http/http_connection.cpp.o: dory/util.h
+
 CMakeFiles/dory.dir/dory/http/http_parser.cpp.o: dory/Thread.h
 CMakeFiles/dory.dir/dory/http/http_parser.cpp.o: dory/config.h
 CMakeFiles/dory.dir/dory/http/http_parser.cpp.o: dory/http/http.h
@@ -220,6 +239,10 @@ CMakeFiles/dory.dir/dory/timer.cpp.o: dory/noncopyable.h
 CMakeFiles/dory.dir/dory/timer.cpp.o: dory/timer.cpp
 CMakeFiles/dory.dir/dory/timer.cpp.o: dory/timer.h
 CMakeFiles/dory.dir/dory/timer.cpp.o: dory/util.h
+
+CMakeFiles/dory.dir/dory/uri.rl.cpp.o: dory/address.h
+CMakeFiles/dory.dir/dory/uri.rl.cpp.o: dory/uri.h
+CMakeFiles/dory.dir/dory/uri.rl.cpp.o: dory/uri.rl.cpp
 
 CMakeFiles/dory.dir/dory/util.cpp.o: dory/Thread.h
 CMakeFiles/dory.dir/dory/util.cpp.o: dory/fiber.h
